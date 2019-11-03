@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Zack Plauché | Scale Yourself & Your Business</title>
+  </head>
+  <body>
+    <h1>Zack Plauché</h1>
+
+    <h1 style='color: #21ABDE'>Services</h1>
+    <hr>
+    {% for service in service_list %}
+      <h1>{{ service.title }}</h1>
+      <h3>${{ service.price }}</h3>
+      <p>{{ service.short_description }}</p>
+      <button>Learn More</button>
+
+    {% endfor %}
+  </body>
+</html>
