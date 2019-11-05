@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1>Blog</h1>
+    <a href="{% url 'home' %}">Home</a>
+    {% for post in posts %}
+    <h1><a href="{% url 'blog:post_detail' post.slug %}">{{ post.headline}}</a></h1>
+    {% endfor %}
+  </body>
+</html>

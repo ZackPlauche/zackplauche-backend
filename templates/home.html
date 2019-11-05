@@ -6,7 +6,9 @@
   </head>
   <body>
     <h1>Zack Plauché</h1>
-    
+    <ul>
+      <li><a href="{% url 'services:index' %}">Services</a></li>
+      <li><a href="{% url 'blog:index' %}">Blog</a></li>
     <h1 style='color: #21ABDE'>Services</h1>
     <hr>
     {% for service in service_list %}

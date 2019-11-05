@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
     <title>Services - Zack Plauché</title>
   </head>
   <body>
-
-
+    <h1>Services</h1>
+    <a href="{% url 'home' %}">Home</a>
     {% for service in services %}
     <h1><a href="{% url 'services:service_detail' service.slug %}">{{ service.title }}</a></h1>
     {% endfor %}

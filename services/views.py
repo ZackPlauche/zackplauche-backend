@@ -1,5 +1,4 @@
-from django.shortcuts import render, get_object_or_404
-from django.http import HttpResponse
+from django.shortcuts import render
 from .models import Service
 from django.utils.text import slugify
 
@@ -10,7 +9,6 @@ def index(request):
 def service_detail(request, service):
 
     for serv in Service.objects.all():
-        print(serv.title, slugify(self.title))
         if slugify(serv.title)  == service:
             instance = serv
             break
