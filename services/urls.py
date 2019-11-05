@@ -4,6 +4,9 @@ from . import views
 app_name = 'services'
 
 urlpatterns = [
+#   # /services/
     path('', views.index, name='index'),
-    #path('<slug:service_title>/', views.service, name='service'),
+
+    # /services/service-name/
+    path('<slug:service>/', views.service_detail, name='service_detail'),
 ]

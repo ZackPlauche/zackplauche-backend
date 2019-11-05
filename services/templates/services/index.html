@@ -6,8 +6,14 @@
     <title>Services - Zack Plauché</title>
   </head>
   <body>
-    {% for service in service_list %}
-    <h1>{{ service.title }}</h1>
+
+
+    {% for service in services %}
+    <h1><a href="{% url 'services:service_detail' service.slug %}">{{ service.title }}</a></h1>
     {% endfor %}
+
+
+
+
   </body>
 </html>
