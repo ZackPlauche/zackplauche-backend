@@ -3,15 +3,15 @@ from .models import Post
 from django.utils.text import slugify
 
 def index(request):
-    posts = Post.objects.all()
+    posts = Post.objects
     context = {'posts': posts}
     return render(request, 'blog/index.html', context=context)
 
-def post_detail(request, post_headline):
+def post(request, post_title):
 
     for post in Post.objects.all():
-        if slugify(post.headline) == post_headline:
+        if slugify(post.title) == post_title:
             instance = post
             break
 
-    return render(request, 'blog/post_detail.html', {'post': instance})
+    return render(request, 'blog/post.html', {'post': instance})

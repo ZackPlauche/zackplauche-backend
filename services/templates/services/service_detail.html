@@ -1,3 +1,56 @@
+{% extends 'home/base.html' %}
+
+{% block title %}{{ service.title }} | Zack Plauché{% endblock %}
+
+{% block style %}
+
+  table, td, th {
+    border: 1px solid black
+  }
+
+{% endblock %}
+
+{% block content %}
+<p>
+  <a href="{% url 'home:index' %}">Home</a> /
+  <a href="{% url 'services:index' %}">Services </a> /
+  {{ service.title }}
+</p>
 <h1>{{ service.title }}</h1>
 
-{{ service.short_description }}
+<p>{{ service.short_description|linebreaksbr }}</p>
+
+<table>
+
+  <thead>
+    <tr>
+      <td colspan="3">Offers</td>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <th>Teir 1</th>
+      <th>Tier 2</th>
+      <th>Tier 3</th>
+    </tr>
+    <tr>
+      <td>$50</td>
+      <td>$75</td>
+      <td>$100</td>
+    </tr>
+    <tr>
+      <td><a class="button">Order Now</a></td>
+      <td><a class="button">Order Now</a></td>
+      <td><a class="button">Order Now</a></td>
+    </tr>
+  </tbody>
+
+  <tfoot>
+    <tr>
+      <td colspan="3">All orders are non-refundable.</td>
+    </tr>
+  </tfoot>
+  
+</table>
+{% endblock %}

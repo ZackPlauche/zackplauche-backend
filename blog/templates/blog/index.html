@@ -1,14 +1,14 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-  <body>
+{% extends 'home/base.html' %}
+
+{% block title %}Blog | Zack Plauché{% endblock %}
+
+{% block content %}
+    <p>
+      <a href="{% url 'home:index' %}">Home</a> /
+      Blog
+    </p>
     <h1>Blog</h1>
-    <a href="{% url 'home' %}">Home</a>
-    {% for post in posts %}
-    <h1><a href="{% url 'blog:post_detail' post.slug %}">{{ post.headline}}</a></h1>
+    {% for post in posts.all %}
+    <h1><a href="{% url 'blog:post' post.slug %}">{{ post.title}}</a></h1>
     {% endfor %}
-  </body>
-</html>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'home/base.html' %}
+
+{% block title %}About | Zack Plauché{% endblock %}
+
+{% block content %}
+<h1>Cats for Olga</h1>
+{% load static %}
+<img src="{% static 'home/images/source.gif' %}" width=50%>
+<p>{% lorem %}</p>
+<img src="{% static 'home/images/UnselfishJealousArthropods-size_restricted.gif' %}" width=50%>
+<p>{% lorem %}</p>
+<img src="{% static 'home/images/giphy.gif' %}" width=50%>
+{% endblock %}

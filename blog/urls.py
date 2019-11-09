@@ -1,9 +1,12 @@
 from django.urls import path
+from django.conf import settings
+from django.conf.urls.static import static
+
 from . import views
 
 app_name = 'blog'
 
 urlpatterns = [
     path('', views.index, name='index'),  # /blog/
-    path('<slug:post_headline>/', views.post_detail, name='post_detail'),  # /blog/post-title
+    path('<slug:post_title>/', views.post, name='post'),  # /blog/post-title
 ]

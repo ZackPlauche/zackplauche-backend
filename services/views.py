@@ -2,15 +2,18 @@ from django.shortcuts import render
 from .models import Service
 from django.utils.text import slugify
 
+services = Service.objects
+
 def index(request):
-    services = Service.objects.all()
+
     return render(request, 'services/index.html', {'services': services})
 
-def service_detail(request, service):
 
-    for serv in Service.objects.all():
-        if slugify(serv.title)  == service:
-            instance = serv
+def service_detail(request, service_slug):
+
+    for service in services.all():
+        if slugify(service.title)  == service_slug:
+            instance = service
             break
 
     #service = Service.objects.get(slug=service)

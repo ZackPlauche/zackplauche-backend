@@ -1,0 +1,37 @@
+{% extends "home/base.html" %}
+
+{% block title %}Zack Plauché | Scale Yourself & Your Business{% endblock %}
+
+{% block content %}
+
+    <div class="service-display">
+
+      <h1 class="section-title">Services</h1>
+      <hr>
+
+    {% for service in services.all %}
+      <img src="{{ service.icon.url }}" height=auto width=60>
+      <h1>{{ service.title }}</h1>
+      <h3>${{ service.price }}</h3>
+      <p>{{ service.short_description|linebreaksbr }}</p>
+      <a class="button" href="{% url 'services:service_detail' service.slug %}">Learn More</a>
+    {% endfor %}
+    <hr>
+
+  </div>
+  <div class="form-display">
+
+    <h1>Join My Community!</h1>
+
+    <form name="signup" action= "" method="post"
+      <label
+      <input type="text" name="username">
+      <br>
+      <input type="password" name="password">
+      <br>
+      <input type="submit">
+    </form>
+
+  </div>
+
+  {% endblock %}

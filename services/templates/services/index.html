@@ -1,18 +1,14 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Services - Zack Plauché</title>
-  </head>
-  <body>
+{% extends 'home/base.html' %}
+
+{% block title %}Services | Zack Plauché{% endblock %}
+
+{% block content %}
+    <p>
+      <a href="{% url 'home:index' %}">Home</a> /
+      Services
+    </p>
     <h1>Services</h1>
-    <a href="{% url 'home' %}">Home</a>
-    {% for service in services %}
+    {% for service in services.all %}
     <h1><a href="{% url 'services:service_detail' service.slug %}">{{ service.title }}</a></h1>
     {% endfor %}
-
-
-
-
-  </body>
-</html>
+{% endblock %}

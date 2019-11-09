@@ -1,0 +1,14 @@
+{% extends 'home/base.html' %}
+
+{% block title %}{{ post.title }} | Zack Plauché{% endblock %}
+
+{% block content %}
+<p>
+  <a href="{% url 'home:index' %}">Home</a> /
+  <a href="{% url 'blog:index' %}">Blog</a> /
+  {{ post.title }}
+</p>
+<h1>{{ post.title }}</h1>
+<img src="{{ post.image.url }}">
+<p>{{ post.body|linebreaksbr }}
+{% endblock %}
