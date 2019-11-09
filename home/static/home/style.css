@@ -1,11 +1,32 @@
-.main-nav {
-  color: black;
+body {
+  font-family: 'Montserrat', sans-serif;
+}
+
+
+
+h1 {
+  font-size: 2em;
+  font-weight:600;
+}
+
+a {
+  color: #21ABDE;
+}
+
+nav a {
   text-decoration: none;
+}
+
+nav h1 a {
+  color: black;
+}
+
+ol {
+  list-style-type: none;
 }
 
 .section-title {
   color: #21ABDE;
-  font-weight: bolder;
 }
 
 .service-display {

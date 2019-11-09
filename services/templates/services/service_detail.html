@@ -13,7 +13,7 @@
 {% block content %}
 <p>
   <a href="{% url 'home:index' %}">Home</a> /
-  <a href="{% url 'services:index' %}">Services </a> /
+  <a href="{% url 'services:index' %}">Services</a> /
   {{ service.title }}
 </p>
 <h1>{{ service.title }}</h1>
@@ -51,6 +51,6 @@
       <td colspan="3">All orders are non-refundable.</td>
     </tr>
   </tfoot>
-  
+
 </table>
 {% endblock %}
