@@ -1,13 +1,14 @@
-{% load static %}
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
+  {% load static %}
   <meta charset="utf-8">
   <meta name="author" content="Zack Plauche">
   <title>{% block title %}{% endblock %}</title>
 
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,500i,600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Bentham|Montserrat:400,400i,500,600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{% static 'home/style.css' %}">
+  <link rel="icon" type="image/png" href="{% static 'home/favicons/favicon_32x32.png' %}"
   <style>
   {% block style %}
   {% endblock %}
@@ -15,24 +16,24 @@
 </head>
 <body>
   <header>
+
     <nav>
-      <h1><a class="main-nav" href="{% url 'home:index' %}">Zack Plauché</a></h1>
-      <ol>
+      <h1><a class="logo" href="{% url 'home:index' %}">Zack Plauché</a></h1>
+      <ul>
         <li><a href="{% url 'services:index' %}">Services</a></li>
         <li><a href="{% url 'blog:index' %}">Blog</a></li>
         <li><a href="{% url 'home:contact' %}">Contact</a></li>
         <li><a href="{% url 'home:about' %}">About</a></li>
-      </ol>
+      </ul>
     </nav>
-    <hr>
   </header>
+  <main>
   {% block content %}
-  {% endblock %}
-  <footer>
-    <br>
-    <hr>
-    <p>© Copyright Zack Plauché {% now "Y" %}</p>
 
+  {% endblock %}
+  </main>
+  <footer>
+    <p>© Copyright Zack Plauché {% now "Y" %}</p>
   </footer>
 </body>
 </html>
