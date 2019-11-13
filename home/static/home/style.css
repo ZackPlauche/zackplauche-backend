@@ -38,13 +38,13 @@ input {
 
 /**** Main Navigtaion *****/
 
-nav * {
-  color: white;
-}
-
 header {
   background: url('images/adrien-olichon-RCAhiGJsUUE-unsplash.jpg');
   background-size: cover;
+}
+
+nav * {
+  color: white;
 }
 
 nav a {
@@ -53,7 +53,6 @@ nav a {
 }
 
 nav h1 {
-  margin: 0px;
   padding-top: 12px;
 }
 
@@ -62,8 +61,16 @@ nav li {
   padding-bottom: 3px;
 }
 
+nav ul {
+  position: absolute;
+  top: 22px;
+  right: 20px;
+
+}
+
 nav ul a {
   color: #eeeeee;
+  padding: 0px 10px;
 }
 
 nav ul a:hover {
@@ -74,6 +81,81 @@ footer {
   padding: 5px 10px;
   background: lightgrey;
   text-align: center;
+}
+
+/****** Elements *******/
+
+::selection {
+  background: #21ABDE;
+  color: white;
+}
+
+.button {
+  text-decoration: none;
+  background-color: #004a66;
+  color: #ffffff;
+  padding: 8px  12px;
+  border-radius: 4px;
+  display: inline-block;
+  transition: background-color .15s ease-out;
+}
+
+.button:hover {
+  background-color: #21ABDE;
+}
+
+.button-gigantic {
+  font-size:50px;
+  font-weight: 700;
+  background-color: #ffffff00;
+  color: white;
+  margin-top: 40px;
+  padding: 48px 96px;
+  border: 1px solid white;
+}
+
+.button-gigantic:hover {
+  background-color: #ffffff50;
+}
+
+.icon {
+  height: auto;
+  width: 60px;
+}
+
+.container {
+  margin: 30px;
+  width: 400px;
+  height: 540px;
+  text-align: center;
+  border-radius: 30px;
+  background-color: #FFFFFF;
+  box-shadow: 0px 0px 5px lightgrey;
+  border: 1px solid lightgrey;
+  display: inline-block;
+  vertical-align: top;
+  position: relative;
+}
+
+.container img {
+  margin-top: 10px;
+}
+
+.container h1 {
+  max-width: 95%;
+  margin: 15px auto;
+}
+
+.container p {
+  font-size: 13px;
+  width: 95%;
+}
+
+.container-bottom {
+  position: absolute;
+  display: block;
+  bottom: 20px;
+  width: 100%;
 }
 
 /********* Tables **********/
@@ -99,7 +181,7 @@ tfoot {
     color: grey;
   }
 
-/********* Classes **********/
+/******* Value Proposition *******/
 
 
 .value-proposition {
@@ -113,88 +195,21 @@ tfoot {
   margin: -92.4px -15px 0px;
 }
 
-.quotes::before, .quotes::after {
-  content: '"';
-}
-
 .content {
   position:relative;
-  top: 25%;
-}
-
-.content * {
-  padding: 15px;
-
+  top: 30%;
 }
 
 .value-proposition h1 {
   color: white;
-  margin: 0px;
+  margin: 0px 0px 10px;
   font-family: 'Bentham', serif;
-  font-size: 80px;
+  font-size: 82px;
 }
 
 .value-proposition h2 {
   max-width: 1050px;
   margin: 0px auto;
-}
-
-.service-display {
-  text-align: center;
-  min-width: 400;
-  margin: 0px;
-}
-
-.container {
-  background-color: #FFFFFF;
-  border-radius: 30px;
-  border: 1px solid lightgrey;
-  margin: 30px;
-  box-shadow: 0px 0px 5px lightgrey;
-  min-width: 400px;
-  width: 400px;
-  height: 540px;
-  display: inline-block;
-  vertical-align: top;
-}
-
-
-.container img {
-  margin-top: 10px;
-}
-
-.container h1 {
-  max-width: 95%;
-  margin: 15px auto;
-}
-
-.container p {
-  font-size: 13px;
-  width: 95%;
-  margin: auto;
-}
-
-.icon {
-  height: auto;
-  width: 60px;
-}
-
-/******* Text ********/
-::selection {
-  background: #21ABDE;
-  color: white;
-}
-
-/********* Buttons *********/
-
-.button {
-  text-decoration: none;
-  background-color: #004a66;
-  color: #ffffff;
-  padding: 8px  12px;
-  border-radius: 4px;
-  display: inline-block;
-  transition: background-color .15s ease-out;
 }
 
 .value-proposition .button {
@@ -210,24 +225,31 @@ tfoot {
 
 .value-proposition .button:hover {
   background-color: #ffffff50;
-
 }
 
 
-.service-display .button {
-    margin: 20px;
+
+
+/********* Home Page Display *********/
+
+
+.service-display {
+  text-align: center;
+  min-width: 400;
+  margin: 0px;
 }
+
+
+
 
 table .button {
     display: block;
     margin: 0;
 }
 
-.button:hover {
-  background-color: #21ABDE;
-}
 
-.service-detail {
+
+.service-detail h1, .service-detail hr {
   text-align: center;
 }
 

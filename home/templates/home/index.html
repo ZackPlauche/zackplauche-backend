@@ -22,7 +22,7 @@
         <img class="icon" src="{{ service.icon.url }}">
         <h1>{{ service.title }}</h1>
         <p>{{ service.short_description|linebreaksbr }}</p>
-        <a class="button" href="{% url 'services:service_detail' service.slug %}">Learn More</a>
+        <span class="container-bottom"><a class="button" href="{% url 'services:service_detail' service.slug %}">Learn More</a></span>
       </div>
       {% endfor %}
 
