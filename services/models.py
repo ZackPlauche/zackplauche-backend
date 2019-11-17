@@ -4,7 +4,7 @@ from django.utils import timezone
 
 
 class Service(models.Model):
-    icon = models.ImageField(upload_to="images/", blank=True)
+    icon = models.ImageField(upload_to="images/")
     title = models.CharField(max_length=100, unique=True)
     short_description = models.TextField(max_length=500, null=True, help_text='Max characters: 500')
     long_description = models.TextField(blank=True)
