@@ -1,10 +1,4 @@
-/******** Sitewide ********/
-
-*  {
-  font-family: 'Montserrat', sans-serif;
-  margin: 0;
-  padding: 0;
-}
+/* Sitewide */
 
 h1 {
   font-weight: 700;
@@ -29,7 +23,9 @@ input {
   margin: 3px 0px;
 }
 
-main h1, main h2, main h4 {
+main h1,
+main h2,
+main h4 {
   color: #004a66;
 }
 
@@ -90,34 +86,6 @@ main h2 {
 
 .button-gigantic:hover {
   background-color: #ffffff50;
-}
-
-
-.menu-icon {
-  display: flex;
-  visibility: hidden;
-  flex-flow: column wrap;
-  align-items: center;
-  justify-content: center;
-  position: absolute;
-  top: 5px;
-  right: 5px;
-  cursor:pointer;
-  padding: 10px;
-  border-radius: 10px;
-  transition: background-color .2s ease;
-}
-
-.menu-icon:hover, menu-icon:active {
-  background-color: #00000050;
-}
-
-.menu-icon-bar {
-  width: 35px;
-  height: 4px;
-  background-color: white;
-  margin: 3px 0;
-  border-radius: 2px;
 }
 
 .icon {
@@ -223,57 +191,7 @@ tfoot {
   margin: auto;
 }
 
-/********** Header **********/
-
-/* Navigtaion */
-
-nav {
-  width: 100%;
-  background-color: #151515;
-  height: 60px;
-}
-
-nav a {
-  text-decoration:none;
-}
-
-nav h1 {
-  position: absolute;
-  font-size: 2em;
-  top:10px;
-  left: 40px;
-}
-
-nav h1 a {
-  color: white;
-}
-
-nav li {
-  float: left;
-  padding-bottom: 3px;
-}
-
-nav ul {
-  position: absolute;
-  top: 10px;
-  right: 20px;
-
-}
-
-nav ul a {
-  color: lightgrey;
-  display: block;
-  padding: 15.5px 10px 31.5px;
-  font-weight: 700;
-  font-size: 16px;
-  text-transform: uppercase;
-  letter-spacing: .4px;
-  transition: color .2s ease-out;
-}
-
-nav ul a:hover {
-  color: white;
-}
+/* Header */
 
 /* Value Proposition */
 
@@ -321,9 +239,9 @@ nav ul a:hover {
 
 
 
-/********** Main Content **********/
+/* Main Content */
 
-/***** Home Page Content *****/
+/* Home Page  */
 
 /*  About Section */
 
@@ -452,23 +370,9 @@ footer .flex-container {
 }
 
 
+
+
 /********** Responsive Layout **********/
-
-/* Desktop */
-@media screen and (max-width: 1075px) {
-
-  .value-proposition .button {
-    margin-top: 80px
-  }
-
-  .menu-icon {
-    visibility: visible;
-  }
-
-  nav ul a {
-    display: none;
-  }
-}
 
 /* Half-Screen Desktop */
 @media screen and (max-width: 800px) {
@@ -519,50 +423,16 @@ footer .flex-container {
 /* Mobile */
 @media screen and (max-width: 414px) {
 
-  main {
-    margin: 0px;
-  }
-
-  nav {
-    display: flex;
-    justify-content: center;
-  }
-
-  nav h1 {
-    margin-top: 10px;
-    position: static;
-  }
-
   .content-card {
     width: 90%;
     margin: 20px 0px;
   }
 
-  .content {
-    top: 25%;
-  }
-
-  .value-proposition {
-    height: 700px;
-  }
-
-  .value-proposition h2 {
-    display: none;
-  }
-
-  .value-proposition .button {
-    margin-top: 50px;
-  }
-
-  .about-section .title {
-    font-size: 3em;
-  }
-
-  .about-section .content h3 {
-    display: none;
-  }
-
-  .about-section form p {
-    padding-top: 5px;
-  }
+  .content {top: 25%}
+  .value-proposition {height: 700px}
+  .value-proposition h2 {display: none}
+  .value-proposition .button {margin-top: 50px}
+  .about-section .title {font-size: 3em}
+  .about-section .content h3 {display: none}
+  .about-section form p {padding-top: 5px}
 }

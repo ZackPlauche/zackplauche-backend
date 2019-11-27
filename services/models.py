@@ -17,24 +17,5 @@ class Service(models.Model):
         # Service.objects.filter(title=self.title).exists()
         return slugify(self.title)
 
-
     def __str__(self):
         return self.title
-
-# class Tier(models.Model):
-#     service = models.ForeignKey(Service, on_delete=models.CASCADE)
-#     tier_title = models.CharField(max_length=50)
-#     deliverables = models.TextField()
-#     price = models.FloatField()
-#
-# class Review(models.Model):
-#     service = models.ForeignKey(Service, on_delete=models.CASCADE)
-#     star_rating  = models.FloatField()
-#     headline = models.CharField(max_length=200)
-#     review_text = models.TextField()
-#     client_first_name = models.CharField(max_length=20)
-#     client_last_name = models.CharField(max_length=20)
-#     client_full_name = f"{client_first_name} {client_last_name}"
-#
-#     def __str__(self):
-#         return self.headline

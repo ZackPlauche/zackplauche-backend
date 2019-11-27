@@ -7,7 +7,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>{% block title %}{% endblock %}</title>
   <link href="https://fonts.googleapis.com/css?family=Bentham|Montserrat:400,400i,500,600,700,900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'home/reset.css' %}">
   <link rel="stylesheet" href="{% static 'home/style.css' %}">
+  <link rel="stylesheet" href="{% static 'home/navbar.css' %}">
   <link rel="icon" type="image/png" href="{% static 'home/favicons/favicon_32x32.png' %}">
   <style>
   {% block style %}
@@ -16,20 +18,30 @@
 </head>
 <body>
   <header>
-    <nav class="bg-dark">
-      <h1><a class="logo" href="{% url 'home:index' %}">Zack Plauché</a></h1>
-      <ul>
+
+
+    <!-- Top Navigation -->
+    <nav class="bg-dark" id="navbar">
+
+      <!-- Logo/Home Page Link -->
+      <h1 id="nav-logo"><a href="{% url 'home:index' %}">Zack Plauché</a></h1>
+
+      <!-- Navigation Links -->
+      <ul id="myLinks">
         <li><a href="{% url 'services:index' %}">Services</a></li>
         <li><a href="{% url 'blog:index' %}">Blog</a></li>
         <li><a href="{% url 'home:contact' %}">Contact</a></li>
         <li><a href="{% url 'home:about' %}">About</a></li>
       </ul>
-      <div class="menu-icon">
-        <div class="menu-icon-bar"></div>
-        <div class="menu-icon-bar"></div>
-        <div class="menu-icon-bar"></div>
+
+      <!-- Hamburger Menu Icon -->
+      <input type="checkbox" class="toggle">
+      <div class="hamburger">
+        <div class="bar"></div>
       </div>
+
     </nav>
+
     {% block header %}
     {% endblock %}
   </header>
@@ -38,24 +50,24 @@
   {% endblock %}
   </main>
   <footer>
-  <div class="flex-container theme-dark">
-    <div class="block">
-      <div id="footer-contact">
-        <h2>Zack Plauché</h2>
-        <p>{% lorem %}</p>
+    <div class="flex-container theme-dark">
+      <div class="block">
+        <div id="footer-contact">
+          <h2>Zack Plauché</h2>
+          <p>{% lorem %}</p>
+        </div>
+      </div>
+      <div class="block">
+        <div id="footer-nav">
+          <p>{% lorem %}</p>
+        </div>
+      </div>
+      <div class="block">
+        <div id="footer-signup">
+          <p>{% lorem %}</p>
+        </div>
       </div>
     </div>
-    <div class="block">
-      <div id="footer-nav">
-        <p>{% lorem %}</p>
-      </div>
-    </div>
-    <div class="block">
-      <div id="footer-signup">
-        <p>{% lorem %}</p>
-      </div>
-    </div>
-  </div>
     <div id="copyright" class="theme-dark">
       <p>© Copyright Zack Plauché {% now "Y" %}</p>
     </div>
