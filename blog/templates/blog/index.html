@@ -1,4 +1,4 @@
-{% extends 'home/base.html' %}
+
 
 {% block title %}Blog | Zack Plauché{% endblock %}
 
@@ -8,7 +8,9 @@
       Blog
     </p>
     <h1>Blog</h1>
+
     {% for post in posts.all %}
     <h1><a href="{% url 'blog:post' post.slug %}">{{ post.title}}</a></h1>
     {% endfor %}
+
 {% endblock %}
