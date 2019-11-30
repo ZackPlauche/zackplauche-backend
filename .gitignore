@@ -1,6 +1,5 @@
 db.sqlite3 
 __pycache__
 Procfile.windows
-*.json
 quotes
 venv
