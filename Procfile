@@ -1,1 +1,1 @@
-"web: gunicorn app:zackplauche" 
+web: gunicorn app:zackplauche
