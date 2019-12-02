@@ -200,7 +200,7 @@ tfoot {
 .value-proposition {
   text-align: center;
   display: run-in;
-  background: white url('images/resized-man-relaxing-in-spring.jpg')fixed;
+  background: white url("images/resized-man-relaxing-in-spring.fda91129f21b.jpg")fixed;
   background-size:cover;
   background-position: center;
   height: 800px;
@@ -251,7 +251,7 @@ tfoot {
 .about-section {
   display: flex;
   align-items: center;
-  background: url('images/blue-mountain-stars-cropped.jpg') fixed;
+  background: url("images/blue-mountain-stars-cropped.e8680596ac66.jpg") fixed;
   background-size:cover;
 }
 
