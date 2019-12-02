@@ -10,8 +10,6 @@ nav {
   height: 60px;
   justify-content: space-between;
   overflow: hidden;
-  position: relative;
-  top: 0;
   z-index: 0;
 }
 
