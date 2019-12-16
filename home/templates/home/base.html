@@ -17,14 +17,14 @@
   </style>
 </head>
 <body>
-  <header>
 
+  <header>
 
     <!-- Top Navigation -->
     <nav class="bg-dark" id="navbar">
 
       <!-- Logo/Home Page Link -->
-      <h1 id="nav-logo"><a href="{% url 'home:index' %}">Zack Plauché</a></h1>
+      <h1 class="nav-logo"><a href="{% url 'home:index' %}">Zack Plauché</a></h1>
 
       <!-- Navigation Links -->
       <ul id="myLinks">
@@ -40,34 +40,58 @@
         <div class="bar"></div>
       </div>
 
-    </nav>
+    </nav><!-- End Navigation -->
 
     {% block header %}
     {% endblock %}
+
   </header>
+
   <main>
-  {% block content %}
-  {% endblock %}
+    {% block main %}
+    {% endblock %}
   </main>
+
   <footer>
-    <div class="flex-container theme-dark">
+
+    <div class="flex-container bg-dark">
+
+      <!-- Footer block 1 -->
       <div class="block">
-        <div id="footer-contact">
-          <h2>Zack Plauché</h2>
-          <p>{% lorem %}</p>
+        <div id="footerBlock1">
+          <h2 class="nav-logo">Zack Plauché</h2>
         </div>
       </div>
+
+      <!-- Footer Block 2 -->
       <div class="block">
-        <div id="footer-nav">
-          <p>{% lorem %}</p>
+        <div id="footerBlock2">
+          <nav>
+            <ul>
+              <li><a href="">About</a></li>
+              <li><a href="">Contact</a></li>
+              <li><a href="">Portfolio</a></li>
+              <li><a href="">Blog</a></li>
+              <li><a href="">Services</a></li>
+              <li><a href="">Services</a></li>
+              <li><a href="">Services</a></li>
+            </ul>
+          </nav>
         </div>
       </div>
+
+      <!-- Footer block 3 -->
       <div class="block">
-        <div id="footer-signup">
-          <p>{% lorem %}</p>
+        <div id="footerBlock3">
+          <h2>Connect with me.</h2>
+          <p>Have quesitons? Feel free to reach me at my phone or email listed below:
+          <p><i>Phone:</i>   <a href="tel: +13032618653">+1 (303) 261-8653</a></p>
+          <p><i>Email:</i>   <a href="mailto:zackknowspython@gmail.com">zackkonwspython@gmail.com</a></p>
         </div>
       </div>
+
     </div>
+
     <div id="copyright" class="theme-dark">
       <p>© Copyright Zack Plauché {% now "Y" %}</p>
     </div>

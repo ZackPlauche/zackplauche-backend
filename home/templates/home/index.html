@@ -12,7 +12,7 @@
   </div>
 {% endblock %}
 
-{% block content %}
+{% block main %}
 
   <div class="logos">
     <p>Worked with:</p>
@@ -34,12 +34,15 @@
         <br>
         I help people & companies interested in scaling to gracefully succeed at doing so.
       </h3>
+
+      <!-- Email Collection form -->
       <form action="index.html" method="post">
         {% csrf_token %}
         <p>Subscribe for free trainings, new blog posts, & curated content made to help you scale.</p>
         <input type="email" name="email" placeholder="Your email here"><br>
         <button id="about-submit" type="submit" name="submit">Get Started</button>
-      </form>
+      </form><!-- End of email collection form -->
+
     </div>
   </div> <!----- End of About Section ----->
 

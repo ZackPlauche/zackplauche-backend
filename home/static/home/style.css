@@ -1,4 +1,11 @@
-/* Sitewide */
+/* Sitewide
+----------------------------------------------------------------------------- */
+
+* {
+  font-family: 'Montserrat', sans-serif;
+  margin: 0;
+  padding: 0;
+}
 
 h1 {
   font-weight: 700;
@@ -14,9 +21,12 @@ a {
 }
 
 ul {
-  list-style-type: none;
   padding: 0px;
   overflow: hidden;
+}
+
+nav ul {
+  list-style: none;
 }
 
 input {
@@ -34,7 +44,8 @@ main h2 {
 }
 
 
-/* Themes & Background Layouts */
+/* Themes & Background Layouts
+----------------------------------------------------------------------------- */
 
 .theme-dark, .bg-dark {
   background-color: #172933 !important;
@@ -195,6 +206,9 @@ tfoot {
 /* Header
 ----------------------------------------------------------------------------- */
 
+
+
+
 /* Value Proposition */
 
 .value-proposition {
@@ -240,9 +254,92 @@ tfoot {
   background-color: #ffffff50;
 }
 
+/* Footer
+----------------------------------------------------------------------------- */
 
+footer {
+  background: lightgrey;
+}
 
-/* Main Content */
+footer .flex-container {
+  height: 300px;
+}
+
+footer .block {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+
+  width: 350px;
+  height: 210px;
+
+  color: white;
+}
+
+footer nav,
+footer ul {
+  display: contents;
+}
+
+#footerBlock2 {
+  display: grid;
+  grid-template-columns: auto auto;
+  justify-content: space-between;
+  align-content: space-between;
+
+  padding: 30px 35px;
+  width: 100%;
+  height: 100%;
+  max-height: 150px;
+  border-right: 1px solid white;
+  border-left: 1px solid white;
+}
+
+#footerBlock3 {
+  display: block;
+  height: 100%;
+  width: 100%;
+  padding-left: 20px;
+  text-align: left;
+}
+
+#footerBlock3 h2 {
+  font-size: 35px;
+  font-weight: 600;
+  margin: 5px 0;
+}
+
+#footerBlock3 p {
+  color: #c7c7c7;
+}
+
+#footerBlock3 p:nth-child(2) {
+  margin-bottom: 25px;
+}
+
+#footerBlock3 p:nth-child(3),
+#footerBlock3 p:nth-child(4) {
+  padding: 10px 0px;
+}
+
+#footerBlock3 a {
+  text-decoration: none;
+  transition: all .2s ease;
+}
+
+#footerBlock3 a:hover {
+  color: white;
+}
+
+#copyright {
+  padding: 10px 0px;
+  text-align: center;
+  font-size: 14px;
+}
+
+/* Main Content
+----------------------------------------------------------------------------- */
 
 /* Home Page  */
 
@@ -347,7 +444,8 @@ figure span {
 }
 
 
-/***** Services *****/
+/* Services
+----------------------------------------------------------------------------- */
 
 table .button {
   display: block;
@@ -359,26 +457,8 @@ table .button {
 }
 
 
-/********** Footer **********/
-
-footer {
-  background: lightgrey;
-}
-
-footer .flex-container {
-  display: none;
-}
-
-#copyright {
-  padding: 10px 0px;
-  text-align: center;
-  font-size: 14px;
-}
-
-
-
-
-/********** Responsive Layout **********/
+/* Responsive Layout
+----------------------------------------------------------------------------- */
 
 /* Half-Screen Desktop */
 @media screen and (max-width: 800px) {

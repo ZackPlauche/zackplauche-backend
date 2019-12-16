@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from services.models import Service
 
+
 def index(request):
     services = Service.objects
     context = {'services': services}

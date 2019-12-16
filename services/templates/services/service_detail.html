@@ -2,47 +2,45 @@
 
 {% block title %}{{ service.title }} | Zack Plauché{% endblock %}
 
-{% block style %}
-
-{% endblock %}
-
-{% block content %}
-  <p>
-    <a href="{% url 'home:index' %}">Home</a> /
-    <a href="{% url 'services:index' %}">Services</a> /
-    {{ service.title }}
-  </p>
+{% block main %}
+<p>
+  <a href="{% url 'home:index' %}">Home</a> /
+  <a href="{% url 'services:index' %}">Services</a> /
+  {{ service.title }}
+</p>
 <div class="service-display">
-<h1>{{ service.title }}</h1>
-<p>{{ service.short_description|linebreaksbr }}</p>
-<table class="service-table">
-  <thead>
-    <tr>
-      <td colspan="3">Offers</td>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>Teir 1</th>
-      <th>Tier 2</th>
-      <th>Tier 3</th>
-    </tr>
-    <tr>
-      <td>$50/hr</td>
-      <td>$75/hr</td>
-      <td>$100/hr</td>
-    </tr>
-    <tr>
-      <td><a class="button" href="#">Order Now</a></td>
-      <td><a class="button" href="#">Order Now</a></td>
-      <td><a class="button" href="#">Order Now</a></td>
-    </tr>
-  </tbody>
-  <tfoot>
-    <tr>
-      <td colspan="3">*All orders are non-refundable.</td>
-    </tr>
-  </tfoot>
-</table>
+  <h1>{{ service.title }}</h1>
+  <p>{{ service.short_description|linebreaksbr }}</p>
+  <table class="service-table">
+    <thead>
+      <tr>
+        <td colspan="3">Offers</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th>Teir 1</th>
+        <th>Tier 2</th>
+        <th>Tier 3</th>
+      </tr>
+      <tr>
+        <td>$50/hr</td>
+        <td>$75/hr</td>
+        <td>$100/hr</td>
+      </tr>
+      <tr>
+        <td><a class="button" href="#">Order Now</a></td>
+        <td><a class="button" href="#">Order Now</a></td>
+        <td><a class="button" href="#">Order Now</a></td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="3">*All orders are non-refundable.</td>
+      </tr>
+    </tfoot>
+  </table>
 </div>
+
+
 {% endblock %}

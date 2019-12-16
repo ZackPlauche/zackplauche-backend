@@ -1,10 +1,10 @@
-/* Navbar CSS
+/* Navbar
 ----------------------------------------------------------------------------- */
 
 /* Define background color & normal height of navbar, position the logo to the
 left and the navigation links to the right of the navbar, & center vertically
 align all of the content. */
-nav {
+header nav {
   align-items: center;
   display: flex;
   height: 60px;
@@ -14,22 +14,32 @@ nav {
 }
 
 
-nav a {text-decoration:none} /* Remove nav link underlines */
+header nav a {text-decoration:none} /* Remove nav link underlines */
 
 /* Make nav logo size normal h1 size and add padding to right */
-#nav-logo {
+
+.nav-logo {
   font-size: 2em;
-  padding-left: 50px;
   white-space: nowrap;
 }
 
-#nav-logo a {color: white} /* Make nav logo color white */
+header .nav-logo {
+  font-size: 2em;
+  padding-left: 50px;
+}
 
-nav li {float: left} /*  Align nav links horizontally */
+header .nav-logo a {
+  color: white;
+}
 
-nav ul {padding-right: 50px} /* Give main nav space on right side of the page */
+header nav li {
+  float: left;
+}
 
-/* Add proper padding around each a tag & make grey for white hover effect */
+header nav ul {
+  padding-right: 50px;
+}
+
 nav ul a {
   color: lightgrey;
   display: block;
@@ -39,19 +49,22 @@ nav ul a {
   padding: 31.5px 10px;
   text-transform: uppercase;
   transition: color .2s ease-out;
+  text-decoration: none;
 }
 
-nav ul a:hover {color: #fff} /* Make hover links clean white on hover */
+nav ul a:hover {
+  color: #fff;
+}
 
-/* Navigation Hamburger Menu CSS
---------------------------------*/
+/* Navigation Hamburger Menu
+---------------------------*/
 
 .hamburger {
   align-items: center;
   border-radius: 50%;
   box-sizing: border-box;
   cursor: pointer;
-  display: flex;
+  display: none;
   flex-flow: column wrap;
   height: 50px;
   justify-content: center;
@@ -127,7 +140,7 @@ nav ul a:hover {color: #fff} /* Make hover links clean white on hover */
   .hamburger {display: flex}
 
   /* Hide navigation links */
-  nav ul {display: none}
+  header nav ul {display: none}
 
   /* Tidy positioning for main CTA button */
   .value-proposition .button {margin-top: 80px}
@@ -141,4 +154,4 @@ nav ul a:hover {color: #fff} /* Make hover links clean white on hover */
     justify-content: center;
   }
 
-  nav h1 {margin-top: 10px}
+  header nav h1 {margin-top: 10px}
