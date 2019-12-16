@@ -14,7 +14,11 @@ SECRET_KEY = '2-6*4zcktymoqs!9j4jf5lk&ovv7_sx-s*5he4$mo&=gnwx*q-'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+'www.zackplauche.com',
+'zackplauche.com',
+'zackplauche.herokuapp.com'
+]
 
 
 # Application definition
