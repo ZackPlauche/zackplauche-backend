@@ -47,19 +47,48 @@ main h2 {
 /* Themes & Background Layouts
 ----------------------------------------------------------------------------- */
 
-.theme-dark, .bg-dark {
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: row;
+}
+
+
+.bg-dark {
   background-color: #172933 !important;
 }
 
-.theme-dark h1, .theme-dark h2, .theme-dark .title, .theme-dark .primary, .bg-dark .title {
+.bg-deep {
+  background-color: #0c181e !important;
+}
+
+.bg-ash-light {
+  background-color: #afafaf !important;
+}
+
+.bg-ash {
+  background-color: #444444 !important;
+}
+
+.mystic .title,
+.mystic h1,
+.mystic h2,
+.mystic .title,
+.mystic .primary {
   color: #00e7ff;
 }
 
-.theme-dark h3, .theme-dark h4, .theme-dark h5, .theme-dark h6, .theme-dark p {
+
+.dark h3,
+.dark h4,
+.dark h5,
+.dark h6,
+.dark p {
   color: white;
 }
 
-.theme-dark .button {
+.theme .button {
   background-color: #00d1e6;
 }
 
@@ -165,7 +194,8 @@ thead td {
   border-bottom: 1px solid black;
 }
 
-table td, th {
+td,
+th {
   min-width: 114px;
   height: 40px;
   padding: 0px 10px;
@@ -186,7 +216,7 @@ tfoot {
 
 .flex-container {
   display: flex;
-  flex-direction: row;
+  flex-flow: row;
   list-style: none;
   align-items: center;
   justify-content: center;
@@ -333,9 +363,43 @@ footer ul {
 }
 
 #copyright {
+  color: white;
+  background-color: #0c181e;
   padding: 10px 0px;
   text-align: center;
   font-size: 14px;
+}
+
+
+@media screen and (max-width: 1126px) {
+  footer .flex-container {
+    flex-flow: wrap;
+    height: 100%;
+    justify-content: space-around;
+  }
+
+
+
+  #footerBlock2 {
+    border: none;
+  }
+
+  #footerBlock3 {
+    padding: 0;
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 757px) {
+
+  footer .block {
+    padding: 0 10px;
+  }
+
+  #footerBlock2 {
+    padding-top: 0;
+  }
+  
 }
 
 /* Main Content

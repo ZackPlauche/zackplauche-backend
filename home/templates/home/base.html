@@ -21,7 +21,7 @@
   <header>
 
     <!-- Top Navigation -->
-    <nav class="bg-dark" id="navbar">
+    <nav class="bg-dark dark" id="navbar">
 
       <!-- Logo/Home Page Link -->
       <h1 class="nav-logo"><a href="{% url 'home:index' %}">Zack Plauché</a></h1>
@@ -54,7 +54,8 @@
 
   <footer>
 
-    <div class="flex-container bg-dark">
+    <div class="wrapper bg-dark dark">
+      <div class="flex-container">
 
       <!-- Footer block 1 -->
       <div class="block">
@@ -68,13 +69,11 @@
         <div id="footerBlock2">
           <nav>
             <ul>
-              <li><a href="">About</a></li>
-              <li><a href="">Contact</a></li>
+              <li><a href="{% url 'home:about' %}">About</a></li>
+              <li><a href="{% url 'home:contact' %}">Contact</a></li>
               <li><a href="">Portfolio</a></li>
-              <li><a href="">Blog</a></li>
-              <li><a href="">Services</a></li>
-              <li><a href="">Services</a></li>
-              <li><a href="">Services</a></li>
+              <li><a href="{% url 'blog:index' %}">Blog</a></li>
+              <li><a href="{% url 'services:index' %}">Services</a></li>
             </ul>
           </nav>
         </div>
@@ -91,8 +90,9 @@
       </div>
 
     </div>
+  </div>
 
-    <div id="copyright" class="theme-dark">
+    <div id="copyright" class="bg-ash-light dark">
       <p>© Copyright Zack Plauché {% now "Y" %}</p>
     </div>
     <script> </script>

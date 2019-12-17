@@ -23,6 +23,10 @@ header nav a {text-decoration:none} /* Remove nav link underlines */
   white-space: nowrap;
 }
 
+footer .nav-logo {
+  font-size: 2.7em;
+}
+
 header .nav-logo {
   font-size: 2em;
   padding-left: 50px;
