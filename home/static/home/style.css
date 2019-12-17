@@ -88,7 +88,12 @@ main h2 {
   color: white;
 }
 
-.theme .button {
+.mystic .button {
+  background-color: #00d1e6;
+}
+
+.mystic .button:hover {
+  box-shadow: 0 0 20px #00d1e6;
   background-color: #00d1e6;
 }
 
@@ -399,7 +404,7 @@ footer ul {
   #footerBlock2 {
     padding-top: 0;
   }
-  
+
 }
 
 /* Main Content
