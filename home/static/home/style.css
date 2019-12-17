@@ -47,6 +47,18 @@ main h2 {
 /* Themes & Background Layouts
 ----------------------------------------------------------------------------- */
 
+.bentham {
+  font-family: bentham;
+}
+
+.thin {
+  font-weight: 400;
+}
+
+.bold {
+  font-weight: 600;
+}
+
 .flex-center {
   display: flex;
   justify-content: center;
@@ -54,6 +66,9 @@ main h2 {
   flex-flow: row;
 }
 
+.bg-electric-blue {
+  background-color: #21ABDE !important;
+}
 
 .bg-dark {
   background-color: #172933 !important;
@@ -405,7 +420,7 @@ footer ul {
   #footerBlock2 {
     padding-top: 0;
   }
-  
+
 }
 
 /* Main Content

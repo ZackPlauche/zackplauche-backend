@@ -19,16 +19,17 @@ header nav a {text-decoration:none} /* Remove nav link underlines */
 /* Make nav logo size normal h1 size and add padding to right */
 
 .nav-logo {
-  font-size: 2em;
+  font-family: bentham;
+  font-weight: 400;
   white-space: nowrap;
 }
 
 footer .nav-logo {
-  font-size: 2.7em;
+  font-size: 3.5em;
 }
 
 header .nav-logo {
-  font-size: 2em;
+  font-size: 3em;
   padding-left: 50px;
 }
 
