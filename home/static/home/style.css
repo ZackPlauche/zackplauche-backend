@@ -51,23 +51,11 @@ main h2 {
   font-family: bentham;
 }
 
-.thin {
-  font-weight: 400;
-}
-
-.bold {
-  font-weight: 600;
-}
-
 .flex-center {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-flow: row;
-}
-
-.bg-electric-blue {
-  background-color: #21ABDE !important;
 }
 
 .bg-dark {
@@ -384,7 +372,7 @@ footer ul {
 
 #copyright {
   color: white;
-  background-color: #0c181e;
+  background-color: #21ABDE;
   padding: 10px 0px;
   text-align: center;
   font-size: 14px;
@@ -396,7 +384,7 @@ footer ul {
     flex-flow: wrap;
     height: 100%;
     justify-content: space-around;
-    padding-bottom: 50px;
+    padding-bottom: 55px;
   }
 
 
@@ -415,6 +403,10 @@ footer ul {
 
   footer .block {
     padding: 0 10px;
+  }
+
+  footer .block:nth-child(3) {
+    padding-top: 45px;
   }
 
   #footerBlock2 {
