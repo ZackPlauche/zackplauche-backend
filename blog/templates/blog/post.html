@@ -3,12 +3,21 @@
 {% block title %}{{ post.title }} | Zack Plauché{% endblock %}
 
 {% block main %}
+
 <p>
   <a href="{% url 'home:index' %}">Home</a> /
   <a href="{% url 'blog:index' %}">Blog</a> /
   {{ post.title }}
 </p>
-<h1>{{ post.title }}</h1>
-<img src="{{ post.image.url }}" width="570">
-<p>{{ post.body|linebreaksbr }}
+
+<article>
+  <h1 id="blogTitle">{{ post.title }}</h1>
+  <img src="{{ post.image.url }}" width="570">
+  <body>
+    <p>{{ post.body|linebreaksbr }}</p>
+    {% if post.content %}
+    {{ post.content|safe|linebreaksbr }}
+    {% endif %}
+  </body>
+</article>
 {% endblock %}

@@ -7,9 +7,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>{% block title %}{% endblock %}</title>
   <link href="https://fonts.googleapis.com/css?family=Bentham|Montserrat:400,400i,500,600,700,900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="{% static 'home/style.css' %}">
-  <link rel="stylesheet" href="{% static 'home/navbar.css' %}">
-  <link rel="icon" type="image/png" href="{% static 'home/favicons/favicon_32x32.png' %}">
+  <link rel="stylesheet" href="{% static 'home/css/style.css' %}">
+  <link rel="icon" type="image/png" href="{% static 'home/img/favicon_32x32.png' %}">
   <style>
   {% block style %}
   {% endblock %}
@@ -28,15 +27,15 @@
       <!-- Navigation Links -->
       <ul id="myLinks">
         <li><a href="{% url 'services:index' %}">Services</a></li>
+        <li><a href="{% url 'home:about' %}">About</a></li>
         <li><a href="{% url 'blog:index' %}">Blog</a></li>
         <li><a href="{% url 'home:contact' %}">Contact</a></li>
-        <li><a href="{% url 'home:about' %}">About</a></li>
       </ul>
 
       <!-- Hamburger Menu Icon -->
-      <input type="checkbox" class="toggle">
-      <div class="hamburger">
-        <div class="bar"></div>
+      <input type="checkbox" class="hamburger-menu-icon-toggle">
+      <div class="hamburger-menu-icon">
+        <div class="hamburger-menu-icon-bar"></div>
       </div>
 
     </nav><!-- End Navigation -->
