@@ -15,17 +15,16 @@
   </style>
 </head>
 <body>
-
   <header>
 
     <!-- Top Navigation -->
-    <nav class="bg-deep dark" id="navbar">
+    <nav class="bg-deep dark">
 
       <!-- Logo/Home Page Link -->
       <h1 class="nav-logo"><a class="bentham" href="{% url 'home:index' %}">Zack Plauché</a></h1>
 
       <!-- Navigation Links -->
-      <ul id="myLinks">
+      <ul>
         <li><a href="{% url 'services:index' %}">Services</a></li>
         <li><a href="{% url 'home:about' %}">About</a></li>
         <li><a href="{% url 'blog:index' %}">Blog</a></li>
@@ -40,12 +39,16 @@
 
     </nav><!-- End Navigation -->
 
+
     {% block header %}
     {% endblock %}
-
   </header>
 
-  <main>
+  <main class="">
+    <div class="breadcrumbs">
+      {% block breadcrumbs %}
+      {% endblock %}
+    </div>
     {% block main %}
     {% endblock %}
   </main>
@@ -64,6 +67,7 @@
 
       <!-- Footer Block 2 -->
       <div class="block">
+        <!-- TODO: Fix error where footer links break on mobile -->
         <div id="footerBlock2">
           <nav>
             <ul>

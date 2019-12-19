@@ -2,12 +2,15 @@
 
 {% block title %}{{ service.title }} | Zack Plauché{% endblock %}
 
+{% block breadcrumbs %}
+<ul>
+  <li><a href="{% url 'home:index' %}">Home</a></li>
+  <li><a href="{% url 'services:index' %}">Services</a></li>
+  <li><p>{{ service.title }}</p></li>
+</ul>
+{% endblock %}
+
 {% block main %}
-<p>
-  <a href="{% url 'home:index' %}">Home</a> /
-  <a href="{% url 'services:index' %}">Services</a> /
-  {{ service.title }}
-</p>
 <div class="service-display">
   <h1>{{ service.title }}</h1>
   <p>{{ service.short_description|linebreaksbr }}</p>

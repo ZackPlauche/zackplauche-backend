@@ -23,6 +23,7 @@ h2 {
 a {
   color: #21ABDE;
   font-weight: 500;
+  text-decoration: none;
 }
 
 ul {
@@ -36,6 +37,11 @@ nav ul {
 
 input {
   margin: 3px 0px;
+}
+
+main {
+  overflow: auto;
+  background-color: #f5f5f5;
 }
 
 main h1,
@@ -76,6 +82,10 @@ main ol {
   background-color: #0c181e !important;
 }
 
+.bg-midnight {
+  background-color:
+}
+
 .bg-ash-light {
   background-color: #afafaf !important;
 }
@@ -84,21 +94,18 @@ main ol {
   background-color: #444444 !important;
 }
 
-.mystic .title,
-.mystic h1,
-.mystic h2,
-.mystic .title,
-.mystic .primary {
-  color: #00e7ff;
+.dark *:not(a):not(input):not(.nav-logo) {
+  color: white;
 }
 
-
-.dark h3,
-.dark h4,
-.dark h5,
-.dark h6,
-.dark p {
-  color: white;
+.mystic h1,
+.mystic h2,
+.mystic em,
+.mystic strong,
+.mystic .title,
+.mystic .primary,
+.mystic .breadcrumbs a {
+  color: #00e7ff !important;
 }
 
 .mystic .button {
@@ -159,6 +166,10 @@ main ol {
   display: inline-block;
   vertical-align: top;
   position: relative;
+}
+
+.bg-dark .content-card {
+  background-color: #0c181e;
 }
 
 .content-card img {
@@ -248,10 +259,6 @@ tfoot {
 /* Navigation
 ----------------------------------------------------------------------------- */
 
-nav a {
-  text-decoration:none
-}
-
 .nav-logo {
   font-family: bentham;
   font-weight: 400;
@@ -306,6 +313,10 @@ header nav li {
 header nav ul {
   padding-right: 50px;
 }
+
+
+/* Mobile Navbar
+----------------------------------------------------------------------------- */
 
 .hamburger-menu-icon {
   align-items: center;
@@ -362,7 +373,6 @@ header nav ul {
 }
 
 .hamburger-menu-icon-toggle:hover + .hamburger-menu-icon {
-  transform: rotate(-25deg);
   background-color: #00000050;
 }
 
@@ -390,7 +400,7 @@ header nav ul {
 }
 
 
-@media screen and (max-width: 414px) {
+@media screen and (max-width: 770px) {
 
   header nav {
     justify-content: center;
@@ -403,9 +413,52 @@ header nav ul {
 
 }
 
-
 /* Breadcrumbs
 ----------------------------------------------------------------------------- */
+
+.breadcrumbs ul {
+  padding: 10px 0 0 40px;
+  list-style: none;
+  text-decoration: none;
+}
+
+.breadcrumbs li {
+  display: inline;
+}
+
+.breadcrumbs a:hover {
+  text-decoration: underline;
+  color: #1982a9;
+}
+
+.breadcrumbs li+li:before {
+  padding: 8px;
+  content: "/\00a0";
+}
+
+.bg-dark .breadcrumbs li {
+  color: white;
+}
+
+.breadcrumbs p {
+  display: inline;
+}
+
+.bg-dark .breadcrumbs p {
+  color: lightgrey;
+}
+
+.mystic .breadcrumbs a {
+  color: #00e7ff;
+}
+
+@media screen and (max-width: 910px) {
+
+  .breadcrumbs ul {
+    padding-left: 10px;
+  }
+
+}
 
 
 /* Header
@@ -465,6 +518,231 @@ _____________________________________________________________________________ */
   }
 
 }
+
+/* Main
+_____________________________________________________________________________ */
+
+/* Home Page
+----------------------------------------------------------------------------- */
+
+/*  About Section
+------------------------------------- */
+
+.about-section {
+  display: flex;
+  align-items: center;
+  background: url('../img/blue-mountain-stars-cropped.jpg') fixed;
+  background-size:cover;
+}
+
+.about-section .title {
+  font-family: Bentham;
+  font-size: 4em;
+  padding: 0px 0px 10px;
+}
+
+.about-section .content {
+  max-width: 55%;
+  margin: 0px auto;
+}
+
+.about-section form p {
+  padding: 40px 0px 10px;
+}
+
+.about-section form {
+  display: inline-block;
+  position: relative;
+}
+
+.about-section input {
+  width: 100%;
+  padding: 14px 0px 14px 30px;
+  border: 1px solid black;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 16px;
+  box-sizing: border-box;
+  transition: box-shadow .2s ease;
+}
+
+.about-section input:focus {
+  outline: none;
+  box-shadow: 0px 0px 10px 5px #00e7ff;
+}
+
+
+
+input::-webkit-input-placeholder {
+  color: darkgrey;
+}
+
+#about-submit {
+
+  display: inline-block;
+  margin: 20px 0px;
+  padding: 20px 40px;
+  border-radius: 40px;
+  border: none;
+  font-weight: 700;
+  font-size: 20px;
+  color: white;
+  background-color: #00d1e6;
+  cursor: pointer;
+  transition: border-radius .2s ease,box-shadow .2s ease, margin .2s ease;
+}
+
+#about-submit:hover {
+  margin: 15px 0px 25px;
+  box-shadow: 5px 5px #00a1b1, 10px 10px #006973, 15px 15px #004148;
+  border-radius: 8px;
+}
+
+figure {
+  display: block;
+  width: 30%;
+  padding: 30px 0;
+  margin: auto;
+  text-align: center;
+}
+
+figure img {
+  width: 100%;
+}
+
+figure span {
+  font-weight: 600;
+  font-size: xx-large;
+}
+
+
+/* Service Display
+-------------------------------------*/
+
+.services-display {
+  text-align: center;
+}
+
+.services-display .title {
+  padding: 15px 0px;
+}
+
+
+/* Blog
+----------------------------------------------------------------------------- */
+
+article {
+  max-width: 750px;
+  width: 90%;
+  margin: auto;
+  padding:0 50px 20px;
+  margin: 30px auto 50px;
+  box-shadow: 0 0 15px grey;
+  border-radius: 15px;
+  background-color: #ffffff;
+  overflow: hidden;
+}
+
+article h1 {
+  font-family: bentham;
+    font-size: 3em;
+    font-weight: 600;
+    padding: 10px 0px;
+}
+
+article img {
+  display: block;
+}
+
+article p,
+article li {
+  line-height: 1.6em;
+  font-size: 18px;
+  letter-spacing: .03em;
+}
+
+article li,
+article li p,
+article em {
+  font-weight: 600;
+}
+
+article *:not(ol):not(ul) {
+  width: 100%;
+}
+
+article .blog-body {
+  margin-top: 20px;
+}
+
+.bg-dark article {
+  background-color: #080f13;
+  box-shadow:0 0 15px white;
+}
+
+.mystic.bg-dark article {
+  box-shadow: 0px 5px 20px #00e7ff;
+}
+
+.mystic article h1,
+.bg-dark article h1 {
+  font-weight: 400;
+}
+
+.mystic article li,
+.mystic article strong,
+.mystic article i {
+  color: #00e7ff !important;
+}
+
+@media screen and (max-width: 910px) {
+
+  article {
+    margin-top: 10px;
+    padding: 0 0 20px;
+    width: 100%;
+    max-width: none;
+    border-radius: 0;
+    box-shadow: 0 0 8px grey;
+  }
+
+  article h1,
+  article img,
+  article p,
+  article ul,
+  article ol {
+    width: 85% !important;
+  }
+
+  article :not(li) {
+    margin: auto;
+  }
+
+}
+
+@media screen and (max-width: 414px) {
+
+
+
+  article img {
+    width: 100% !important;
+  }
+
+}
+
+/* Services
+----------------------------------------------------------------------------- */
+
+table .button {
+  display: block;
+  margin: 0;
+}
+
+.service-detail h1, .service-detail hr {
+  text-align: center;
+}
+
+
 /* Footer
 _____________________________________________________________________________ */
 
@@ -587,153 +865,6 @@ footer .nav-logo {
   }
 
 }
-
-/* Main
-_____________________________________________________________________________ */
-
-/* Home Page
------------------------------------------------------------------------------ */
-
-/*  About Section
-------------------------------------- */
-
-.about-section {
-  display: flex;
-  align-items: center;
-  background: url('../img/blue-mountain-stars-cropped.jpg') fixed;
-  background-size:cover;
-}
-
-.about-section .title {
-  font-family: Bentham;
-  font-size: 4em;
-  padding: 0px 0px 10px;
-}
-
-.about-section .content {
-  max-width: 55%;
-  margin: 0px auto;
-}
-
-.about-section form p {
-  padding: 40px 0px 10px;
-}
-
-.about-section form {
-  display: inline-block;
-  position: relative;
-}
-
-.about-section input {
-  width: 100%;
-  padding: 14px 0px 14px 30px;
-  border: 1px solid black;
-  border-radius: 10px;
-  font-weight: 600;
-  font-size: 16px;
-  box-sizing: border-box;
-  transition: box-shadow .2s ease;
-}
-
-.about-section input:focus {
-  outline: none;
-  box-shadow: 0px 0px 10px 5px #00e7ff;
-}
-
-
-
-input::-webkit-input-placeholder {
-  color: darkgrey;
-}
-
-#about-submit {
-
-  display: inline-block;
-  margin: 20px 0px;
-  padding: 20px 40px;
-  border-radius: 40px;
-  border: none;
-  font-weight: 700;
-  font-size: 20px;
-  color: white;
-  background-color: #00d1e6;
-  cursor: pointer;
-  transition: border-radius .2s ease,box-shadow .2s ease, margin .2s ease;
-}
-
-#about-submit:hover {
-  margin: 15px 0px 25px;
-  box-shadow: 5px 5px #00a1b1, 10px 10px #006973, 15px 15px #004148;
-  border-radius: 8px;
-}
-
-figure {
-  display: block;
-  width: 30%;
-  padding: 30px 0;
-  margin: auto;
-  text-align: center;
-}
-
-figure img {
-  width: 100%;
-}
-
-figure span {
-  font-weight: 600;
-  font-size: xx-large;
-}
-
-
-/* Service Display */
-
-.services-display {
-  text-align: center;
-}
-
-.services-display .title {
-  padding: 15px 0px;
-}
-
-
-/* Blog
------------------------------------------------------------------------------ */
-
-article h1 {
-  font-family: bentham;
-    font-size: 3em;
-    font-weight: 600;
-}
-
- article h1,
- article p {
-  padding: 0 10px;
-}
-
-article body {
-  padding-top: 10px;
-}
-
-@media screen and (max-width: 414px) {
-
-  article img {
-    width: 100% !important;
-  }
-
-}
-
-/* Services
------------------------------------------------------------------------------ */
-
-table .button {
-  display: block;
-  margin: 0;
-}
-
-.service-detail h1, .service-detail hr {
-  text-align: center;
-}
-
 
 /* Responsive Layout
 ----------------------------------------------------------------------------- */
