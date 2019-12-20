@@ -14,6 +14,8 @@ _____________________________________________________________________________ */
 
 h1 {
   font-weight: 700;
+  font-family: bentham;
+  font-size: 3em;
 }
 
 h2 {
@@ -63,10 +65,6 @@ main ol {
 /* Themes & Background Layouts
 ----------------------------------------------------------------------------- */
 
-.bentham {
-  font-family: bentham;
-}
-
 .flex-center {
   display: flex;
   justify-content: center;
@@ -106,6 +104,10 @@ main ol {
 .mystic .primary,
 .mystic .breadcrumbs a {
   color: #00e7ff !important;
+}
+
+.mystic h1 {
+  font-weight: 400;
 }
 
 .mystic .button {
@@ -154,7 +156,7 @@ main ol {
 }
 
 .content-card {
-  margin: 30px;
+  margin: 0 30px 30px;
   width: 90%;
   max-width: 400px;
   height: 540px;
@@ -206,6 +208,15 @@ main ol {
 .primary {
   color: #21ABDE;
 }
+
+.section-title {
+  font-size: 3em;
+  font-family: bentham;
+  padding: 15px 0 30px;
+  text-align: center;
+}
+
+
 
 table {
   border: 1px solid black;
@@ -259,7 +270,8 @@ tfoot {
 /* Navigation
 ----------------------------------------------------------------------------- */
 
-.nav-logo {
+.nav-logo,
+.nav-logo a {
   font-family: bentham;
   font-weight: 400;
   white-space: nowrap;
@@ -399,7 +411,6 @@ header nav ul {
 
 }
 
-
 @media screen and (max-width: 770px) {
 
   header nav {
@@ -450,14 +461,6 @@ header nav ul {
 
 .mystic .breadcrumbs a {
   color: #00e7ff;
-}
-
-@media screen and (max-width: 910px) {
-
-  .breadcrumbs ul {
-    padding-left: 10px;
-  }
-
 }
 
 
@@ -521,6 +524,91 @@ _____________________________________________________________________________ */
 
 /* Main
 _____________________________________________________________________________ */
+
+.index {}
+
+.index-title {
+  font-size: 3.5em;
+  padding: 0 0 20px 40px;
+}
+
+.bg-dark .index-title {
+  font-weight: 400;
+}
+
+@media screen and (max-width: 1017px) {
+
+  .index-title {
+    text-align: center;
+    padding: 10px 0 20px 0px;
+  }
+
+}
+
+.index-block {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  width: 420px;
+  padding: 10px 15px;
+  margin: 0 25px 30px;
+  position: relative;
+  background-color: white;
+  box-shadow: 0 0 5px grey;
+  transition: all .2s ease;
+}
+
+.bg-dark .index-block {
+  background-color: #080f13;
+  box-shadow: 0px 0px 5px #00e7ff;
+}
+
+.index-block:hover {
+  box-shadow: 0 0 10px #21ABDE;
+}
+
+.bg-dark .index-block:hover {
+  box-shadow: 0px 0px 10px 5px #00e7ff;
+}
+
+
+.index-block h2 {
+  display: block;
+  font-family: bentham;
+  font-size: 2.5em;
+  transition: all .2s ease;
+}
+
+.bg-dark .index-block h2 {
+  font-weight: 400;
+}
+
+.index-block img {
+  display: block;
+  max-height: 342px;
+  height: auto;
+  width: 100%;
+  object-fit: contain;
+}
+
+.author,
+.pub-date {
+  font-weight: 400;
+}
+
+.author {
+  color: black;
+  bottom: 2px;
+}
+
+.pub-date {
+  color: darkgrey;
+  padding-top: 8px;
+  margin-top: auto;
+}
+
+
+
 
 /* Home Page
 ----------------------------------------------------------------------------- */
@@ -629,6 +717,21 @@ figure span {
 
 
 /* Blog
+_____________________________________________________________________________ */
+
+/* Blog Index
+----------------------------------------------------------------------------- */
+
+.blog-index {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+
+
+/* Blog Details
 ----------------------------------------------------------------------------- */
 
 article {
@@ -682,11 +785,6 @@ article .blog-body {
 
 .mystic.bg-dark article {
   box-shadow: 0px 5px 20px #00e7ff;
-}
-
-.mystic article h1,
-.bg-dark article h1 {
-  font-weight: 400;
 }
 
 .mystic article li,

@@ -50,11 +50,11 @@
   </div> <!----- End of About Section ----->
 
   <div class="services-display">
-    <h1 class="title">Services</h1>
+    <h2 class="section-title">Services</h2>
       {% for service in services.all %}
       <div class="content-card">
         <img class="icon" src="{{ service.icon.url }}">
-        <h1>{{ service.title }}</h1>
+        <h2>{{ service.title }}</h2>
         <p>{{ service.short_description|linebreaksbr }}</p>
         <span class="content-card-bottom"><a class="button" href="{% url 'services:service_detail' service.slug %}">Learn More</a></span>
       </div>

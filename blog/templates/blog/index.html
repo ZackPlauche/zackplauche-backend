@@ -10,9 +10,16 @@
 {% endblock %}
 
 {% block main %}
-    <h1>Blog</h1>
 
+    <section class="index">
+    <h1 class="index-title">Blog</h1>
+    <section class="blog-index">
     {% for post in posts.all %}
-    <h1><a href="{% url 'blog:post' post.slug %}">{{ post.title}}</a></h1>
+      <a class="index-block" href="{% url 'blog:post' post.slug %}">
+        <h2>{{ post.title}}</h2>
+        <img src="{{ post.image.url }}" height="300px">
+        <p class="pub-date">Published {{ post.published_date }}</p>
+      </a>
     {% endfor %}
+    </section>
 {% endblock %}
