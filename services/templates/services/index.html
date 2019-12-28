@@ -10,8 +10,14 @@
 {% endblock %}
 
 {% block main %}
-    <h1>Services</h1>
-    {% for service in services.all %}
-    <h2><a href="{% url 'services:service_detail' service.slug %}">{{ service.title }}</a></h2>
-    {% endfor %}
+<section class="index">
+  <h1 class="index-title">Services</h1>
+  <section class="index-list">
+  {% for service in services.all %}
+    <a class="index-banner" href="{% url 'services:service_detail' service.slug %}">
+      <h2>{{ service.title}}</h2>
+    </a>
+  {% endfor %}
+  </section>
+</section>
 {% endblock %}

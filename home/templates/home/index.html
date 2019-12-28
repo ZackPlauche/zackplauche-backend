@@ -7,7 +7,7 @@
     <div class="content">
     <h1>Get Online, Automate, & Scale.</h1>
     <h2>Work with Zack Plauché to get your business online & working without you so you can make a positive impact while you sleep.</h2>
-    <a class="button" href="#">Get Started</a>
+    <a class="button-gigantic" href="#">Get Started</a>
     </div>
   </div>
 {% endblock %}
@@ -24,7 +24,7 @@
   </div><!-- End of Social Proof Logos -->
 
   <!----- About Section  ----->
-  <div class="about-section mystic dark">
+  <div class="about-section dark">
     <figure>
       <img src="{% static 'home/img/pro-dev-zack.jpg' %}">
       <h4><span class="primary">Zack Plauché</span><br>Freelancer, CEO of ZackHub</h4>
@@ -49,17 +49,21 @@
     </div>
   </div> <!----- End of About Section ----->
 
+  </div>
   <div class="services-display">
     <h2 class="section-title">Services</h2>
+    <div class="test-section">
       {% for service in services.all %}
-      <div class="content-card">
+      <a class="index-card" href="{% url 'services:service_detail' service.slug %}">
         <img class="icon" src="{{ service.icon.url }}">
         <h2>{{ service.title }}</h2>
-        <p>{{ service.short_description|linebreaksbr }}</p>
-        <span class="content-card-bottom"><a class="button" href="{% url 'services:service_detail' service.slug %}">Learn More</a></span>
-      </div>
+        <div class="description">
+          <p>{{ service.short_description|linebreaksbr }}</p>
+        </div>
+        <div class="button">
+          <p>Learn More</p>
+        </div>
+      </a>
       {% endfor %}
-  </div>
-  <div class="testimontials">
-  </div>
+    </div>
   {% endblock %}

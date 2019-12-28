@@ -13,7 +13,7 @@
 
     <section class="index">
     <h1 class="index-title">Blog</h1>
-    <section class="blog-index">
+    <section class="index-grid">
     {% for post in posts.all %}
       <a class="index-block" href="{% url 'blog:post' post.slug %}">
         <h2>{{ post.title}}</h2>
