@@ -25,10 +25,11 @@
 
       <!-- Navigation Links -->
       <ul>
-        <li><a href="{% url 'services:index' %}">Services</a></li>
         <li><a href="{% url 'home:about' %}">About</a></li>
+        <li><a href="{% url 'services:index' %}">Services</a></li>
         <li><a href="{% url 'blog:index' %}">Blog</a></li>
         <li><a href="{% url 'home:contact' %}">Contact</a></li>
+
       </ul>
 
       <!-- Hamburger Menu Icon -->
@@ -44,7 +45,7 @@
     {% endblock %}
   </header>
 
-  <main class="light">
+  <main class="dark">
     <div class="breadcrumbs">
       {% block breadcrumbs %}
       {% endblock %}
@@ -95,7 +96,7 @@
   </div>
 
     <div id="copyright">
-      <p>© Copyright Zack Plauché {% now "Y" %} | Built from scratch with ❤ by Zack</p>
+      <p>© Copyright Zack Plauché {% now "Y" %}</p>
     </div>
     <script> </script>
   </footer>

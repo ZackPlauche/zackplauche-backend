@@ -2,7 +2,7 @@
 _____________________________________________________________________________ */
 
 * {
-  font-family: 'Montserrat', sans-serif;
+  font-family: Montserrat, sans-serif;
   margin: 0;
   padding: 0;
 }
@@ -149,27 +149,6 @@ main ol {
 }
 
 
-
-table {
-  border: 1px solid black;
-  margin: 30px auto;
-  padding: 0px 10px;
-}
-
-thead td {
-  border-bottom: 1px solid black;
-}
-
-td,
-th {
-  min-width: 114px;
-  height: 40px;
-  padding: 0px 10px;
-}
-
-tfoot {
-  color: grey;
-}
 
 .logos {
   text-align: center;
@@ -445,6 +424,7 @@ _____________________________________________________________________________ */
   color: white;
   margin-top: 200px;
   border: 1px solid white;
+  white-space: nowrap;
   transition: all .15s ease-out;
 }
 
@@ -522,7 +502,8 @@ _____________________________________________________________________________ */
   box-shadow: 0 0 10px #21ABDE;
 }
 
-.dark .index-block:hover {
+.dark .index-block:hover,
+.dark .index-card:hover {
   box-shadow: 0px 0px 10px 5px #00e7ff;
 }
 
@@ -561,6 +542,7 @@ _____________________________________________________________________________ */
   align-items: center;
   text-align: center;
   height: 540px;
+  min-height: 540px;
   width: 90%;
   margin: 0 30px 30px;
   max-width: 400px;
@@ -568,11 +550,31 @@ _____________________________________________________________________________ */
   background-color: #FFFFFF;
   box-shadow: 0px 0px 5px lightgrey;
   border: 1px solid lightgrey;
+  overflow: hidden;
   transition: all .2s ease;
+}
+
+/* Make card layout look fine on Mobile */
+@media screen and (max-width: 415px) {
+
+  .index-card {
+    height: auto;
+    margin: 0 0 30px;
+  }
 }
 
 .index-card:hover {
   box-shadow: 0 0 10px #21ABDE;
+}
+
+.dark .index-card {
+  background-color: #080f13;
+  box-shadow: 0px 0px 5px #00e7ff;
+  border: none;
+}
+
+.dark .index-card:hover {
+  box-shadow: 0px 0px 10px 5px #00e7ff;
 }
 
 
@@ -592,15 +594,24 @@ _____________________________________________________________________________ */
 }
 
 .index-card .description {
+  margin-top: 10px;
   color: black;
   line-height: 1.4;
   font-weight: 300;
   font-size: 13px;
 }
 
+@media screen and (max-width: 415px) {
+
+  .index-card .description {
+    margin-bottom: 30px;
+  }
+
+}
+
 .index-card .button {
   margin-top: auto;
-  margin-bottom: 10px;
+  margin-bottom: 14px;
 }
 
 .dark .index-card {
@@ -712,19 +723,6 @@ figure span {
   font-size: xx-large;
 }
 
-
-/* Service Display
--------------------------------------*/
-
-.services-display {
-  text-align: center;
-}
-
-.services-display .title {
-  padding: 15px 0px;
-}
-
-
 /* Blog
 _____________________________________________________________________________ */
 
@@ -777,15 +775,23 @@ article img {
 }
 
 article p,
-article li {
+article li,
+.service-detail .description p,
+.service-detail .description li {
   line-height: 1.6em;
   font-size: 18px;
-  letter-spacing: .03em;
 }
 
+article p,
+article li {
+  letter-spacing: .03em;
+}
 article li,
 article li p,
-article em {
+article em,
+.service-detail .description li,
+.service-detail .description li p,
+.service-detail .descrpition em {
   font-weight: 600;
 }
 
@@ -799,12 +805,9 @@ article .blog-body {
 
 .dark article {
   background-color: #080f13;
-  box-shadow:0 0 15px white;
-}
-
-.dark article {
   box-shadow: 0px 5px 20px #00e7ff;
 }
+
 .dark article li,
 .dark article strong,
 .dark article i {
@@ -856,15 +859,99 @@ _____________________________________________________________________________ */
 
 /* Services Detail
 ----------------------------------------------------------------------------- */
-table .button {
+
+
+.service-detail {
   display: block;
-  margin: 0;
+  padding-top: 5px;
+  margin-top: 5px;
+  width: 100%;
+  background-color: white;
+  box-shadow: 0 0 5px grey;
 }
 
-.service-detail h1, .service-detail hr {
+.dark .service-detail {
+  background-color: #0c181e;
+  box-shadow: 0 5px 10px #00E7FF;
+}
+
+.service-detail .content {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  width: 95%;
+  margin: 0 auto 30px;
+  padding: 30px 0;
+}
+
+.service-detail .icon {
+  max-width: 150px;
+  margin: 0 0 30px;
+}
+
+.service-detail h1 {
+  font-size: 3.5em;
+  margin-bottom: 20px;
+}
+
+
+
+.service-detail .body {
+  max-width: 865px;
+  width: 95%;
+  font-size: 16px;
+}
+
+.service-detail .description {
+  display: contents;
+}
+
+.service-detail h2 {
+  font-family: bentham;
+  font-size: 3em;
+  margin: 30px 0 18px;
   text-align: center;
 }
 
+.service-detail .price {
+  font-size: 2.5em;
+  font-family: Montserrat;
+  font-weight: 500;
+  margin-bottom: 40px;
+}
+
+.service-detail .price span {
+  color: black;
+  font-weight: 400
+}
+
+.service-detail .deliverables ul {
+  padding-left: 20px;
+}
+
+.service-detail .deliverables li {
+  font-weight: 500;
+  font-size: 20px;
+  padding: 2px;
+}
+
+.service-detail .button {
+  display: block;
+  font-size: 40px;
+  padding: 50px 0;
+  text-align: center;
+  max-width: 521.69px;
+  width: 95%;
+}
+
+@media screen and (max-width: 414px) {
+
+  .service-detail .button {
+    padding: 40px 0;
+  }
+
+}
 
 /* Footer
 _____________________________________________________________________________ */

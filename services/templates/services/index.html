@@ -12,11 +12,20 @@
 {% block main %}
 <section class="index">
   <h1 class="index-title">Services</h1>
-  <section class="index-list">
+  <section class="index-grid">
   {% for service in services.all %}
-    <a class="index-banner" href="{% url 'services:service_detail' service.slug %}">
+    {% if service.display == True %}
+    <a class="index-card" href="{% url 'services:service_detail' service.slug %}">
+      <img class="icon" src="{{ service.icon.url }}">
       <h2>{{ service.title}}</h2>
+      <div class="description">
+        <p>{{ service.short_description|linebreaksbr }}</p>
+      </div>
+      <div class="button">
+        <p>Learn More</p>
+      </div>
     </a>
+    {% endif %}
   {% endfor %}
   </section>
 </section>

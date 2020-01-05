@@ -54,6 +54,7 @@
     <h2 class="section-title">Services</h2>
     <div class="test-section">
       {% for service in services.all %}
+      {% if service.display == True %}
       <a class="index-card" href="{% url 'services:service_detail' service.slug %}">
         <img class="icon" src="{{ service.icon.url }}">
         <h2>{{ service.title }}</h2>
@@ -64,6 +65,7 @@
           <p>Learn More</p>
         </div>
       </a>
+      {% endif %}
       {% endfor %}
     </div>
   {% endblock %}

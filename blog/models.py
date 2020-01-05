@@ -10,6 +10,7 @@ class Post(models.Model):
     body = HTMLField(null=True)
     created_date = models.DateTimeField(auto_now_add=True)
     published_date = models.DateTimeField()
+    display = models.BooleanField(default=True)
 
     def __str__(self):
         return self.title
