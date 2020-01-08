@@ -716,6 +716,7 @@ figure {
 
 figure img {
   width: 100%;
+  border-radius:10px;
 }
 
 figure span {
@@ -893,6 +894,7 @@ _____________________________________________________________________________ */
 .service-detail h1 {
   font-size: 3.5em;
   margin-bottom: 20px;
+  max-width: 95%;
 }
 
 
