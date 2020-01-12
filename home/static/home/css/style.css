@@ -1,6 +1,10 @@
 /* Sitewide
 _____________________________________________________________________________ */
 
+html {
+  scroll-behavior: smooth;
+}
+
 * {
   font-family: Montserrat, sans-serif;
   margin: 0;
@@ -633,7 +637,7 @@ _____________________________________________________________________________ */
 
 
 /*  About Section
-------------------------------------- */
+---------------------------------- */
 
 .about-section {
   display: flex;
@@ -728,6 +732,85 @@ figure img {
 figure span {
   font-weight: 600;
   font-size: xx-large;
+}
+
+/* About
+_____________________________________________________________________________ */
+
+.about {}
+
+.about-header {
+  display: flex;
+  align-items: center;
+  height: 92vh;
+  width: 100%;
+  background: url('../img/zack-about-banner.jpg') no-repeat;
+  background-position: center right;
+  background-size: cover;
+}
+
+.about-intro {
+  margin: 0 0 0 20%;
+}
+
+.about-title {
+  color: white;
+  font-weight: 400;
+  font-size: 6em;
+
+}
+
+.about-subtitle {
+  color: white;
+  font-weight: 600;
+  spacing: .1;
+  width: 600px;
+}
+
+.header-button-area {
+  display: inline-block;
+  margin: 10px auto 0;
+  width: auto;
+
+}
+
+.header-button {
+  display: block;
+  background-color: white;
+  padding: 20px;
+  margin: 10px 0 0px;
+  border-radius:100vh;
+  white-space: nowrap;
+  width: 120px;
+  transition: all .2s ease;
+}
+
+.header-button-area:hover .header-button {
+  box-shadow: 0 10px 10px #00000070;
+  color: white;
+  margin: 0 0 10px;
+  background-color: #21ABDE;
+}
+
+.header-button .arrow {
+  border: solid #21ABDE;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px 3px;
+  margin: 0 0 3px 3px;
+  transform: rotate(-135deg);
+  -webkit-transform: rotate(45deg);
+}
+
+.header-button-area:hover .header-button .arrow {
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding:3px;
+}
+
+.about-content {
+  padding: 20px 2%;
 }
 
 /* Blog
