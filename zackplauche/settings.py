@@ -25,6 +25,7 @@ ALLOWED_HOSTS = [
 
 INSTALLED_APPS = [
     'tinymce',
+    'about.apps.AboutConfig',
     'blog.apps.BlogConfig',
     'home.apps.HomeConfig',
     'services.apps.ServicesConfig',
