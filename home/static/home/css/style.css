@@ -751,10 +751,14 @@ _____________________________________________________________________________ */
 
 .about-intro {
   margin: 0 0 0 20%;
+  padding-bottom: 23px;
+  transition: background-color .2s ease;
 }
 
 .about-title {
+  display: inline-block;
   color: white;
+  padding-left: 10px;
   font-weight: 400;
   font-size: 6em;
 
