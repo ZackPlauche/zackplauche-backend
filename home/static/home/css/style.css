@@ -687,9 +687,6 @@ _____________________________________________________________________________ */
   box-shadow: 0px 0px 10px 5px #00e7ff;
 }
 
-
-
-
 input::-webkit-input-placeholder {
   color: darkgrey;
   font-weight: 400;
@@ -715,6 +712,8 @@ input::-webkit-input-placeholder {
   box-shadow: 5px 5px #00a1b1, 10px 10px #006973, 15px 15px #004148;
   border-radius: 8px;
 }
+
+
 
 figure {
   display: block;
@@ -813,8 +812,15 @@ _____________________________________________________________________________ */
   padding:3px;
 }
 
+
 .about-content {
   padding: 20px 2%;
+}
+
+.bio img {
+  display: block;
+  width: 30%;
+  margin: auto;
 }
 
 /* Blog

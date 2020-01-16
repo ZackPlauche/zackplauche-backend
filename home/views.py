@@ -3,10 +3,10 @@ from django.http import HttpResponseRedirect
 from services.models import Service
 
 
-def index(request):
+def home(request):
     services = Service.objects
     context = {'services': services}
-    return render(request, 'home/index.html', context=context)
+    return render(request, 'home/home.html', context=context)
 
 def contact(request):
     return render(request, 'home/contact.html')
