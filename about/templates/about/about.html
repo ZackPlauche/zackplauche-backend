@@ -1,0 +1,80 @@
+{% extends 'home/base.html' %}
+
+{% block title %}About | Zack Plauché{% endblock %}
+
+{% block main %}
+<section class="about">
+  <div class="about-header">
+    <div class="about-intro">
+      <h1 class="about-title">About Zack</h1>
+      <h3 class="about-subtitle">
+        Hey there! Hmm... You seem more woke than the rest of 'em.<br>I'm Zack. Welcome to my site!
+        <br>
+        <br>
+        Below you'll find the most useful information about me there is, all super readable and refined for easy consumption. Enjoy!
+      <h3>
+      <a class="header-button-area" href="#about-content">
+        <p class="header-button">Learn More <i class="arrow"></i></p>
+      </a>
+    </div>
+  </div>
+
+
+  <div id="about-content" class="about-content">
+      <div class="bio">
+        <h2>Bio</h2>
+        <div class="bio-content">
+            <img src="{% static 'home/img/rzd-ocean-view-smile-zack.jpg' %}">
+            <div class="bio-text">
+            <h3>Zack Plauché: The Flexible Creator</h3>
+            <p>
+              It's hard to define something that can be so many things.
+              <br><br>
+              You could call me a freelancer, entreprenuer, developer, musician, husband, etc. But at my core?
+              <br><br>
+              I'm a creator.
+              <br>
+              <br>
+              I'm an artist, loving husband and friend, and guy who wants to enjoy life and leave a massive positive impact on the world.
+              <br>
+              <br>
+              I want this page to be useful for those who are looking to do the same and could use my help, whoever you may be.
+            </p>
+            </div>
+        </div>
+      </div>
+      <div class="skills">
+        <h2>Skills</h2>
+        <div class="skills-container">
+
+          <div class="skill-box">
+            <h3 class="skill-category">Coding</h3>
+            <div class="skill-area">
+              {% for skill in skills %}
+              <div class="skill">
+                <span class="Name">{{ skill.title }}</span>
+                <div class="progress-bar">
+                  <div class="progress" style="width: {{ skill.progress }}%"></div>
+                </div>
+                <span class="Value">{{ skill.progress }}%</span>
+              </div>
+              {% endfor %}
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+      <h2 class="about-content-title">Speed and quality.</h2>
+      <p>We don't rush the process of fulfilling your service, but we also don't waste time.
+      We're smarter & better than that. We fulfill our client's orders with only as much time is needed to provide our top quality standards of service.
+        All of which are we aim clearly define in a clear and concise language for our clients and even children to understand. (It'd be a funny idea to have a video of a child explaining what SEO is here lmao).
+      </p>
+      <p>I'm a health tech visionary actively working towards becoming the type of person
+      who can make a massive positive impact on the world.</p>
+
+  </div>
+
+</section>
+{% endblock %}
