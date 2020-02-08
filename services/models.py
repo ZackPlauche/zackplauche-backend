@@ -43,7 +43,7 @@ class Service(models.Model):
         choices=call_to_action_choices,
         default="Order Now"
     )
-    display = models.BooleanField(default=True)
+    display = models.BooleanField(default=True, blank=True, null=True)
 
     @property
     def slug(self):
