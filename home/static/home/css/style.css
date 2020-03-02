@@ -9,6 +9,7 @@ html {
   font-family: Montserrat, sans-serif;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 ::selection {
@@ -117,6 +118,10 @@ main ol {
 
 /* General Purpose
 ----------------------------------------------------------------------------- */
+
+.center{
+  text-align: center;
+}
 
 .button {
   text-decoration: none;
@@ -419,7 +424,7 @@ _____________________________________________________________________________ */
   display: block;
   padding: 24px 36px;
   margin: auto;
-  width: 275.85px;
+  width: 348px;
   text-decoration: none;
   border-radius: 4px;
   font-size:46px;
@@ -468,11 +473,53 @@ _____________________________________________________________________________ */
 
 }
 
-.index-grid {
+.index-container {
+  display: flex;
+  justify-content: center;
+}
+
+.polaroid-card-grid {
   display: flex;
   flex-flow: row wrap;
-  justify-content: center;
   margin-bottom: 30px;
+  max-width: 1410px;
+}
+
+@media screen and (max-width: 1427px) {
+
+  .polaroid-card-grid {
+    max-width: 957px;
+  }
+
+}
+
+@media screen and (max-width: 957px) {
+
+  .polaroid-card-grid {
+    justify-content: center;
+  }
+}
+
+.icon-card-grid {
+  display: flex;
+  flex-flow: row wrap;
+  margin-bottom: 30px;
+  max-width: 1380px;
+}
+
+@media screen and (max-width: 1396px) {
+
+  .icon-card-grid {
+    max-width: 937px;
+  }
+}
+
+@media screen and (max-width: 937px) {
+
+  .icon-card-grid {
+    justify-content: center;
+  }
+
 }
 
 .index-list {
@@ -483,7 +530,7 @@ _____________________________________________________________________________ */
   margin-bottom:30px;
 }
 
-.index-block {
+.polaroid-card {
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
@@ -497,32 +544,32 @@ _____________________________________________________________________________ */
   transition: all .2s ease;
 }
 
-.dark .index-block {
+.dark .polaroid-card {
   background-color: #080f13;
   box-shadow: 0px 0px 5px #00e7ff;
 }
 
-.index-block:hover {
+.polaroid-card:hover {
   box-shadow: 0 0 10px #21ABDE;
 }
 
-.dark .index-block:hover,
-.dark .index-card:hover {
+.dark .polaroid-card:hover,
+.dark .icon-card:hover {
   box-shadow: 0px 0px 10px 5px #00e7ff;
 }
 
-.index-block h2 {
+.polaroid-card h2 {
   display: block;
   font-family: bentham;
   font-size: 2.5em;
   transition: all .2s ease;
 }
 
-.dark .index-block h2 {
+.dark .polaroid-card h2 {
   font-weight: 400;
 }
 
-.index-block img {
+.polaroid-card img {
   display: block;
   max-height: 342px;
   height: auto;
@@ -540,7 +587,7 @@ _____________________________________________________________________________ */
   box-shadow: 0 0 5px grey;
 }
 
-.index-card {
+.icon-card {
   display: flex;
   flex-flow: column;
   align-items: center;
@@ -561,43 +608,43 @@ _____________________________________________________________________________ */
 /* Make card layout look fine on Mobile */
 @media screen and (max-width: 415px) {
 
-  .index-card {
+  .icon-card {
     height: auto;
     margin: 0 0 30px;
   }
 }
 
-.index-card:hover {
+.icon-card:hover {
   box-shadow: 0 0 10px #21ABDE;
 }
 
-.dark .index-card {
+.dark .icon-card {
   background-color: #080f13;
   box-shadow: 0px 0px 5px #00e7ff;
   border: none;
 }
 
-.dark .index-card:hover {
+.dark .icon-card:hover {
   box-shadow: 0px 0px 10px 5px #00e7ff;
 }
 
 
-.index-card .icon {
+.icon-card .icon {
   padding-top: 10px;
   height: auto;
   width: 60px;
 }
 
-.index-card h2,
-.index-card .description {
+.icon-card h2,
+.icon-card .description {
   width: 95%;
 }
 
-.index-card h2 {
+.icon-card h2 {
   padding: 5px 0;
 }
 
-.index-card .description {
+.icon-card .description {
   margin-top: 10px;
   color: black;
   line-height: 1.4;
@@ -607,18 +654,18 @@ _____________________________________________________________________________ */
 
 @media screen and (max-width: 415px) {
 
-  .index-card .description {
+  .icon-card .description {
     margin-bottom: 30px;
   }
 
 }
 
-.index-card .button {
+.icon-card .button {
   margin-top: auto;
   margin-bottom: 14px;
 }
 
-.dark .index-card {
+.dark .icon-card {
   background-color: #0c181e;
 }
 
@@ -639,35 +686,35 @@ _____________________________________________________________________________ */
 /*  About Section
 ---------------------------------- */
 
-.about-section {
+.home-about-section {
   display: flex;
   align-items: center;
   background: url('../img/blue-mountain-stars-cropped.jpg') fixed;
   background-size:cover;
 }
 
-.about-section .title {
+.home-about-section .title {
   font-family: Bentham;
   font-size: 4em;
   padding: 0px 0px 10px;
 
 }
 
-.about-section .content {
+.home-about-section .content {
   max-width: 55%;
   margin: 0px auto;
 }
 
-.about-section form p {
+.home-about-section form p {
   padding: 40px 0px 10px;
 }
 
-.about-section form {
+.home-about-section form {
   display: inline-block;
   position: relative;
 }
 
-.about-section input {
+.home-about-section input {
   width: 100%;
   padding: 14px 0px 14px 30px;
   border: 1px solid black;
@@ -678,11 +725,11 @@ _____________________________________________________________________________ */
   transition: all .2s ease;
 }
 
-.about-section input:hover {
+.home-about-section input:hover {
   box-shadow: 0px 0px 10px 5px #00e7ff;
 }
 
-.about-section input:focus {
+.home-about-section input:focus {
   outline: none;
   box-shadow: 0px 0px 10px 5px #00e7ff;
 }
@@ -746,6 +793,112 @@ _____________________________________________________________________________ */
   margin-bottom: 20px;
 }
 
+.about-section h3 {
+  color: #004a66;
+  text-align: center;
+  font-size: 1.5em;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.about-section p {
+  text-align: center;
+}
+
+.about-section .flex-grid-container {
+  display: flex;
+  justify-content: center;
+}
+
+.about-section .flex-grid {
+  display: flex;
+  justify-content: center;
+  flex-flow: row wrap;
+  margin-top: 30px;
+  align-items: center;
+  max-width: 1017px;
+}
+
+.value-box {
+  margin: 0 20px 40px;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  padding: 10px;
+  height: 200px;
+  width: 200px;
+  box-shadow: 0 2px 5px grey;
+  border-radius: 5px;
+  transition: box-shadow .2s ease;
+}
+
+.value-box:hover {
+  box-shadow: 0 2px 10px grey;
+}
+
+.value-icon {
+  width: 80px;
+  height: auto;
+}
+
+@media screen and (max-width: 516px) {
+
+  .value-box {
+    height: 155px;
+    width: 155px;
+    justify-content: center;
+  }
+
+  .value-box p {
+    display: none;
+  }
+}
+
+.mission p {
+  line-height: 1.85;
+}
+
+.mission-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  margin-bottom: 40px;
+  box-shadow: 0 2px 5px grey;
+  border-radius: 5px;
+  margin-top: 20px;
+  max-width: 770px;
+}
+
+.mission-box .mission-statement {
+  font-size: 3em;
+  font-family: Bentham;
+}
+
+.story-content {
+  margin: 0 auto;
+  max-width: 1020px;
+  width: 95%;
+}
+
+.story-content h3 {
+  text-align: left;
+}
+
+.story-content p {
+  text-align: left;
+  margin-bottom: 10px;
+  line-height: 1.85;
+}
+
+.story-content li {
+  line-height: 1.85;
+}
+
+.story-content ol, .story-content ul {
+  margin-bottom: 10px;
+}
+
 .about-header {
   display: flex;
   align-items: center;
@@ -782,7 +935,6 @@ _____________________________________________________________________________ */
   display: inline-block;
   margin: 10px auto 0;
   width: auto;
-
 }
 
 .header-button {
@@ -792,7 +944,7 @@ _____________________________________________________________________________ */
   margin: 10px 0 0px;
   border-radius:100vh;
   white-space: nowrap;
-  width: 120px;
+  width: 160px;
   transition: all .2s ease;
 }
 
@@ -1174,6 +1326,27 @@ _____________________________________________________________________________ */
 
 }
 
+/* Contact
+_____________________________________________________________________________ */
+
+.contact-title {
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 3.5em;
+}
+
+.flex-center-area {
+  display: flex;
+  justify-content: center;
+}
+
+.contact form input[type="text"] {
+  border-style: 1px solid grey;
+}
+
+
+
+
 /* Footer
 _____________________________________________________________________________ */
 
@@ -1305,24 +1478,24 @@ footer .nav-logo {
 /* Half-Screen Desktop */
 @media screen and (max-width: 800px) {
 
-  .about-section {
+  .home-about-section {
     flex-direction: column;
   }
 
-  .about-section figure {
+  .home-about-section figure {
     width: 80%;
     padding-top: 74.5px;
   }
 
-  .about-section .content {
+  .home-about-section .content {
     max-width: 90%;
   }
 
-  .about-section .title {
+  .home-about-section .title {
     font-size: 3.4em;
   }
 
-  .about-section form {
+  .home-about-section form {
     text-align: center;
   }
 }
@@ -1360,7 +1533,7 @@ footer .nav-logo {
   .value-proposition {height: 700px}
   .value-proposition h2 {display: none}
   .value-proposition .button {margin-top: 50px}
-  .about-section .title {font-size: 3em}
-  .about-section .content h3 {display: none}
-  .about-section form p {padding-top: 5px}
+  .home-about-section .title {font-size: 3em}
+  .home-about-section .content h3 {display: none}
+  .home-about-section form p {padding-top: 5px}
 }

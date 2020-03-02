@@ -23,8 +23,8 @@
     </div>
   </div><!-- End of Social Proof Logos -->
 
-  <!----- About Section  ----->
-  <div class="about-section dark">
+  <!-- About Section  -->
+  <div class="home-about-section dark">
     <figure>
       <img src="{% static 'home/img/pro-dev-zack.jpg' %}">
       <h4><span class="primary">Zack Plauché</span><br>Freelancer, CEO of ZackHub</h4>
@@ -47,15 +47,18 @@
       </form><!-- End of email collection form -->
 
     </div>
-  </div> <!----- End of About Section ----->
+  </div> <!-- End of About Section -->
 
   </div>
   <div class="services-display">
     <h2 class="section-title">Services</h2>
-    <div class="test-section">
+    <div class="index-container">
+      <div class="icon-card-grid">
+
+
       {% for service in services.all %}
       {% if service.display == True %}
-      <a class="index-card" href="{% url 'services:service_detail' service.slug %}">
+      <a class="icon-card" href="{% url 'services:service_detail' service.slug %}">
         <img class="icon" src="{{ service.icon.url }}">
         <h2>{{ service.title }}</h2>
         <div class="description">
@@ -64,8 +67,10 @@
         <div class="button">
           <p>Learn More</p>
         </div>
+
       </a>
       {% endif %}
       {% endfor %}
+      </div>
     </div>
   {% endblock %}

@@ -13,15 +13,17 @@
 
     <section class="index">
     <h1 class="index-title">Blog</h1>
-    <section class="index-grid">
-    {% for post in posts.all %}
-    {% if post.display == True %}
-      <a class="index-block" href="{% url 'blog:post' post.slug %}">
-        <h2>{{ post.title}}</h2>
-        <img src="{{ post.image.url }}" height="300px">
-        <p class="pub-date">Published {{ post.published_date }}</p>
-      </a>
-    {% endif %}
-    {% endfor %}
-    </section>
+    <div class="index-container">
+      <div class="polaroid-card-grid">
+      {% for post in posts.all %}
+      {% if post.display == True %}
+        <a class="polaroid-card" href="{% url 'blog:post' post.slug %}">
+          <h2>{{ post.title}}</h2>
+          <img src="{{ post.image.url }}" height="300px">
+          <p class="pub-date">Published {{ post.published_date }}</p>
+        </a>
+      {% endif %}
+      {% endfor %}
+      </div>
+    </div>
 {% endblock %}
