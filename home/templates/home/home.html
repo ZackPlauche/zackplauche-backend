@@ -7,7 +7,7 @@
     <div class="content">
     <h1>Get Online, Automate, & Scale.</h1>
     <h2>Work with Zack Plauché to get your business online & working without you so you can make a positive impact while you sleep.</h2>
-    <a class="button-gigantic" href="#">Get Started</a>
+    <a class="button-gigantic" href="{% url 'services:index' %}">Get Started</a>
     </div>
   </div>
 {% endblock %}
@@ -39,10 +39,10 @@
       </h3>
 
       <!-- Email Collection form -->
-      <form action="index.html" method="post">
+      <form action="{% url 'home:home' %}" method="post">
         {% csrf_token %}
         <p>Subscribe for free trainings, new blog posts, & curated content made to help you scale.</p>
-        <input type="email" name="email" placeholder="Your email here"><br>
+        {{ form }}<br>
         <button id="about-submit" type="submit" name="submit">Get Started</button>
       </form><!-- End of email collection form -->
 

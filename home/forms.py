@@ -1,4 +1,9 @@
 from django import forms
+from django.forms import ModelForm
+from contact.models import Contact
 
-class NameForm(forms.Form):
-    your_name = forms.CharField(label='Your name', max_length=100)
+class NewsletterForm(ModelForm):
+    email = forms.EmailField(widget=forms.EmailInput({'placeholder':'Enter your email.'}), label='')
+    class Meta:
+        model = Contact
+        fields = ['email']

@@ -66,6 +66,20 @@ main ol {
   padding-left: 40px;
 }
 
+input, textarea {
+  outline: none;
+}
+
+textarea {
+  overflow: auto;
+}
+
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+  color: darkgrey;
+  font-weight: 400;
+  transition: color .2s ease;
+}
 
 /* Themes & Background Layouts
 ----------------------------------------------------------------------------- */
@@ -124,20 +138,35 @@ main ol {
 }
 
 .button {
+  display: block;
   text-decoration: none;
   background-color: #004a66;
   color: #ffffff;
   padding: 8px  12px;
   border-radius: 4px;
-  display: block;
   transition: all .15s ease-out;
   white-space: nowrap;
 }
 
-.button:hover {
+.button:hover,
+.big-button:hover {
   background-color: #21ABDE;
 }
 
+.big-button {
+  display: block;
+  text-decoration: none;
+  background-color: #004a66;
+  color: #ffffff;
+  transition: all .15s ease-out;
+  white-space: nowrap;
+  border-style: none;
+  cursor: pointer;
+  padding: 20px 60px;
+  border-radius: 100px;
+  font-size: 20px;
+  font-weight: 600;
+}
 
 
 .title {
@@ -191,26 +220,24 @@ main ol {
 /* Navigation
 ----------------------------------------------------------------------------- */
 
-.nav-logo,
-.nav-logo a {
+.nav-logo {
   font-family: bentham;
   font-weight: 400;
   white-space: nowrap;
 }
 
-nav ul a {
+.nav-links a {
   color: lightgrey;
   display: block;
   font-weight: 700;
   font-size: 16px;
   letter-spacing: 1px;
-  padding: 31.5px 10px;
   text-transform: uppercase;
   transition: color .2s ease-out;
   text-decoration: none;
 }
 
-nav ul a:hover {
+.nav-links a:hover {
   color: #fff;
 }
 
@@ -221,7 +248,7 @@ _____________________________________________________________________________ */
 /* Navbar
 ----------------------------------------------------------------------------- */
 
-header nav {
+.navbar {
   align-items: center;
   display: flex;
   height: 60px;
@@ -230,49 +257,44 @@ header nav {
   z-index: 0;
 }
 
-header .nav-logo {
+.navbar .nav-logo {
   font-size: 3em;
   padding-left: 50px;
-}
-
-header .nav-logo a {
   color: white;
 }
 
-header nav li {
-  float: left;
-}
-
-header nav ul {
-  padding-right: 50px;
+.navbar .nav-links {
+  display: flex;
+  flex-flow: row nowrap;
+  margin-right: 50px
 }
 
 
 /* Mobile Navbar
 ----------------------------------------------------------------------------- */
 
+/* Hamburger Menu */
 .hamburger-menu-icon {
-  align-items: center;
-  border-radius: 50%;
-  box-sizing: border-box;
-  cursor: pointer;
   display: none;
   flex-flow: column wrap;
-  height: 50px;
   justify-content: center;
+  align-items: center;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  cursor: pointer;
   position: absolute;
-  right: 5px;
+  right: 10px;
   top: 5px;
   transition: all .2s ease;
-  width: 50px;
 }
 
 .hamburger-menu-icon-bar {
   position: relative;
   width: 34px;
   height: 4px;
-  background-color: white;
   margin: 3px 0;
+  background-color: white;
   border-radius: 2px;
   transition: all .2s linear;
 }
@@ -280,13 +302,13 @@ header nav ul {
 .hamburger-menu-icon-bar::before,
 .hamburger-menu-icon-bar::after {
   content: '';
-  position: absolute;
-  z-index: 1;
-  top: -10px;
-  width: 34px;
   height: 4px;
+  width: 34px;
   background: white;
   border-radius: 2px;
+  position: absolute;
+  top: -10px;
+  z-index: 1;
   transition: all .2s linear;
 }
 
@@ -326,7 +348,7 @@ header nav ul {
     display: flex;
   }
 
-  header nav ul {
+  .navbar .nav-links {
     display: none;
   }
 
@@ -334,11 +356,11 @@ header nav ul {
 
 @media screen and (max-width: 770px) {
 
-  header nav {
+  .navbar {
     justify-content: center;
   }
 
-  header .nav-logo {
+  .navbar .nav-logo {
     padding: 0;
     font-size: 2.9em;
   }
@@ -481,8 +503,9 @@ _____________________________________________________________________________ */
 .polaroid-card-grid {
   display: flex;
   flex-flow: row wrap;
-  margin-bottom: 30px;
-  max-width: 1410px;
+  margin-bottom:30px;
+  width: 1427px;
+  max-width: 1427px;
 }
 
 @media screen and (max-width: 1427px) {
@@ -504,6 +527,7 @@ _____________________________________________________________________________ */
   display: flex;
   flex-flow: row wrap;
   margin-bottom: 30px;
+  width: 1380px;
   max-width: 1380px;
 }
 
@@ -672,17 +696,6 @@ _____________________________________________________________________________ */
 /* Home Page
 ----------------------------------------------------------------------------- */
 
-.test-section {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 30px;
-}
-
-
-
-
 /*  About Section
 ---------------------------------- */
 
@@ -716,7 +729,7 @@ _____________________________________________________________________________ */
 
 .home-about-section input {
   width: 100%;
-  padding: 14px 0px 14px 30px;
+  padding: 14px 0px 14px 20px;
   border: 1px solid black;
   border-radius: 10px;
   font-weight: 400;
@@ -734,10 +747,7 @@ _____________________________________________________________________________ */
   box-shadow: 0px 0px 10px 5px #00e7ff;
 }
 
-input::-webkit-input-placeholder {
-  color: darkgrey;
-  font-weight: 400;
-}
+
 
 #about-submit {
 
@@ -827,6 +837,7 @@ _____________________________________________________________________________ */
   padding: 10px;
   height: 200px;
   width: 200px;
+  background-color: white;
   box-shadow: 0 2px 5px grey;
   border-radius: 5px;
   transition: box-shadow .2s ease;
@@ -868,6 +879,7 @@ _____________________________________________________________________________ */
   border-radius: 5px;
   margin-top: 20px;
   max-width: 770px;
+  background-color: white;
 }
 
 .mission-box .mission-statement {
@@ -905,13 +917,14 @@ _____________________________________________________________________________ */
   height: 92vh;
   width: 100%;
   background: url('../img/zack-about-banner.jpg') no-repeat;
-  background-position: center right;
+  background-position: 73%;
   background-size: cover;
 }
 
 .about-intro {
   margin: 0 0 0 20%;
   padding-bottom: 23px;
+  width: 600px;
   transition: background-color .2s ease;
 }
 
@@ -920,16 +933,68 @@ _____________________________________________________________________________ */
   color: white;
   padding-left: 10px;
   font-weight: 400;
-  font-size: 6em;
-
+  font-size: 96px;
+  white-space: normal;
 }
 
 .about-subtitle {
   color: white;
   font-weight: 600;
   spacing: .1;
-  width: 600px;
 }
+
+.about-title span {
+  font-family: Bentham;
+}
+
+@media screen and (max-width: 1000px) {
+
+  .about-intro {
+    margin: auto;
+  }
+
+}
+
+@media screen and (max-width: 650px) {
+
+  .about-intro {
+    width: 95%;
+  }
+
+  .about-title {
+    padding: none;
+    line-height: 90px;
+    margin-bottom: 10px;
+    white-space: pre-wrap;
+  }
+
+  .about-subtitle {
+    width: 65%;
+  }
+
+  .about-title span {
+    display: block;
+  }
+
+}
+
+@media screen and (max-width: 414px) {
+
+  .about-title {
+    font-size: 80px;
+    padding: none;
+    line-height: 70px;
+    margin-bottom: 10px;
+  }
+
+  .about-subtitle {
+    width: 60%;
+    margin-bottom: 30px;
+  }
+
+
+}
+
 
 .header-button-area {
   display: inline-block;
@@ -975,6 +1040,7 @@ _____________________________________________________________________________ */
 
 .about-content {
   padding: 20px 2%;
+  background: white;
 }
 
 .bio-content {
@@ -984,27 +1050,6 @@ _____________________________________________________________________________ */
   margin: auto;
 }
 
-.bio img {
-  display: block;
-  width: 35%;
-}
-
-.bio-text {
-  flex-direction: column;
-  justify-content: flex-start;
-  width: 55%;
-  line-height: 1.3;
-}
-
-.bio h3 {
-  color: #004a66;
-  font-size: 2.2em;
-  margin-bottom: 10px;
-}
-
-.bio p {
-  font-size: 18px;
-}
 
 /* Skills
 ----------------------------------------------------------------------------- */
@@ -1329,10 +1374,28 @@ _____________________________________________________________________________ */
 /* Contact
 _____________________________________________________________________________ */
 
+.contact {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column nowrap;
+}
+
+.contact-intro {
+  display: block;
+}
+
 .contact-title {
-  margin-bottom: 20px;
-  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 10px;
   font-size: 3.5em;
+}
+
+.contact p {
+  max-width: 620px;
+  margin-bottom: 10px;
+  text-align: center;
+
 }
 
 .flex-center-area {
@@ -1340,12 +1403,77 @@ _____________________________________________________________________________ */
   justify-content: center;
 }
 
+.contact form {
+  display: flex;
+  align-items: center;
+  flex-flow: column nowrap;
+  margin-top: 10px;
+  max-width: 600px;
+  width: 98%;
+  margin-bottom: 40px;
+}
+
 .contact form input[type="text"] {
   border-style: 1px solid grey;
 }
 
+.contact input[type="text"],
+.contact input[type="email"],
+.contact textarea {
+  width: 100%;
+  padding: 10px 0px 10px 5px;
+  border: 1px solid darkgrey;
+  font-weight: 400;
+  font-size: 16px;
+  box-sizing: border-box;
+  resize: none;
+}
+
+.contact textarea {
+  margin-bottom: 10px;
+}
+
+.contact input[type="text"]:focus,
+.contact input[type="email"]:focus,
+.contact textarea:focus {
+  border-color: black;
+}
+
+.contact input[type="text"]:hover::-webkit-input-placeholder ,
+.contact input[type="email"]:hover::-webkit-input-placeholder ,
+.contact textarea:hover::-webkit-input-placeholder  {
+  color: grey;
+}
+.contact input:nth-child(3) {
+  margin-bottom: 10px;
+}
 
 
+
+input::-webkit-input-placeholder {
+  color: darkgrey;
+  font-weight: 400;
+}
+
+
+
+/* Thank you ---------------------------------------------------------------- */
+
+.thankyou {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  height: 92vh;
+}
+
+.thankyou h1 {
+  margin-bottom: 10px;
+}
+
+.thankyou .button {
+  margin: 40px 0 0;
+}
 
 /* Footer
 _____________________________________________________________________________ */
@@ -1358,11 +1486,9 @@ footer .block {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 10px;
-
+  margin: 10px;
   width: 350px;
   height: 210px;
-
   color: white;
 }
 
@@ -1381,7 +1507,7 @@ footer .nav-logo {
   grid-template-columns: auto auto;
   justify-content: space-between;
   align-content: space-between;
-  padding: 30px 35px;
+  padding: 15px 35px;
   width: 100%;
   height: 100%;
   max-height: 150px;

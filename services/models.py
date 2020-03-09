@@ -5,6 +5,13 @@ from django.contrib.auth.models import User
 from tinymce.models import HTMLField
 
 
+class Deliverable(models.Model):
+    name = models.CharField(max_length=200)
+
+    def __str__(self):
+        return self.name
+
+
 class Service(models.Model):
     call_to_action_choices = [
         ('Sell', (
@@ -30,7 +37,7 @@ class Service(models.Model):
         null=True,
         help_text='Max characters: 500',
     )
-    long_description = HTMLField(default="Lorem Ipsum")
+    long_description = HTMLField(blank=True, null=True)
     created_date = models.DateTimeField(default=timezone.now)
     price = models.DecimalField(
         decimal_places=2,
@@ -38,6 +45,8 @@ class Service(models.Model):
         default=0.00,
         blank=True,
     )
+    deliverables = models.ManyToManyField(Deliverable)
+
     call_to_action = models.CharField(
         max_length=30,
         choices=call_to_action_choices,

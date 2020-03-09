@@ -28,6 +28,7 @@ INSTALLED_APPS = [
     'about',
     'blog',
     'home',
+    'contact',
     'services.apps.ServicesConfig',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -129,9 +130,3 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "zackplauche/media")
 MEDIA_URL = '/media/'
 
 django_heroku.settings(locals())
-
-
-
-# Email Integration - Mailchimp
-# MAILCHIMP_API_KEY = '479ec0da254fc77e708984c3325f452a-us4'
-# MAILCHIMP_SUBSCRIBE_LIST_ID = 'f501bf3fc4'

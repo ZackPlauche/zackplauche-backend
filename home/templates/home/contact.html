@@ -5,8 +5,16 @@
 {% block main %}
 <div class="contact">
   <h1 class="contact-title">Contact</h1>
-  <div class="flex-center-area">
-
+  <div class="contact-intro">
+    <p>Have a question or business inquiry?</p>
+    <p>Please fill out the form below to get in touch!</p>
+    <p>You can also contact me directly via <a href="mailto:zackknowspython@gmail.com">email</a> and <a href="tel: +13032618653">phone</a>.</p>
   </div>
+  <form class="" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <input class="big-button" type="submit" value="Submit">
+  </form>
+
 </div>
 {% endblock %}

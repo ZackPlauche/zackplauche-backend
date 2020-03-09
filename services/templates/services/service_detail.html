@@ -26,17 +26,13 @@
       </div>
     <h2>Deliverables</h2>
     <div class="deliverables">
-      <ul>
-        <li><p>List item 1<p></li>
-        <li><p>List item 2<p></li>
-        <li><p>List item 3<p></li>
-      </ul>
-    </div>
-      {% if set_deliverables %}
+      {% if service.deliverables %}
         <ul>
-          {% for deliverable in set_deliverables %}<li>{{ deliverable }}</li>{% endfor %}
+          {% for deliverable in service.deliverables.all %}<li>{{ deliverable.name }}</li>{% endfor %}
         </ul>
       {% endif %}
+    </div>
+
     <h2 class="price">Price: <span>${{ service.price }}</span></h2>
     </div>
     <a class="button" href="#">{{ service.call_to_action }}</a>

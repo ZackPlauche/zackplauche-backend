@@ -17,29 +17,26 @@
 <body>
   <header>
 
-    <!-- Top Navigation -->
-    <nav class="bg-deep dark">
+      <!-- Top Navigation -->
+      <nav class="navbar bg-deep dark">
 
-      <!-- Logo/Home Page Link -->
-      <h1 class="nav-logo"><a class="bentham" href="{% url 'home:home' %}">Zack Plauché</a></h1>
+        <!-- Logo/Home Page Link -->
+        <a class="nav-logo" href="{% url 'home:home' %}">Zack Plauché</a>
 
-      <!-- Navigation Links -->
-      <ul>
-        <li><a href="{% url 'about:about' %}">About</a></li>
-        <li><a href="{% url 'services:index' %}">Services</a></li>
-        <li><a href="{% url 'blog:index' %}">Blog</a></li>
-        <li><a href="{% url 'home:contact' %}">Contact</a></li>
+        <!-- Navigation Links -->
+        <ul class="nav-links">
+          <li><a href="{% url 'about:about' %}">About</a></li>
+          <li><a href="{% url 'services:index' %}">Services</a></li>
+          <li><a href="{% url 'blog:index' %}">Blog</a></li>
+          <li><a href="{% url 'contact:contact' %}">Contact</a></li>
+        </ul>
 
-      </ul>
-
-      <!-- Hamburger Menu Icon -->
-      <input type="checkbox" class="hamburger-menu-icon-toggle">
-      <div class="hamburger-menu-icon">
-        <div class="hamburger-menu-icon-bar"></div>
-      </div>
-
-    </nav><!-- End Navigation -->
-
+        <!-- Hamburger Menu Icon -->
+        <input type="checkbox" class="hamburger-menu-icon-toggle">
+        <div class="hamburger-menu-icon">
+          <div class="hamburger-menu-icon-bar"></div>
+        </div>
+      </nav><!-- End Navigation -->
 
     {% block header %}
     {% endblock %}
@@ -71,9 +68,9 @@
         <!-- TODO: Fix error where footer links break on mobile -->
         <div id="footerBlock2">
           <nav>
-            <ul>
+            <ul class="nav-links">
               <li><a href="{% url 'about:about' %}">About</a></li>
-              <li><a href="{% url 'home:contact' %}">Contact</a></li>
+              <li><a href="{% url 'contact:contact' %}">Contact</a></li>
               <li><a href="">Portfolio</a></li>
               <li><a href="{% url 'blog:index' %}">Blog</a></li>
               <li><a href="{% url 'services:index' %}">Services</a></li>
