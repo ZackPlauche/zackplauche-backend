@@ -17,26 +17,26 @@
 <body>
   <header>
 
-      <!-- Top Navigation -->
-      <nav class="navbar bg-deep dark">
+    <!-- Top Navigation -->
+    <nav class="navbar bg-deep dark">
 
-        <!-- Logo/Home Page Link -->
-        <a class="nav-logo" href="{% url 'home:home' %}">Zack Plauché</a>
+      <!-- Logo/Home Page Link -->
+      <a class="nav-logo" href="{% url 'home:home' %}">Zack Plauché</a>
 
-        <!-- Navigation Links -->
-        <ul class="nav-links">
-          <li><a href="{% url 'about:about' %}">About</a></li>
-          <li><a href="{% url 'services:index' %}">Services</a></li>
-          <li><a href="{% url 'blog:index' %}">Blog</a></li>
-          <li><a href="{% url 'contact:contact' %}">Contact</a></li>
-        </ul>
+      <!-- Navigation Links -->
+      <ul class="nav-links">
+        <li><a href="{% url 'about:about' %}">About</a></li>
+        <li><a href="{% url 'services:index' %}">Services</a></li>
+        <li><a href="{% url 'blog:index' %}">Blog</a></li>
+        <li><a href="{% url 'contact:contact' %}">Contact</a></li>
+      </ul>
 
-        <!-- Hamburger Menu Icon -->
-        <input type="checkbox" class="hamburger-menu-icon-toggle">
-        <div class="hamburger-menu-icon">
-          <div class="hamburger-menu-icon-bar"></div>
-        </div>
-      </nav><!-- End Navigation -->
+      <!-- Hamburger Menu Icon -->
+      <input type="checkbox" class="hamburger-menu-icon-toggle">
+      <div class="hamburger-menu-icon">
+        <div class="hamburger-menu-icon-bar"></div>
+      </div>
+    </nav><!-- End Navigation -->
 
     {% block header %}
     {% endblock %}

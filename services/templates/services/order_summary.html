@@ -1,0 +1,38 @@
+{% extends 'home/base.html' %}
+
+{% block title %}{{ service.title }} | Zack Plauché{% endblock %}
+
+{% block main %}
+<section class="order-summary">
+  <h1 class="index-title">Order Summary</h1>
+  <p class="index-subtitle">You'd like to order:</p>
+  <div class="order-box">
+    <div class="order-box-head">
+      <img class="icon" src="{{ service.icon.url }}">
+      <h2 class="title">{{ service.title }}</h2>
+    </div>
+    <hr>
+    <div class="order-box-details">
+      <h3 class="order-box-subtitle">Details:</h3>
+      <ul class="order-box-deliverables-list">
+        {% for deliverable in service.deliverables.all %}
+          <li>{{ deliverable.name }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+    <hr>
+    <div class="order-box-price">
+      <h3 class="order-box-subtitle">Price:</h3>
+      <p class="price">${{ service.price }}</p>
+    </div>
+  </div>
+  <form class="" method="post">
+    {% csrf_token %}
+    {{ form }}
+  </form>
+  <div class="order-buttons-area">
+    <a class="button" href="mailto: zackknowspython@mgmail.com">Confirm Order</a>
+    <a class="cancel-button" href="{% url 'services:service_detail' service.slug %}">Continue Shopping</a>
+  </div>
+</section>
+{% endblock %}

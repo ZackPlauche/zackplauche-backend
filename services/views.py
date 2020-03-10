@@ -19,3 +19,12 @@ def service_detail(request, service_slug):
     #service = Service.objects.get(slug=service)
     # context = {'service': service}
     return render(request, 'services/service_detail.html', {'service': instance})
+
+def order_summary(request, service_slug):
+
+    for service in services.all():
+        if slugify(service.title) == service_slug:
+            instance = service
+            break
+
+    return render(request, 'services/order_summary.html', {'service': instance})

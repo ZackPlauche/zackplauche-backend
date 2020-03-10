@@ -35,7 +35,7 @@
 
     <h2 class="price">Price: <span>${{ service.price }}</span></h2>
     </div>
-    <a class="button" href="#">{{ service.call_to_action }}</a>
+    <a class="button" href="{% url 'services:order_summary' service.slug %}">{{ service.call_to_action }}</a>
   </div>
 </section>
 {% endblock %}

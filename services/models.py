@@ -61,3 +61,10 @@ class Service(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class Order(models.Model):
+    first_name = models.CharField(max_length=20)
+    last_name = models.CharField(max_length=20)
+    email = models.EmailField(max_length=20)
+    services_ordered = models.ManyToManyField(Service)
