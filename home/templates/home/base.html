@@ -28,6 +28,7 @@
         <li><a href="{% url 'about:about' %}">About</a></li>
         <li><a href="{% url 'services:index' %}">Services</a></li>
         <li><a href="{% url 'blog:index' %}">Blog</a></li>
+        <li><a href="{% url 'portfolio:index' %}">Portfolio</a></li>
         <li><a href="{% url 'contact:contact' %}">Contact</a></li>
       </ul>
 
@@ -65,13 +66,12 @@
 
       <!-- Footer Block 2 -->
       <div class="block">
-        <!-- TODO: Fix error where footer links break on mobile -->
         <div id="footerBlock2">
           <nav>
             <ul class="nav-links">
               <li><a href="{% url 'about:about' %}">About</a></li>
               <li><a href="{% url 'contact:contact' %}">Contact</a></li>
-              <li><a href="">Portfolio</a></li>
+              <li><a href="{% url 'portfolio:index' %}">Portfolio</a></li>
               <li><a href="{% url 'blog:index' %}">Blog</a></li>
               <li><a href="{% url 'services:index' %}">Services</a></li>
             </ul>

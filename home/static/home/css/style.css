@@ -1273,6 +1273,249 @@ article .blog-body {
 
 }
 
+/* Portfolio
+_____________________________________________________________________________ */
+
+
+/* Portfolio Index
+----------------------------------------------------------------------------- */
+
+.display-card-grid {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.display-card-wrapper {
+  height: 367.4px;
+  margin: 0 50px 30px;
+}
+
+.display-card {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 0 1px grey;
+  transition: all .3s ease;
+  margin: 10px 0 0;
+
+}
+
+.display-card-wrapper:hover .display-card {
+  box-shadow: 0 5px 10px grey;
+  margin: 0 0 10px;
+}
+
+.display-card-title {
+  padding-top: 5px;
+  width: 100%;
+  text-align: center;
+  color: black;
+  font-size: 32px;
+  font-weight: 400;
+  transition: color .3s ease;
+}
+
+.display-card img {
+    border-radius: 10px 10px 0 0;
+    width: 360px;
+    height: 240px;
+}
+
+.display-card a:first-child:hover ~ .display-card-title,
+.display-card .display-card-title:hover {
+  color: #21ABDE;
+}
+
+.display-card .buttons-area {
+  display: flex;
+  flex-flow: row-reverse;
+  padding: 20px 0px 10px;
+}
+
+.display-card .buttons-area > *,
+.project .buttons-area > * {
+  display: inline-block;
+  padding: 10px 15px;
+  margin: 0 5px;
+  color: white;
+  border-radius: 5px;
+  transition: background-color .3s ease;
+}
+
+.display-card .download-button,
+.project .download-button {
+  background-color: #191919;
+}
+
+.display-card .download-button:hover,
+.project .download-button:hover {
+  background-color: #21ABDE;
+}
+
+.display-card .live-button,
+.project .live-button {
+  background-color: white;
+  color: red;
+  box-shadow: 0 0 1px grey;
+}
+
+.display-card .live-button:hover,
+.project .live-button:hover {
+  background-color: red;
+  color: white;
+}
+
+/* Portfolio Project
+----------------------------------------------------------------------------- */
+
+.project {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  max-width: 750px;
+  width: 95%;
+  margin: 0 auto 30px;
+}
+
+.project-title {
+  font-size: 4em;
+}
+
+
+.project p {
+  width: 100%;
+  line-height: 30px;
+}
+
+.project ol,
+.project ul {
+  padding-left: 20px;
+  width: 100%;
+}
+
+.project li {
+  line-height: 25px;
+  margin-left: 0;
+}
+
+.project section {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.project .banner {
+  max-width: 750px;
+  width: 100%;
+}
+
+.project .buttons-area {
+  display: flex;
+  flex-flow: row-reverse;
+  padding: 20px 0px;
+}
+
+.project .video-wrapper {
+  width: 100%;
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+}
+
+.project .demo-vid {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.project .how-it-works .section-title {
+  padding-bottom: 5px;
+}
+
+.project .contributors .section-title,
+.project .future-plans .section-title {
+  padding-bottom: 10px;
+}
+
+.project .requirements .section-title {
+  padding-bottom: 20px;
+}
+
+.project .flex-grid {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+
+.project .technology {
+  display: flex;
+  flex-flow: column;
+  justify-content: flex-end;
+  align-items: center;
+  height: 120px;
+  margin: 0 20px;
+}
+
+.project .technology .icon {
+  width: 80px;
+}
+
+.project .technology .technology-name {
+  margin-top: 5px;
+  font-size: 20px;
+  text-align: center;
+  color: black;
+  transition: all .4s ease;
+}
+
+.project .technology:hover .technology-name {
+  margin-bottom: 10px;
+  color: #21ABDE;
+}
+
+.project .contributors {
+  margin-bottom: 0;
+}
+
+.project .contributor {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: flex-end;
+  margin: 0 20px;
+  height: 200px;
+  width: 200px;
+  padding: 10px;
+  border-radius: 10px;
+  transition: all .4s ease;
+}
+
+.project .contributor .profile-picture {
+  width: 150px;
+  border-radius: 100vh;
+}
+
+.project .contributor .name {
+  text-align: center;
+  font-size: 20px;
+  color: black;
+  transition: all .4s ease;
+}
+
+.project .contributor:hover .name {
+  color: #21ABDE;
+
+}
+
 /* Services
 _____________________________________________________________________________ */
 

@@ -29,6 +29,7 @@ INSTALLED_APPS = [
     'blog',
     'home',
     'contact',
+    'portfolio',
     'services.apps.ServicesConfig',
     'django.contrib.admin',
     'django.contrib.auth',
