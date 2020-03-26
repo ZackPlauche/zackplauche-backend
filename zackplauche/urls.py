@@ -4,13 +4,11 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    path('', include('home.urls')),
+    path('admin/', admin.site.urls),
+    path('', include('base.urls')),
     path('services/', include('services.urls')),
     path('blog/', include('blog.urls')),
-    path('admin/', admin.site.urls),
     path('tinymce/', include('tinymce.urls')),
-    path('about/', include('about.urls')),
-    path('contact/', include('contact.urls')),
     path('portfolio/', include('portfolio.urls'))
 ]
 

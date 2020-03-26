@@ -1,8 +1,8 @@
-{% extends 'home/base.html' %}
+{% extends 'base/base.html' %}
 
 {% block breadcrumbs %}
 <ul>
-  <li><a href="{% url 'home:home' %}">Home</a></li>
+  <li><a href="{% url 'base:home' %}">Home</a></li>
   <li><p>Portfolio</p></li>
 </ul>
 {% endblock %}
@@ -19,7 +19,7 @@
             <a href="{% url 'portfolio:project_detail' project.slug %}">
               <img src="{{ project.image.url }}" alt="View this project.">
             </a>
-            <a class="display-card-title" href="{% url 'portfolio:project_detail' project.slug %}">{{ project.title }}</a>
+            <a class="title" href="{% url 'portfolio:project_detail' project.slug %}">{{ project.title }}</a>
             <div class="buttons-area">
               {% if project.download_file %}<a class="download-button" href="{{ project.download_file.url }}" download>Download</a>{% endif %}
               <a class="button" href="{% url 'portfolio:project_detail' project.slug %}">Learn More</a>
