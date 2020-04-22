@@ -124,5 +124,17 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 MEDIA_ROOT = os.path.join(BASE_DIR, "zackplauche/media")
 MEDIA_URL = '/media/'
 
+TINYMCE_DEFAULT_CONFIG = {
+    "theme": "silver",
+    "height": 500,
+    "menubar": False,
+    "plugins": 'lists',
+    "toolbar": 'undo redo | formatselect | '
+    'bold italic backcolor | alignleft aligncenter '
+    'alignright alignjustify | bullist numlist outdent indent | '
+    'removeformat | help',
+}
+
+
 django_heroku.settings(locals())
 del DATABASES['default']['OPTIONS']['sslmode']
