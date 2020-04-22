@@ -1,12 +1,15 @@
 import os
 import django_heroku
+import dj_database_url
+import dotenv
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
+dotenv_file = os.path.join(BASE_DIR, ".env")
+if os.path.isfile(dotenv_file):
+    dotenv.load_dotenv(dotenv_file)
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = '2-6*4zcktymoqs!9j4jf5lk&ovv7_sx-s*5he4$mo&=gnwx*q-'
@@ -15,9 +18,11 @@ SECRET_KEY = '2-6*4zcktymoqs!9j4jf5lk&ovv7_sx-s*5he4$mo&=gnwx*q-'
 DEBUG = True
 
 ALLOWED_HOSTS = [
-'www.zackplauche.com',
-'zackplauche.com',
-'zackplauche.herokuapp.com'
+    'www.zackplauche.com',
+    'zackplauche.com',
+    'zackplauche.herokuapp.com',
+    '127.0.0.1', 
+    'localhost'
 ]
 
 
@@ -39,6 +44,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -73,20 +79,8 @@ WSGI_APPLICATION = 'zackplauche.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-        # 'NAME': 'testdatabase',
-        # 'USER': 'Zack Plauche',
-        # 'PASSWORD': 'prsse245',
-        # 'HOST': 'localhost',
-        # 'PORT': '3306',
-        # 'OPTIONS': {'charset': 'utf8mb4'},
-    }
-}
-
+DATABASES = {}
+DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=False)
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
@@ -125,7 +119,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 STATIC_ROOT = os.path.join(BASE_DIR, "zackplauche/staticfiles")
 STATIC_URL = '/static/'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
 MEDIA_ROOT = os.path.join(BASE_DIR, "zackplauche/media")
 MEDIA_URL = '/media/'
 
 django_heroku.settings(locals())
+del DATABASES['default']['OPTIONS']['sslmode']

@@ -5,7 +5,7 @@ from .models import Contact, CriteriaForSuccess, Skill, Value
 from .forms import NewsletterForm, ContactForm
 
 def home(request):
-    services = Service.objects
+    services = Service.objects.filter(display=True)
 
     if request.method == 'POST':
         form = NewsletterForm(request.POST)

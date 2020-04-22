@@ -3,3 +3,5 @@ __pycache__
 Procfile.windows
 quotes
 venv
+.vscode
+.env
