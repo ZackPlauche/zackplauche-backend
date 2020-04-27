@@ -27,11 +27,14 @@ class Technology(models.Model):
     name = models.CharField(max_length=20, null=True)
     url = models.URLField("URL", null=True, blank=True)
 
+    class Meta:
+        ordering = ['name']
+
     def __str__(self):
         return self.name
 
 class Contributor(models.Model):
-    profile_picture = models.ImageField(upload_to="images/", null=True, blank=True, help_text="1:1 Ratio for best results.")
+    profile_picture = models.ImageField(upload_to="images/", null=True, blank=True, help_text="1:1 Ratio (Square image) for best results.")
     first_name = models.CharField(max_length=20, null=True)
     last_name = models.CharField(max_length=20, null=True, help_text="If you're uncomfortable having your last name displayed, simply put your last initial followed by a period.")
 
@@ -70,6 +73,10 @@ class Project(models.Model):
 
     display = models.BooleanField(default=False, help_text="Check if you want this project to be displayed on your site.")
     favorite = models.BooleanField(default=False)
+    order = models.PositiveIntegerField(null=True, blank=True)
+    
+    class Meta:
+        ordering = ['order', 'display', 'title']
 
 
     @property
