@@ -3,7 +3,9 @@
 {% block breadcrumbs %}
 <ul>
   <li><a href="{% url 'base:home' %}">Home</a></li>
-  <li><p>Portfolio</p></li>
+  <li>
+    <p>Portfolio</p>
+  </li>
 </ul>
 {% endblock %}
 
@@ -12,23 +14,42 @@
   <h1 class="index-title">Portfolio Projects</h1>
   <div class="index-container">
     <div class="display-card-grid">
-    {% for project in projects.all %}
+      {% for project in projects.all %}
       {% if project.display == True %}
-        <div class="display-card-wrapper">
-          <div class="display-card">
-            <a href="{% url 'portfolio:project_detail' project.slug %}">
-              <img src="{{ project.image.url }}" alt="View this project.">
-            </a>
-            <a class="title" href="{% url 'portfolio:project_detail' project.slug %}">{{ project.title }}</a>
-            <div class="buttons-area">
-              {% if project.download_file %}<a class="download-button" href="{{ project.download_file.url }}" download>Download</a>{% endif %}
-              <a class="button" href="{% url 'portfolio:project_detail' project.slug %}">Learn More</a>
-              {% if project.live_url %}<a class="live-button" target="_blank" href="{{ project.live_url }}">See Live •</a>{% endif %}
-            </div>
+
+      <!-- Card wrapper for hover-->
+      <div class="display-card-wrapper">
+
+
+        <!-- Card -->
+        <div class="display-card">
+
+          <!-- Card Image -->
+          <a href="{% url 'portfolio:project_detail' project.slug %}">
+            <img src="{{ project.image.url }}" alt="View this project.">
+          </a>
+
+          <!-- Card Title -->
+          <a class="title" href="{% url 'portfolio:project_detail' project.slug %}">
+          {{ project.title }}
+          {% if project.category %}
+            <span>{{ project.category }}</span>
+          {% endif %}
+          </a>
+
+          <!-- Card Category -->
+
+          <!-- Card Buttons -->
+          <div class="buttons-area">
+            {% if project.download_file %}<a class="download-button" href="{{ project.download_file.url }}" download>Download</a>{% endif %}
+            <a class="button" href="{% url 'portfolio:project_detail' project.slug %}">Learn More</a>
+            {% if project.live_url %}<a class="live-button" target="_blank" href="{{ project.live_url }}">See Live •</a>{% endif %}
           </div>
         </div>
+
+      </div>
       {% endif %}
-    {% endfor %}
+      {% endfor %}
     </div>
   </div>
 </section>

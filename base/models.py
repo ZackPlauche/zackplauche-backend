@@ -12,13 +12,6 @@ class Contact(models.Model):
     def __str__(self):
         return self.email
 
-class CriteriaForSuccess(models.Model):
-    criteria = models.CharField(max_length=100)
-    description = HTMLField(blank=True, null=True)
-
-    def __str__(self):
-        return self.criteria
-
 class Skill(models.Model):
     title = models.CharField(max_length=100)
     progress = models.IntegerField(validators=[MinValueValidator(0), MaxValueValidator(100)])

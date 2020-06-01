@@ -47,7 +47,7 @@ class Contributor(models.Model):
 class Project(models.Model):
     image = models.ImageField(upload_to="images/", null=True, help_text="Image must be 3:2 ratio, otherwise it'll look distored.")
     title = models.CharField(max_length=100, unique=True, null=True, help_text="Maximum 100 characters.")
-    subtitle = models.CharField(max_length=30, null=True, blank=True, help_text="Text that will be shown on the index page for your projects.")
+    subtitle = models.CharField(max_length=50, null=True, blank=True, help_text="Text that will be shown on the index page for your projects.")
     category = models.ForeignKey(Category, on_delete=models.CASCADE, null=True, blank=True)
     purpose = models.CharField(max_length=200, null=True, blank=True, help_text="Why are you creating the project? Max Characters: 200")
     description = HTMLField(null=True, blank=True, help_text="Descibe your project in more detail.")

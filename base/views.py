@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponseRedirect
 from services.models import Service
-from .models import Contact, CriteriaForSuccess, Skill, Value
+from .models import Contact, Skill, Value
 from .forms import NewsletterForm, ContactForm
 
 def home(request):
@@ -23,12 +23,10 @@ def home(request):
 
 # Create your views here.
 def about(request):
-    success_criteria = CriteriaForSuccess.objects.all()
     skills = Skill.objects.all().order_by('title')
     values = Value.objects.all()
 
     context = {
-        'success_criteria': success_criteria,
         'skills': skills,
         'values': values,
     }
