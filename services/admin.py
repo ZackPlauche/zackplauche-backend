@@ -12,10 +12,23 @@ from .models import Service, Deliverable, Order
 
 @admin.register(Service)
 class ServiceAdmin(admin.ModelAdmin):
-    list_display = ['title', 'display', 'created_date', 'call_to_action']
+    list_display = ['title', 'price', 'display', 'created_date', 'call_to_action']
+    fields = (
+        'icon',
+        ('title', 'display'),
+        'price',
+        'short_description',
+        'deliverables',
+        'call_to_action',
+    )
 
 admin.site.register(Deliverable)
 
 @admin.register(Order)
 class OrderAdmin(admin.ModelAdmin):
-    list_display = ['email', 'first_name', 'last_name', 'service_ordered']
+    list_display = ['service', 'order_total', 'order_date', 'email', 'full_name', 'id']
+    fields = (
+        'service',
+        ('first_name', 'last_name'),
+        'email',
+    )

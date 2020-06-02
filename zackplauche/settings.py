@@ -15,7 +15,7 @@ if os.path.isfile(dotenv_file):
 SECRET_KEY = os.environ['SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = [
     'www.zackplauche.com',
@@ -120,7 +120,7 @@ USE_TZ = True
 
 TINYMCE_DEFAULT_CONFIG = {
     "theme": "silver",
-    "height": 500,
+    "height": 300,
     "menubar": False,
     "plugins": 'lists',
     "toolbar": 'undo redo | formatselect | '

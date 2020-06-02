@@ -26,23 +26,22 @@
       <p class="price">${{ service.price }}</p>
     </div>
   </div>
-
   <h2 class="order-form-title">Order Form</h2>
-  <p class="order-form-subtitle">Please fill in your details below to complete your order.</p>
+    <p class="order-form-subtitle">Please fill in your details below to complete your order.</p>
+
   <form method="post">
     <div class="order-form">
       {% csrf_token %}
       {{ form.first_name }}
       {{ form.last_name }}
       {{ form.email }}
-      {{ form.service_ordered }}
+      {{ form.service }}
     </div>
     <div class="order-buttons-area">
       <button class="button" type="submit">Confirm Order</button>
       <a class="cancel-button" href="{% url 'services:service_detail' service.slug %}">Continue Shopping</a>
     </div>
   </form>
-
 
 
 </section>
