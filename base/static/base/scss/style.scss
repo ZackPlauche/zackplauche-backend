@@ -393,11 +393,40 @@ textarea::-webkit-input-placeholder {
 .logos {
   text-align: center;
   background-color: white;
+  padding: 10px 10px 20px;
 
   p {
-    padding: 10px;
+    padding-bottom: 10px;
     color: #0b0b0b !important;
   }
+
+  .social-proof-logos {
+    display: flex;
+    flex-flow: wrap;
+    justify-content: space-around;
+    align-items: center;
+    margin: 20px 0 0;
+
+    @media screen and (max-width: 790px) {
+      margin-bottom: 20px;
+    }
+
+    a:not(:last-of-type) {
+      @media screen and (max-width: 790px) {
+        margin-bottom: 50px;
+      }
+    }
+
+    img {
+      height: 55px;
+
+      @media screen and (max-width: 865px) {
+        height: 50px;
+      }
+
+    }
+  }
+
 }
 
 .flex-container {
@@ -763,9 +792,13 @@ _____________________________________________________________________________ */
   background: white url('../img/resized-man-relaxing-in-spring.jpg')fixed;
   background-size:cover;
   background-position: center;
-  height: 800px;
+  height: 104vh;
   color: white;
   margin-top: -92px;
+  
+  @media screen and (max-width: $mobile) {
+    min-height: 855px;
+  }
 
   @media screen and (max-width: $mobile) {
     height: 700px;
@@ -792,6 +825,11 @@ _____________________________________________________________________________ */
 
     @media screen and (max-width: 670px) {
       line-height: 95px;
+      
+    }
+
+    @media screen and (max-width: $mobile) {
+      font-weight: 400;
     }
   }
 
@@ -804,8 +842,9 @@ _____________________________________________________________________________ */
     }
 
     @media screen and (max-width: $mobile) {
-      display: none
+      font-size: 22px;
     }
+
   }
 
   .button-gigantic {
@@ -831,8 +870,13 @@ _____________________________________________________________________________ */
     @media screen and (max-width: 1075px) {
       margin-top: 80px;
     }
+
+    @media screen and (max-width: $mobile) {
+      margin-top: 30px;
+    }
   }
 }
+
 
 .home-about-section {
   display: flex;

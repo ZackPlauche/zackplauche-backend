@@ -16,7 +16,7 @@
       <h3 class="order-box-subtitle">Details:</h3>
       <ul class="order-box-deliverables-list">
         {% for deliverable in service.deliverables.all %}
-          <li>{{ deliverable.name }}</li>
+        <li>{{ deliverable.name }}</li>
         {% endfor %}
       </ul>
     </div>
@@ -27,7 +27,7 @@
     </div>
   </div>
   <h2 class="order-form-title">Order Form</h2>
-    <p class="order-form-subtitle">Please fill in your details below to complete your order.</p>
+  <p class="order-form-subtitle">Please fill in your details below to complete your order.</p>
 
   <form method="post">
     <div class="order-form">

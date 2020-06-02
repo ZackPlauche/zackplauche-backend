@@ -1,9 +1,10 @@
 from django.contrib import admin
-from .models import Contact, Skill, Value
+from .models import *
 
 # Register your models here.
 admin.site.register(Skill)
 admin.site.register(Value)
+admin.site.register(Client)
 
 @admin.register(Contact)
 class ContactAdmin(admin.ModelAdmin):

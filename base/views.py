@@ -1,11 +1,13 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponseRedirect
 from services.models import Service
-from .models import Contact, Skill, Value
+from .models import *
 from .forms import NewsletterForm, ContactForm
 
 def home(request):
     services = Service.objects.filter(display=True)
+    clients = Client.objects.filter(display=True)
+
 
     if request.method == 'POST':
         form = NewsletterForm(request.POST)
@@ -15,6 +17,7 @@ def home(request):
         form = NewsletterForm()
         context = {
             'services': services,
+            'clients': clients,
             'form': form,
         }
         return render(request, 'base/home.html', context=context)

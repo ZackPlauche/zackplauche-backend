@@ -51,6 +51,10 @@ class Service(models.Model):
         # Service.objects.filter(title=self.title).exists()
         return slugify(self.title)
 
+    @property
+    def price_display(self):
+        return f'${self.price} USD'
+
     def __str__(self):
         return self.title
 
@@ -72,6 +76,6 @@ class Order(models.Model):
     def order_total(self):
         price = f'${str(self.service.price)} USD'
         return price
-        
+
     def __str__(self):
         return self.email

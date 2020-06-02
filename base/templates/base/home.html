@@ -14,14 +14,20 @@
 
 {% block main %}
 
+  {% if clients %}
   <!-- Social Proof Logos -->
   <div class="logos">
     <p>Worked with:</p>
-    <div class="flex-container">
-      <!-- TODO: Make this into a model -->
-      <a target="_blank" href="https://baroneproductions.com/"><img src="{% static 'base/img/logo-BP-400x100.jpg' %}"></a>
+    <div class="social-proof-logos">
+      {% for client in clients %}
+        <!-- TODO: Make this into a model -->
+        <a target="_blank" {% if client.website %}href="{{ client.website }}" {% endif %}><img src="{{ client.logo.url }}"></a>
+      {% endfor %}
     </div>
   </div><!-- End of Social Proof Logos -->
+
+  {% else %}
+  {% endif %}
 
   <!-- About Section  -->
   <div class="home-about-section dark">
