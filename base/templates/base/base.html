@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
+
 <head>
   {% load static %}
   <meta charset="utf-8">
@@ -20,12 +21,18 @@
   <title>{% block title %}{% endblock %}</title>
   <link href="https://fonts.googleapis.com/css?family=Bentham|Montserrat:400,400i,500,600,700,900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{% static 'base/css/style.css' %}">
- <link rel="icon" type="image/png" href="{% static 'base/img/favicon_32x32.png' %}">
+  <link rel="icon" type="image/png" href="{% static 'base/img/favicon_32x32.png' %}">
   <style>
-  {% block style %}
-  {% endblock %}
+    {
+      % block style %
+    }
+
+      {
+      % endblock %
+    }
   </style>
 </head>
+
 <body>
   <header>
 
@@ -69,40 +76,40 @@
     <div class="wrapper">
       <div class="flex-container">
 
-      <!-- Footer block 1 -->
-      <div class="block">
-        <div id="footerBlock1">
-          <h2 class="logo">Zack Plauché</h2>
+        <!-- Footer block 1 -->
+        <div class="block">
+          <div id="footerBlock1">
+            <h2 class="logo">Zack Plauché</h2>
+          </div>
         </div>
-      </div>
 
-      <!-- Footer Block 2 -->
-      <div class="block">
-        <div class="content">
-          <nav>
-            <ul class="nav-links">
-              <li><a href="{% url 'base:about' %}">About</a></li>
-              <li><a href="{% url 'base:contact' %}">Contact</a></li>
-              <li><a href="{% url 'portfolio:index' %}">Portfolio</a></li>
-              <li><a href="{% url 'blog:index' %}">Blog</a></li>
-              <li><a href="{% url 'services:index' %}">Services</a></li>
-            </ul>
-          </nav>
+        <!-- Footer Block 2 -->
+        <div class="block">
+          <div class="content">
+            <nav>
+              <ul class="nav-links">
+                <li><a href="{% url 'base:about' %}">About</a></li>
+                <li><a href="{% url 'base:contact' %}">Contact</a></li>
+                <li><a href="{% url 'portfolio:index' %}">Portfolio</a></li>
+                <li><a href="{% url 'blog:index' %}">Blog</a></li>
+                <li><a href="{% url 'services:index' %}">Services</a></li>
+              </ul>
+            </nav>
+          </div>
         </div>
-      </div>
 
-      <!-- Footer block 3 -->
-      <div class="block">
-        <div class="content">
-          <h2>Connect with me.</h2>
-          <p>Have quesitons? Feel free to reach me at my phone or email listed below:
-          <p><i>Phone:</i>   <a href="tel: +13032618653">+1 (303) 261-8653</a></p>
-          <p><i>Email:</i>   <a href="mailto:zackknowspython@gmail.com">zackkonwspython@gmail.com</a></p>
+        <!-- Footer block 3 -->
+        <div class="block">
+          <div class="content">
+            <h2>Connect with me.</h2>
+            <p>Have quesitons? Feel free to reach me at my phone or email listed below:
+              <p><i>Phone:</i> <a href="tel: +13032618653">+1 (303) 261-8653</a></p>
+              <p><i>Email:</i> <a href="mailto:zackknowspython@gmail.com">zackknowspython@gmail.com</a></p>
+          </div>
         </div>
-      </div>
 
+      </div>
     </div>
-  </div>
 
     <div class="copyright">
       <p>© Copyright Zack Plauché {% now "Y" %}</p>
@@ -110,4 +117,5 @@
     <script> </script>
   </footer>
 </body>
+
 </html>

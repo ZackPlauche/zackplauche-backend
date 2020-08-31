@@ -7,6 +7,6 @@ from . import views
 app_name = 'blog'
 
 urlpatterns = [
-    path('', views.index, name='index'),  # /blog/
-    path('<slug:post_title>/', views.post, name='post'),  # /blog/post-title
+    path('', views.Index.as_view(), name='index'),  # /blog/
+    path('<slug:slug>/', views.PostDetail.as_view(), name='post'),  # /blog/post-title
 ]

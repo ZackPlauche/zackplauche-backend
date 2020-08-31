@@ -6,16 +6,19 @@
 <ul>
   <li><a href="{% url 'base:home' %}">Home</a></li>
   <li><a href="{% url 'blog:index' %}">Blog</a></li>
-  <li><p>{{ post.title }}</p></li>
+  <li>
+    <p>{{ post.title }}</p>
+  </li>
 </ul>
 {% endblock %}
 
 {% block main %}
-  <article>
-      <h1>{{ post.title }}</h1>
-      <img src="{{ post.image.url }}" width="570">
-      <div class="blog-body">
-        {{ post.body|safe|linebreaksbr }}
-    </div>
-  </article>
+<article>
+  {% if user == post.author %}{% endif %}
+  <h1>{{ post.title }}</h1>
+  <img src="{{ post.image.url }}" width="570">
+  <div class="blog-body">
+    {{ post.body|safe|linebreaksbr }}
+  </div>
+</article>
 {% endblock %}

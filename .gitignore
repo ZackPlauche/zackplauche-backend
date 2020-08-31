@@ -4,7 +4,5 @@ Procfile.windows
 venv
 .vscode
 .env
-0*.py
-migrations
 Pipfile
 prepros.config

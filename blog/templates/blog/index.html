@@ -5,25 +5,27 @@
 {% block breadcrumbs %}
 <ul>
   <li><a href="{% url 'base:home' %}">Home</a></li>
-  <li><p>Blog</p></li>
+  <li>
+    <p>Blog</p>
+  </li>
 </ul>
 {% endblock %}
 
 {% block main %}
 
-    <section class="index">
-    <h1 class="index-title">Blog</h1>
-    <div class="index-container">
-      <div class="polaroid-card-grid">
-      {% for post in posts.all %}
-      {% if post.display == True %}
-        <a class="polaroid-card" href="{% url 'blog:post' post.slug %}">
-          <h2>{{ post.title}}</h2>
-          <img src="{{ post.image.url }}" height="300px">
-          <p class="pub-date">Published {{ post.published_date }}</p>
-        </a>
+<section class="index">
+  <h1 class="index-title">Blog</h1>
+  <div class="index-container">
+    <div class="polaroid-card-grid">
+      {% for post in posts %}
+      {% if post.published %}
+      <a class="polaroid-card" href="{{ post.get_absolute_url }}">
+        <h2>{{ post.title}}</h2>
+        <img src="{{ post.image.url }}" height="300px">
+        <p class="pub-date">Published {{ post.published_date }}</p>
+      </a>
       {% endif %}
       {% endfor %}
-      </div>
     </div>
-{% endblock %}
+  </div>
+  {% endblock %}

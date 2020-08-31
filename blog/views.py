@@ -1,17 +1,12 @@
 from django.shortcuts import render
-from .models import Post
-from django.utils.text import slugify
+from django.views.generic import ListView, DetailView
+from .models import *
 
-def index(request):
-    posts = Post.objects
-    context = {'posts': posts}
-    return render(request, 'blog/index.html', context=context)
+class Index(ListView):
+    model = Post
+    template_name = 'blog/index.html'
+    context_object_name = 'posts'
 
-def post(request, post_title):
-
-    for post in Post.objects.all():
-        if slugify(post.title) == post_title:
-            instance = post
-            break
-
-    return render(request, 'blog/post.html', {'post': instance})
+class PostDetail(DetailView):
+    model = Post
+    

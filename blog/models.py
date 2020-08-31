@@ -2,15 +2,20 @@ from django.db import models
 from django.utils.text import slugify
 from django.contrib.auth.models import User
 from tinymce.models import HTMLField
+from django.urls import reverse
+from django.utils import timezone
 
 
 class Author(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
     profile_picture = models.ImageField(upload_to='images/', blank=True)
-    first_name = models.CharField(max_length=20)
-    last_name = models.CharField(max_length=20)
 
     def __str__(self):
-        return f'{self.first_name} {self.last_name}'
+        return f'{self.user.first_name} {self.user.last_name}'
+
+    def delete(self, *args, **kwargs):
+        self.user.delete()
+        super().delete()
 
 class Tag(models.Model):
     name = models.CharField(max_length=20)
@@ -19,32 +24,41 @@ class Tag(models.Model):
         return self.name
 
 class Post(models.Model):
-    author = models.ForeignKey(Author, on_delete=models.CASCADE, blank=True, null=True)
-    image = models.ImageField(upload_to='images/', blank=True)
+    author = models.ForeignKey(Author, related_name='posts', on_delete=models.CASCADE, blank=True, null=True)
+    image = models.ImageField(upload_to='images/', blank=True, default="https://i2.wp.com/quidtree.com/wp-content/uploads/2020/01/placeholder.png?fit=1200%2C800&ssl=1")
     title = models.CharField(max_length=60, unique=True)
+    slug = models.SlugField(null=True)
     body = HTMLField(null=True)
-    tag = models.ForeignKey(Tag, on_delete=models.CASCADE, blank=True, null=True, help_text="You can only choose 1 tag per post.")
-    created_date = models.DateTimeField(auto_now_add=True)
     published_date = models.DateTimeField()
-    display = models.BooleanField(default=True)
+    created_date = models.DateTimeField(auto_now_add=True)
+    last_updated = models.DateTimeField(auto_now=True)
+    published = models.BooleanField(default=True)
+    tags = models.ManyToManyField(Tag, blank=True, related_name='posts', help_text="You can only choose 1 tag per post.")
 
     class Meta:
         ordering = ['-published_date']
 
+    def get_absolute_url(self):
+        return reverse("blog:post", kwargs={'slug': self.slug})
+    
+
+
     def __str__(self):
         return self.title
 
-    @property
-    def slug(self):
-        return slugify(self.title)
-
+    def save(self, *args, **kwargs):
+        if self.published and not self.published_date:
+            self.published_date = timezone.now()
+        self.slug = slugify(self.title)
+        super().save(*args, **kwargs)
 
 
 class Comment(models.Model):
     user = models.ForeignKey(User, null=True, on_delete=models.SET_NULL)
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
-    title = models.CharField(max_length=200)
     body = models.TextField(max_length=200)
+    date_added = models.DateTimeField(auto_now_add=True)
+    last_updated = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.title
