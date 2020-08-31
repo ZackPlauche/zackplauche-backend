@@ -33,7 +33,6 @@ class Post(models.Model):
     created_date = models.DateTimeField(auto_now_add=True)
     last_updated = models.DateTimeField(auto_now=True)
     published = models.BooleanField(default=True)
-    tags = models.ManyToManyField(Tag, blank=True, related_name='posts', help_text="You can only choose 1 tag per post.")
 
     class Meta:
         ordering = ['-published_date']
