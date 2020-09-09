@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Service, Deliverable, Order
+from .models import *
 
 # class ReviewInline(admin.TabularInline):
 #     model = Review
@@ -9,6 +9,9 @@ from .models import Service, Deliverable, Order
 
 # class ServiceAdmin(admin.ModelAdmin):
 #     inlines = [TierInline, ReviewInline]
+
+class TestimonialInline(admin.TabularInline):
+    model = Testimonial
 
 @admin.register(Service)
 class ServiceAdmin(admin.ModelAdmin):
@@ -26,7 +29,7 @@ admin.site.register(Deliverable)
 
 @admin.register(Order)
 class OrderAdmin(admin.ModelAdmin):
-    list_display = ['service', 'order_total', 'order_date', 'email', 'full_name', 'id']
+    list_display = ['service', 'order_total', 'date', 'email', 'full_name', 'id']
     fields = (
         'service',
         ('first_name', 'last_name'),

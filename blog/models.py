@@ -1,6 +1,6 @@
 from django.db import models
 from django.utils.text import slugify
-from django.contrib.auth.models import User
+from base.models import User
 from tinymce.models import HTMLField
 from django.urls import reverse
 from django.utils import timezone
@@ -28,8 +28,8 @@ class Post(models.Model):
     image = models.ImageField(upload_to='images/', blank=True, default="https://i2.wp.com/quidtree.com/wp-content/uploads/2020/01/placeholder.png?fit=1200%2C800&ssl=1")
     title = models.CharField(max_length=60, unique=True)
     slug = models.SlugField(null=True)
-    body = HTMLField(null=True)
-    published_date = models.DateTimeField()
+    body = HTMLField(default='')
+    published_date = models.DateTimeField(default=timezone.now)
     created_date = models.DateTimeField(auto_now_add=True)
     last_updated = models.DateTimeField(auto_now=True)
     published = models.BooleanField(default=True)
@@ -48,7 +48,8 @@ class Post(models.Model):
     def save(self, *args, **kwargs):
         if self.published and not self.published_date:
             self.published_date = timezone.now()
-        self.slug = slugify(self.title)
+        if not self.slug or self.slug != slugify(self.title):
+            self.slug = slugify(self.title)
         super().save(*args, **kwargs)
 
 
@@ -56,8 +57,8 @@ class Comment(models.Model):
     user = models.ForeignKey(User, null=True, on_delete=models.SET_NULL)
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
     body = models.TextField(max_length=200)
-    date_added = models.DateTimeField(auto_now_add=True)
+    date_created = models.DateTimeField(auto_now_add=True)
     last_updated = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return self.title
+        return f'{self.user}\'s comment {date_created.date}'

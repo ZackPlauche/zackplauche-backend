@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'base',
     'portfolio',
     'storages',
+    'django_extensions',
     'services.apps.ServicesConfig',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -115,7 +116,9 @@ USE_L10N = True
 
 USE_TZ = True
 
+# Custom Authentication
 
+AUTH_USER_MODEL = 'base.User'
 
 
 TINYMCE_DEFAULT_CONFIG = {

@@ -1,7 +1,7 @@
 from django.db import models
 from django.utils.text import slugify
 from django.utils import timezone
-from django.contrib.auth.models import User
+from base.models import User
 from tinymce.models import HTMLField
 from base.models import Contact
 import uuid
@@ -36,20 +36,21 @@ class Service(models.Model):
         )
     ]
 
-    icon = models.ImageField(upload_to="images/")
+    icon = models.ImageField(upload_to='images/')
     title = models.CharField(max_length=100, unique=True)
-    short_description = models.TextField(max_length=500, null=True, help_text='Max characters: 500')
-    long_description = HTMLField(blank=True, null=True, help_text="Optional long description for service page.")
-    created_date = models.DateTimeField(default=timezone.now)
+    slug = models.SlugField(unique=True)
+    short_description = models.TextField(max_length=500, default='', help_text='Max characters: 500')
+    long_description = HTMLField(blank=True, default='', help_text='Optional long description for service page.')
+    created_date = models.DateTimeField(auto_now_add=True)
     deliverables = models.ManyToManyField(Deliverable)
-    price = models.DecimalField(decimal_places=2, max_digits=10, default=0.00, blank=True)
-    call_to_action = models.CharField(max_length=30, choices=CALL_TO_ACTION_CHOICES, default="Order Now")
+    price = models.DecimalField(decimal_places=2, max_digits=10, default=0.00)
+    call_to_action = models.CharField(max_length=30, choices=CALL_TO_ACTION_CHOICES, default='Order Now')
     display = models.BooleanField(default=True)
 
-    @property
-    def slug(self):
-        # Service.objects.filter(title=self.title).exists()
-        return slugify(self.title)
+    def save(self, *args, **kwargs):
+        if not self.slug or self.slug != slugify(self.title):
+            self.slug = slugify(self.title)
+        return super().save(*args, **kwargs)
 
     @property
     def price_display(self):
@@ -60,12 +61,12 @@ class Service(models.Model):
 
 
 class Order(models.Model):
-    service = models.ForeignKey(Service, on_delete=models.SET_NULL, null=True)
-    first_name = models.CharField(max_length=20, null=True)
-    last_name = models.CharField(max_length=20, null=True)
-    email = models.EmailField(unique=True, null=True)
+    service = models.ForeignKey(Service, related_name='orders', on_delete=models.SET_NULL, null=True)
+    first_name = models.CharField(max_length=20, default='')
+    last_name = models.CharField(max_length=20, default='')
+    email = models.EmailField('email address', unique=True)
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    order_date = models.DateTimeField(auto_now=True)
+    date = models.DateTimeField(auto_now_add=True)
 
     @property
     def full_name(self):
@@ -79,3 +80,22 @@ class Order(models.Model):
 
     def __str__(self):
         return self.email
+
+class Testimonial(models.Model):
+        
+    user = models.ForeignKey(User, blank=True, on_delete=models.CASCADE)
+    service = models.ForeignKey(Service, on_delete=models.CASCADE)
+    headline = models.CharField('title', max_length=255, default='')
+    body = models.TextField(default='')
+    order = models.PositiveSmallIntegerField(default=0, blank=False, null=False)
+    date = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['-date']
+    def __str__(self):
+        return self.headline
+
+    
+
+    class Meta:
+        ordering = ['order']

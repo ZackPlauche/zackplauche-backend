@@ -1,57 +1,43 @@
-from django.shortcuts import render, get_object_or_404
-from django.http import HttpResponseRedirect
+from django.shortcuts import render, get_object_or_404, redirect
+from django.views.generic import TemplateView, FormView
+
 from services.models import Service
 from .models import *
-from .forms import NewsletterForm, ContactForm
+from .forms import *
 
-def home(request):
-    services = Service.objects.filter(display=True)
-    clients = Client.objects.filter(display=True)
+class Home(FormView):
+    form_class = NewsletterForm
+    template_name = 'base/home.html'
+    success_url = 'thank-you/'
 
-
-    if request.method == 'POST':
-        form = NewsletterForm(request.POST)
-        form.save()
-        return HttpResponseRedirect('thank-you/')
-    else:
-        form = NewsletterForm()
-        context = {
-            'services': services,
-            'clients': clients,
-            'form': form,
-        }
-        return render(request, 'base/home.html', context=context)
-
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['services'] = Service.objects.filter(display=True)
+        context['clients'] = clients = Client.objects.filter(display=True)
+        return context
 
 
 # Create your views here.
-def about(request):
-    skills = Skill.objects.all().order_by('title')
-    values = Value.objects.all()
+class About(TemplateView):
+    template_name = 'base/about.html'
 
-    context = {
-        'skills': skills,
-        'values': values,
-    }
-
-    return render(request, 'base/about.html', context=context)
-
-def thank_you_signup(request):
-    return render(request, 'base/thank-you-signup.html')
-
-def contact(request):
-    if request.method == 'POST':
-        form = ContactForm(request.POST)
-        form.save()
-        return HttpResponseRedirect('thank-you/')
-    else:
-        form = ContactForm()
-        context = {'form': form}
-        return render(request, 'base/contact.html', context=context)
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['skills'] = Skill.objects.order_by('title')
+        context['values'] = Value.objects.all()
 
 
-def thank_you_contact(request):
-    return render(request, 'base/thank-you-contact.html')
+class SignupThankYou(TemplateView):
+    template_name = 'base/thank-you-signup.html'
 
-def olga(request):
-    return render(request, 'base/olga.html')
+
+class Contact(FormView):
+    form_class = ContactForm
+    template_name='base/contact.html'
+    success_url = '/contact/thank-you/'
+
+class ContactThankYou(TemplateView):
+    template_name = 'base/thank-you-contact.html'
+
+class Olga(TemplateView): 
+    template_name = 'base/olga.html'

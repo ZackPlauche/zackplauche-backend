@@ -1,38 +1,30 @@
-from django.shortcuts import render
-from django.http import HttpResponseRedirect
+from django.shortcuts import render, redirect
 from django.utils.text import slugify
-from .models import Service, Order
-from base.models import Contact
+from django.views.generic import ListView, DetailView, TemplateView, FormView
+
 from .forms import OrderForm
+from .models import Service, Order
 from base.forms import ContactForm
+from base.models import Contact
 
 
-services = Service.objects
 
-def index(request):
-    return render(request, 'services/index.html', {'services': services})
+class ServiceList(ListView):
+    model = Service
+    template_name = 'services/index.html'
+    context_objects_name = 'services'
 
-def service_detail(request, service_slug):
+class ServiceDetail(DetailView):
+    model = Service
+    template_name = 'services/service_detail.html'
+    context_object_name = 'service'
 
-    for service in services.all():
-        if slugify(service.title)  == service_slug:
-            instance = service
-            break
+def order_summary(request, slug):
 
-    #service = Service.objects.get(slug=service)
-    # context = {'service': service}
-    return render(request, 'services/service_detail.html', {'service': instance})
-
-def order_summary(request, service_slug):
-
-    # Get current service
-    for service in services.all():
-        if slugify(service.title) == service_slug:
-            instance = service
-            break
+    service = Service.objects.get(service)
 
     # Create initial forms
-    form = OrderForm(initial={'service': instance})
+    form = OrderForm(initial={'service': service})
 
 
     if request.method == 'POST':
@@ -43,14 +35,16 @@ def order_summary(request, service_slug):
         # Validate data
         if filled_form.is_valid():
             filled_form.save()
-            return HttpResponseRedirect('../thank-you')
+            return redirect('../thank-you')
 
     else:
         context = {
-            'service': instance,
+            'service': service,
             'form': form,
         }
         return render(request, 'services/order_summary.html', context)
 
-def thankyou(request, service_slug):
-    return render(request, 'services/thankyou.html')
+
+class OrderThankYou(DetailView):
+    model = Service
+    template_name = 'services/thankyou.html'
