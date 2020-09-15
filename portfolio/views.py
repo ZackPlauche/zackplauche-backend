@@ -1,22 +1,11 @@
 from django.shortcuts import render
-from .models import Project
 from django.utils.text import slugify
+from django.views.generic import ListView, DetailView
+from .models import *
+
 # Create your views here.
+class ProjectList(ListView):
+    model = Project
 
-projects = Project.objects
-
-def index(request):
-    """View for the index of owners portfolio projects."""
-    context = {'projects': projects}
-    return render(request, 'portfolio/index.html', context)
-
-def project_detail(request, project_title):
-
-    for project in projects.all():
-        if slugify(project.title) == project_title:
-            instance = project
-            break
-
-    context = {'project': instance}
-
-    return render(request, 'portfolio/project_detail.html', context)
+class ProjectDetail(DetailView):
+    model = Project

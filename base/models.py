@@ -45,15 +45,17 @@ class User(AbstractUser):
     def __str__(self):
         return self.email
 
+    @property
+    def full_name(self): 
+        return f'{self.first_name} {self.last_name}'
+
         
 class Contact(models.Model):
-    first_name = models.CharField(max_length=20, null=True)
-    last_name = models.CharField(max_length=20, null=True)
-    email = models.EmailField(unique=True)
-    message = models.TextField(blank=True, null=True)
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    messages = models.JSONField(default=list)
 
     def __str__(self):
-        return self.email
+        return self.user.__str__()
 
 class Skill(models.Model):
     class Color(models.TextChoices):
@@ -72,23 +74,4 @@ class Skill(models.Model):
     def __str__(self):
         return self.title
 
-class Value(models.Model):
-    icon = models.ImageField(upload_to='images/')
-    name = models.CharField(max_length=100, null=True)
-    description = HTMLField(blank=True, null=True)
 
-    def __str__(self):
-        return self.name
-
-class Client(models.Model):
-    name = models.CharField(max_length=50, null=True)
-    logo = models.ImageField(upload_to="images", null=True)
-    website = models.URLField(null=True, blank=True)
-    display = models.BooleanField(default=True)
-    order = models.PositiveIntegerField(blank=True, null=True)
-
-    class Meta:
-        ordering = ['order', 'display', 'name']
-
-    def __str__(self):
-        return self.name

@@ -15,7 +15,7 @@ if os.path.isfile(dotenv_file):
 SECRET_KEY = os.environ['SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = [
     'www.zackplauche.com',
@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'portfolio',
     'storages',
     'django_extensions',
+    'adminsortable2',
     'services.apps.ServicesConfig',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -84,6 +85,7 @@ WSGI_APPLICATION = 'zackplauche.wsgi.application'
 DATABASES = {}
 DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=False)
 
+
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
 
@@ -116,10 +118,15 @@ USE_L10N = True
 
 USE_TZ = True
 
+
 # Custom Authentication
+# https://docs.djangoproject.com/en/3.1/topics/auth/customizing/
 
 AUTH_USER_MODEL = 'base.User'
 
+
+# TinyMCE Rich Text Editor
+# https://django-tinymce.readthedocs.io/en/latest/
 
 TINYMCE_DEFAULT_CONFIG = {
     "theme": "silver",
@@ -143,7 +150,7 @@ AWS_S3_OBJECT_PARAMETERS = {'CacheControl': 'max-age=86400'}
 
 AWS_LOCATION = 'static'
 
-# Static FIles
+# Static Files
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 STATIC_URL = AWS_DOMAIN_NAME + '/static/'

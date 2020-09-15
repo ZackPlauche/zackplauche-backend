@@ -12,7 +12,7 @@ from base.models import Contact
 class ServiceList(ListView):
     model = Service
     template_name = 'services/index.html'
-    context_objects_name = 'services'
+    context_object_name = 'services'
 
 class ServiceDetail(DetailView):
     model = Service
@@ -21,7 +21,7 @@ class ServiceDetail(DetailView):
 
 def order_summary(request, slug):
 
-    service = Service.objects.get(service)
+    service = Service.objects.get(slug=slug)
 
     # Create initial forms
     form = OrderForm(initial={'service': service})
@@ -30,11 +30,11 @@ def order_summary(request, slug):
     if request.method == 'POST':
 
         # Call filled forms
-        filled_form = OrderForm(request.POST)
+        form = OrderForm(request.POST)
 
         # Validate data
-        if filled_form.is_valid():
-            filled_form.save()
+        if form.is_valid():
+            form.save()
             return redirect('../thank-you')
 
     else:

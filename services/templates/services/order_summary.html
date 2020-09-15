@@ -8,7 +8,9 @@
   <p class="index-subtitle">You'd like to order:</p>
   <div class="order-box">
     <div class="order-box-head">
+      {% if service.icon %}
       <img class="icon" src="{{ service.icon.url }}">
+      {% endif %}
       <h2 class="title">{{ service.title }}</h2>
     </div>
     <hr>
@@ -23,7 +25,7 @@
     <hr>
     <div class="order-box-price">
       <h3 class="order-box-subtitle">Price:</h3>
-      <p class="price">${{ service.price }}</p>
+      <p class="price">{{ service.price_display }}</p>
     </div>
   </div>
   <h2 class="order-form-title">Order Form</h2>
@@ -39,7 +41,7 @@
     </div>
     <div class="order-buttons-area">
       <button class="button" type="submit">Confirm Order</button>
-      <a class="cancel-button" href="{% url 'services:service_detail' service.slug %}">Continue Shopping</a>
+      <a class="cancel-button" href="{{ service.get_absolute_url }}">Continue Shopping</a>
     </div>
   </form>
 

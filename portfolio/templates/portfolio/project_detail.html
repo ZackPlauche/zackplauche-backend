@@ -3,7 +3,7 @@
 {% block breadcrumbs %}
 <ul>
   <li><a href="{% url 'base:home' %}">Home</a></li>
-  <li><a href="{% url 'portfolio:index' %}">Portfolio</a></li>
+  <li><a href="{% url 'portfolio:project_list' %}">Portfolio</a></li>
   <li></li>
 </ul>
 {% endblock %}
@@ -49,7 +49,7 @@
       <h2 class="section-title">Technologies Used</h2>
       <div class="flex-grid">
         {% for technology in project.technologies_used.all %}
-        <a class="technology" title="{{ technology.url }}"target="_blank" href="{{ technology.url }}">
+        <a class="technology" title="{{ technology.url }}" target="_blank" href="{{ technology.url }}">
           <img class="icon" src="{{ technology.icon.url }}" alt="{{ technology.name }}">
           <p class="technology-name">{{ technology.name }}</p>
         </a>

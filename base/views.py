@@ -1,11 +1,12 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from django.views.generic import TemplateView, FormView
+from django.views.generic import TemplateView, FormView, CreateView
 
-from services.models import Service
+from services.models import *
 from .models import *
 from .forms import *
 
-class Home(FormView):
+
+class Home(CreateView):
     form_class = NewsletterForm
     template_name = 'base/home.html'
     success_url = 'thank-you/'
@@ -13,7 +14,6 @@ class Home(FormView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['services'] = Service.objects.filter(display=True)
-        context['clients'] = clients = Client.objects.filter(display=True)
         return context
 
 
@@ -21,23 +21,20 @@ class Home(FormView):
 class About(TemplateView):
     template_name = 'base/about.html'
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['skills'] = Skill.objects.order_by('title')
-        context['values'] = Value.objects.all()
-
 
 class SignupThankYou(TemplateView):
     template_name = 'base/thank-you-signup.html'
 
 
-class Contact(FormView):
+class Contact(CreateView):
     form_class = ContactForm
-    template_name='base/contact.html'
+    template_name = 'base/contact.html'
     success_url = '/contact/thank-you/'
+
 
 class ContactThankYou(TemplateView):
     template_name = 'base/thank-you-contact.html'
 
-class Olga(TemplateView): 
+
+class Olga(TemplateView):
     template_name = 'base/olga.html'

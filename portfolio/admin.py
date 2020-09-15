@@ -1,14 +1,28 @@
 from django.contrib import admin
-from .models import Project, Tag, Technology, Category, Requirement, Contributor
+from .models import *
 
 # Register your models here.
+@admin.register(Project)
+class ProjectAdmin(admin.ModelAdmin):
+    list_display = [
+        'title',
+        'display',
+        'project_type',
+        'live_url',
+        'github_repository',
+        'download_file'
+    ]
+    fieldsets = (
+        (None, {
+            'fields': (
+                ('title', 'display'),
+                'category',
+            )
+        }),
+    )
+
 
 admin.site.register(Technology)
 admin.site.register(Tag)
-admin.site.register(Category)
 admin.site.register(Requirement)
 admin.site.register(Contributor)
-
-@admin.register(Project)
-class ProjectAdmin(admin.ModelAdmin):
-    list_display = ['title', 'display', 'favorite', 'category', 'live_url', 'github_repository', 'download_file']
