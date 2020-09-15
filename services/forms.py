@@ -13,7 +13,7 @@ class OrderForm(ModelForm):
 
     class Meta:
         model = Order
-        fields = ('service', 'first_name', 'last_name', 'email')
+        fields = ('services', 'first_name', 'last_name', 'email')
 
     def save(self, commit=True, *args, **kwargs):
         order = super().save(commit=False)

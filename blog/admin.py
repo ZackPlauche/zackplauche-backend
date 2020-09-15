@@ -26,7 +26,6 @@ class PostAdmin(admin.ModelAdmin):
         ('title', 'published'),
         'image',
         'body',
-        'tags'
     )
 
     def has_image(self, obj):
