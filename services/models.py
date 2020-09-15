@@ -84,7 +84,7 @@ class Service(models.Model):
     title = models.CharField(max_length=100, unique=True)
     slug = models.SlugField(unique=True)
     short_description = models.TextField(max_length=500, default='', help_text='Max characters: 500')
-    long_description = HTMLField(blank=True, default='', help_text='Optional long description for service page.')
+    long_description = HTMLField(default='', help_text='Long description (optional)')
     created_date = models.DateTimeField(auto_now_add=True)
     deliverables = models.ManyToManyField(Deliverable, blank=True)
     price = models.DecimalField(decimal_places=2, max_digits=10, default=Decimal('0.00'), validators=[MinValueValidator(Decimal('0.00'))])

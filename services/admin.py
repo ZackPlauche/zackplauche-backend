@@ -39,14 +39,20 @@ class ServiceAdmin(SortableAdminMixin, admin.ModelAdmin):
         'call_to_action',
     ]
     list_display_links = ['title']
-    fields = (
-        'icon',
-        ('title', 'display'),
-        ('service_type'),
-        ('price', 'payment_type'),
-        'short_description',
-        'deliverables',
-        'call_to_action',
+    fieldsets = (
+        (None, {
+            'fields': (
+                'icon',
+                ('title', 'display'),
+                ('service_type'),
+                ('payment_type', 'price'),
+                'short_description',
+                'call_to_action',)
+        }),
+        ('Sales Page', {
+            'fields': ('long_description', 'deliverables',),
+            'classes': ('collapse',)
+        })
     )
     list_editable = ['display', 'call_to_action']
     list_filter = ['display', 'service_type']
