@@ -44,14 +44,13 @@ class ServiceAdmin(SortableAdminMixin, admin.ModelAdmin):
             'fields': (
                 'icon',
                 ('title', 'display'),
-                ('service_type'),
-                ('payment_type', 'price'),
+                ('service_type', 'payment_type'),
                 'short_description',
+                'price',
                 'call_to_action',)
         }),
         ('Sales Page', {
             'fields': ('long_description', 'deliverables',),
-            'classes': ('collapse',)
         })
     )
     list_editable = ['display', 'call_to_action']
