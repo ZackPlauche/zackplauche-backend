@@ -26,7 +26,7 @@ class Tag(models.Model):
 class Post(models.Model):
     author = models.ForeignKey(Author, related_name='posts', on_delete=models.CASCADE, blank=True, null=True)
     image = models.ImageField(upload_to='images/', blank=True, default="https://i2.wp.com/quidtree.com/wp-content/uploads/2020/01/placeholder.png?fit=1200%2C800&ssl=1")
-    title = models.CharField(max_length=60, unique=True)
+    title = models.CharField(max_length=250, unique=True)
     slug = models.SlugField(null=True)
     body = HTMLField(default='')
     published_date = models.DateTimeField(default=timezone.now)
