@@ -31,7 +31,7 @@ ALLOWED_HOSTS = [
 INSTALLED_APPS = [
     'tinymce',
     'blog',
-    'base',
+    'base.apps.BaseConfig',
     'portfolio',
     'storages',
     'django_extensions',

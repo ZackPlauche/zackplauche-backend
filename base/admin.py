@@ -19,11 +19,14 @@ class UserAdmin(UserAdmin):
         'is_active',
         'is_superuser',
         'is_staff',
-        'is_client'
+        'is_author',
+        'is_client',
+        'is_contact',
     ]
     list_editable = ['is_active', 'is_superuser', 'is_staff']
     ordering = ['email']
     search_fields = ['email']
+    
     fieldsets = (
         (None, {
             'fields': ['email', 'password'],
@@ -38,14 +41,6 @@ class UserAdmin(UserAdmin):
             'fields': ('email', 'password1', 'password2'),
         }),
     )
-
-    def is_client(self, user):
-        try:
-            return bool(user.client)
-        except:
-            return False
-    is_client.boolean = True
-    is_client.short_description = 'client'
 
 
 admin.site.register(User, UserAdmin)

@@ -71,14 +71,16 @@ class OrderAdmin(admin.ModelAdmin):
         'id',
         'client_email',
         'client_name',
-        'total',
-        'date',
+        'price_total',
+        'created_date',
+        'last_updated',
     ]
-    list_filter = ['date']
+    list_filter = ['created_date']
 
     fields = (
         'services',
         'client',
+        'price_total',
     )
 
     def client_name(self, order):

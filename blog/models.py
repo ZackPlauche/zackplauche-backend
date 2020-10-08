@@ -1,14 +1,13 @@
 from django.db import models
 from django.utils.text import slugify
-from base.models import User
+from django.contrib.auth import get_user_model
 from tinymce.models import HTMLField
 from django.urls import reverse
 from django.utils import timezone
 
 
 class Author(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
-    profile_picture = models.ImageField(upload_to='images/', blank=True)
+    user = models.OneToOneField(get_user_model(), on_delete=models.CASCADE)
 
     def __str__(self):
         return f'{self.user.first_name} {self.user.last_name}'
@@ -17,28 +16,28 @@ class Author(models.Model):
         self.user.delete()
         super().delete()
 
+
 class Tag(models.Model):
     name = models.CharField(max_length=20)
 
     def __str__(self):
         return self.name
 
+
 class Post(models.Model):
     author = models.ForeignKey(Author, related_name='posts', on_delete=models.CASCADE, blank=True, null=True)
-    image = models.ImageField(upload_to='images/', blank=True, default="https://i2.wp.com/quidtree.com/wp-content/uploads/2020/01/placeholder.png?fit=1200%2C800&ssl=1")
+    image = models.ImageField(upload_to='images/', blank=True, default="https://via.placeholder.com/1800x1200")
     title = models.CharField(max_length=250, unique=True)
-    slug = models.SlugField(null=True, max_length=255)
+    slug = models.SlugField(editable=False, max_length=255, unique=True)
     body = HTMLField(default='')
     published_date = models.DateTimeField(default=timezone.now)
     created_date = models.DateTimeField(auto_now_add=True)
     last_updated = models.DateTimeField(auto_now=True)
+    related_service = models.ForeignKey('services.Service', on_delete=models.SET_NULL, null=True, blank=True)
     published = models.BooleanField(default=True)
 
     class Meta:
         ordering = ['-published_date']
-
-    def get_absolute_url(self):
-        return reverse("blog:post_detail", kwargs={'slug': self.slug})
 
     def __str__(self):
         return self.title
@@ -50,9 +49,12 @@ class Post(models.Model):
             self.slug = slugify(self.title)
         super().save(*args, **kwargs)
 
+    def get_absolute_url(self):
+        return reverse("blog:post_detail", kwargs={'slug': self.slug})
+
 
 class Comment(models.Model):
-    user = models.ForeignKey(User, null=True, on_delete=models.SET_NULL)
+    user = models.ForeignKey(get_user_model(), null=True, on_delete=models.SET_NULL)
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
     body = models.TextField(max_length=200)
     date_created = models.DateTimeField(auto_now_add=True)

@@ -23,6 +23,4 @@ class ProjectAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Technology)
-admin.site.register(Tag)
-admin.site.register(Requirement)
 admin.site.register(Contributor)

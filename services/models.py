@@ -7,25 +7,40 @@ from tinymce.models import HTMLField
 from decimal import Decimal
 from django.conf import settings
 from django.core.validators import MinValueValidator
+from django.contrib.auth import get_user_model
 
-from base.models import User
-
+from .managers import ServiceManager, OrderManager
 
 class Client(models.Model): 
-    user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    company_name = models.CharField(max_length=150, blank=True, default='')
-    company_website = models.URLField(default='', blank=True)
-    company_logo = models.ImageField(upload_to='company_logos', blank=True)
-    address_one = models.CharField('address 1', max_length=255, blank=True, default='')
-    address_two = models.CharField('address 2', max_length=255, blank=True, default='')
-
+    user = models.OneToOneField(get_user_model(), on_delete=models.CASCADE)
+    
     def __str__(self):
         return f'{self.user}'
-
 
     @property
     def total_orders(self):
         return self.orders.count()
+
+class Company(models.Model):
+    class LegalStructure(models.TextChoices):
+        SP = 'sole proprietor'
+        PS = 'partnership'
+        LLC = 'limited liability company'
+        CORP = 'corporation'
+        S_CORP = 's corporation'
+    
+    clients = models.ManyToManyField('client', related_name='companies')
+    parent_company = models.ForeignKey('self', on_delete=models.SET_NULL, null=True, blank=True)
+    name = models.CharField(max_length=255)
+    logo = models.ImageField(upload_to='company_logos/', blank=True)
+    email = models.EmailField(blank=True)
+    address = models.CharField(max_length=255, blank=True)
+    website = models.URLField(blank=True)
+    legal_stucture = models.CharField(choices=LegalStructure.choices, max_length=255)
+    is_sponsor = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.name
 
 
 class Deliverable(models.Model):
@@ -37,22 +52,12 @@ class Deliverable(models.Model):
     def __str__(self):
         return self.name
 
-class ServiceManager(models.Manager):
-
-    def services(self):
-        return self.get_queryset().filter(
-            service_type=self.model.ServiceType.SERVICE)
-    
-    def microservices(self):
-        return self.get_queryset().filter(
-            service_type=self.model.ServiceType.MICROSERVICE)
-
 
 class Service(models.Model):
 
-
     class ServiceType(models.TextChoices):
-        SERVICE = 'service'
+        PRIMRARY = 'primary'
+        STANDARD = 'standard'
         MICROSERVICE = 'microservice'
 
 
@@ -80,9 +85,9 @@ class Service(models.Model):
     ]
 
     icon = models.ImageField(upload_to='images/', blank=True)
-    service_type = models.CharField('type', max_length=50, choices= ServiceType.choices, default=ServiceType.SERVICE)
+    service_type = models.CharField('type', max_length=50, choices= ServiceType.choices, default=ServiceType.STANDARD)
     title = models.CharField(max_length=100, unique=True)
-    slug = models.SlugField(unique=True)
+    slug = models.SlugField(editable=False, max_length=255, unique=True)
     short_description = models.TextField(max_length=500, default='', help_text='Max characters: 500')
     long_description = HTMLField(default='', help_text='Long description (optional)')
     created_date = models.DateTimeField(auto_now_add=True)
@@ -118,21 +123,6 @@ class Service(models.Model):
         return self.title
 
 
-class OrderManager(models.Manager):
-
-    def pending(self):
-        return self.get_queryset().filter(status=self.model.Status.PENDING)
-
-    def approved(self):
-        return self.get_queryset().filter(status=self.model.Status.APPROVED)
-
-    def in_progress(self):
-        return self.get_queryset().filter(status=self.model.Status.IN_PROGRESS)
-
-    def fulfilled(self):
-        return self.get_queryset().filter(status=self.model.Status.FULFILLED)
-    
-
 class Order(models.Model):
     class Status(models.TextChoices):
         PENDING = 'pending'
@@ -144,7 +134,9 @@ class Order(models.Model):
     services = models.ManyToManyField(Service, related_name='orders')
     status = models.CharField(max_length=50, choices=Status.choices, default='')
     id = models.UUIDField('order id', primary_key=True, default=uuid.uuid4, editable=False)
-    date = models.DateTimeField(auto_now_add=True)
+    price_total = models.DecimalField(max_digits=10, decimal_places=2, default=Decimal('0.00'))
+    created_date = models.DateTimeField(auto_now_add=True)
+    last_updated = models.DateTimeField(auto_now=True)
 
     objects = OrderManager()
 
@@ -152,20 +144,9 @@ class Order(models.Model):
         return str(self.id)
 
 
-    @property
-    def total(self):
-        if self.services.exists():
-            total = round(self.services.aggregate(total_price=models.Sum('price'))['total_price'], 2)
-        else:
-            total = Decimal('0.00')
-        return f'${total}'
-
-
 class Testimonial(models.Model):
     client = models.ForeignKey(Client, blank=True, on_delete=models.CASCADE)
-    client_name = models.CharField(max_length=50, default='')
     service = models.ForeignKey(Service, on_delete=models.CASCADE)
-    name = models.CharField('client name', max_length=150)
     headline = models.CharField('title', max_length=255, default='')
     body = models.TextField(default='')
     order = models.PositiveSmallIntegerField(default=0, blank=False, null=False)
