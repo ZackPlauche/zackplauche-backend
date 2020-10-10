@@ -159,10 +159,6 @@ AWS_QUERYSTRING_AUTH = False
 AWS_DOMAIN_NAME = f'http://{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
 AWS_LOCATION = 'static'
 
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'mysite/static')
-]
-
 STATIC_URL = AWS_DOMAIN_NAME + '/static/'
 MEDIA_ROOT = os.path.join(BASE_DIR, "/zackplauche/media/")
 MEDIA_URL = '/media/'
