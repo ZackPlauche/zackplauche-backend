@@ -139,20 +139,27 @@ TINYMCE_DEFAULT_CONFIG = {
     'removeformat | help',
 }
 
-# AWS S3 Settings
-AWS_QUERYSTRING_AUTH = False
+# Amazon S3 Settings (via django-storages & boto3)
+# https://django-storages.readthedocs.io/en/latest/backends/amazon-S3.html
+# Userful article: https://simpleisbetterthancomplex.com/tutorial/2017/08/01/how-to-setup-amazon-s3-in-a-django-project.html
+
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
 AWS_ACCESS_KEY_ID = os.environ['AWS_ACCESS_KEY_ID']
 AWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_ACCESS_KEY']
 AWS_STORAGE_BUCKET_NAME = os.environ['S3_BUCKET_NAME']
-AWS_DOMAIN_NAME = f'http://{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
 
 AWS_S3_OBJECT_PARAMETERS = {'CacheControl': 'max-age=86400'}
+
+AWS_QUERYSTRING_AUTH = False
+
+AWS_DOMAIN_NAME = f'http://{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
+
 
 AWS_LOCATION = 'static'
 
 # Static Files
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 STATIC_URL = AWS_DOMAIN_NAME + '/static/'
 MEDIA_ROOT = os.path.join(BASE_DIR, "/zackplauche/media/")
 MEDIA_URL = '/media/'
