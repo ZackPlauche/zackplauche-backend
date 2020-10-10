@@ -1,0 +1,22 @@
+{% load static %}
+<!-- Top Navigation -->
+<nav class="navbar">
+
+  <!-- Logo/Home Page Link -->
+  <a class="logo" href="{% url 'base:home' %}">Zack Plauché</a>
+
+  <!-- Navigation Links -->
+  <ul class="nav-links">
+    <li {% if 'about' in request.path %}class="active" {% endif %}><a href="{% url 'base:about' %}">About</a></li>
+    <li {% if 'services' in request.path %}class="active" {% endif %}><a href="{% url 'services:service_list' %}">Services</a></li>
+    <li {% if 'blog' in request.path %}class="active" {% endif %}><a href="{% url 'blog:post_list' %}">Blog</a></li>
+    <li {% if 'portfolio' in request.path %}class="active" {% endif %}><a href="{% url 'portfolio:project_list' %}">Portfolio</a></li>
+    <li {% if 'contact' in request.path %}class="active" {% endif %}><a href="{% url 'base:contact' %}">Contact</a></li>
+  </ul>
+
+  <!-- Hamburger Menu Icon -->
+  <input type="checkbox" class="hamburger-menu-icon-toggle">
+  <div class="hamburger-menu-icon">
+    <div class="hamburger-menu-icon-bar"></div>
+  </div>
+</nav><!-- End Navigation -->

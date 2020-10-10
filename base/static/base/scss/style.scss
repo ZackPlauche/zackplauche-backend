@@ -407,12 +407,12 @@ textarea::-webkit-input-placeholder {
     align-items: center;
     margin: 20px 0 0;
 
-    @media screen and (max-width: 790px) {
+    @media (max-width: 790px) {
       margin-bottom: 20px;
     }
 
     a:not(:last-of-type) {
-      @media screen and (max-width: 790px) {
+      @media (max-width: 790px) {
         margin-bottom: 50px;
       }
     }
@@ -420,7 +420,7 @@ textarea::-webkit-input-placeholder {
     img {
       height: 55px;
 
-      @media screen and (max-width: 865px) {
+      @media (max-width: 865px) {
         height: 50px;
       }
 
@@ -469,11 +469,15 @@ textarea::-webkit-input-placeholder {
     text-transform: uppercase;
     transition: color .2s ease-out;
     text-decoration: none;
-
+    
     &:hover {
       color: #fff;
     }
   }
+}
+
+.nav-links li.active a {
+  color: white;
 }
 
 /* Top Navigation
@@ -491,7 +495,7 @@ _____________________________________________________________________________ */
   z-index: 0;
   background-color: $deep;
 
-  @media screen and (max-width: 770px) {
+  @media (max-width: 770px) {
     justify-content: center;
   }
 
@@ -500,7 +504,7 @@ _____________________________________________________________________________ */
     padding-left: 50px;
     color: white;
 
-    @media screen and (max-width: 770px) {
+    @media (max-width: 770px) {
       padding: 0;
       font-size: 2.9em;
     }
@@ -511,7 +515,7 @@ _____________________________________________________________________________ */
     flex-flow: row nowrap;
     margin-right: 50px;
 
-    @media screen and (max-width: 1075px) {
+    @media (max-width: 1075px) {
       display: none;
     }
   }
@@ -536,7 +540,7 @@ _____________________________________________________________________________ */
     top: 5px;
     transition: all .2s ease;
 
-    @media screen and (max-width: 1075px) {
+    @media (max-width: 1075px) {
       display: flex;
     }
   }
@@ -633,7 +637,7 @@ _____________________________________________________________________________ */
   font-size: 3.5em;
   padding: 0 0 20px 40px;
 
-  @media screen and (max-width: 1017px) {
+  @media (max-width: 1017px) {
     text-align: center;
     padding: 10px 0 20px 0px;
   }
@@ -651,11 +655,11 @@ _____________________________________________________________________________ */
   width: 1427px;
   max-width: 1427px;
 
-  @media screen and (max-width: 1427px) {
+  @media (max-width: 1427px) {
       max-width: 957px;
     }
 
-  @media screen and (max-width: 957px) {
+  @media (max-width: 957px) {
     justify-content: center;
   }
 
@@ -668,11 +672,11 @@ _____________________________________________________________________________ */
   width: 1380px;
   max-width: 1380px;
 
-  @media screen and (max-width: 1396px) {
+  @media (max-width: 1396px) {
     max-width: 937px;
   }
 
-  @media screen and (max-width: 937px) {
+  @media (max-width: 937px) {
     justify-content: center;
   }
 }
@@ -749,7 +753,7 @@ _____________________________________________________________________________ */
     box-shadow: 0 0 10px $electric;
   }
 
-  @media screen and (max-width: $mobile) {
+  @media (max-width: $mobile) {
     height: auto;
     margin: 0 0 30px;
   }
@@ -773,7 +777,7 @@ _____________________________________________________________________________ */
     font-size: 13px;
     width: 95%;
 
-    @media screen and (max-width: $mobile) {
+    @media (max-width: $mobile) {
       margin-bottom: 30px;
     }
   }
@@ -796,11 +800,11 @@ _____________________________________________________________________________ */
   color: white;
   margin-top: -92px;
   
-  @media screen and (max-width: $mobile) {
+  @media (max-width: $mobile) {
     min-height: 855px;
   }
 
-  @media screen and (max-width: $mobile) {
+  @media (max-width: $mobile) {
     height: 700px;
   }
 
@@ -808,11 +812,11 @@ _____________________________________________________________________________ */
     position:relative;
     top: 30%;
 
-    @media screen and (max-width: 670px) {
+    @media (max-width: 670px) {
         top: 18%;
     }
 
-    @media screen and (max-width: $mobile) {
+    @media (max-width: $mobile) {
       top: 25%;
     }
   }
@@ -823,12 +827,12 @@ _____________________________________________________________________________ */
     font-family: 'Bentham', serif;
     font-size: 82px;
 
-    @media screen and (max-width: 670px) {
+    @media (max-width: 670px) {
       line-height: 95px;
       
     }
 
-    @media screen and (max-width: $mobile) {
+    @media (max-width: $mobile) {
       font-weight: 400;
     }
   }
@@ -837,11 +841,11 @@ _____________________________________________________________________________ */
     max-width: 1050px;
     margin: 0px auto;
 
-    @media screen and (max-width: 670px) {
+    @media (max-width: 670px) {
       width: 90%;
     }
 
-    @media screen and (max-width: $mobile) {
+    @media (max-width: $mobile) {
       font-size: 22px;
     }
 
@@ -867,11 +871,11 @@ _____________________________________________________________________________ */
       background-color: #ffffff50;
     }
 
-    @media screen and (max-width: 1075px) {
+    @media (max-width: 1075px) {
       margin-top: 80px;
     }
 
-    @media screen and (max-width: $mobile) {
+    @media (max-width: $mobile) {
       margin-top: 30px;
     }
   }
@@ -884,7 +888,7 @@ _____________________________________________________________________________ */
   background: url('../img/blue-mountain-stars-cropped.jpg') fixed;
   background-size:cover;
 
-  @media screen and (max-width: 800px) {
+  @media (max-width: 800px) {
     flex-flow: column;
   }
 
@@ -905,7 +909,7 @@ _____________________________________________________________________________ */
       font-size: xx-large;
     }
 
-    @media screen and (max-width: 800px) {
+    @media (max-width: 800px) {
       width: 80%;
       padding-top: 74.5px;
     }
@@ -916,7 +920,7 @@ _____________________________________________________________________________ */
     font-size: 4em;
     padding: 0px 0px 10px;
 
-    @media screen and (max-width: $mobile) {
+    @media (max-width: $mobile) {
       font-size: 3em
     }
   }
@@ -925,11 +929,11 @@ _____________________________________________________________________________ */
     max-width: 55%;
     margin: 0px auto;
 
-    @media screen and (max-width: 800px) {
+    @media (max-width: 800px) {
       max-width: 90%;
     }
 
-    @media screen and (max-width: $mobile) {
+    @media (max-width: $mobile) {
       h3 {
         display: none;
       }
@@ -943,7 +947,7 @@ _____________________________________________________________________________ */
     p {
       padding: 40px 0px 10px;
 
-      @media screen and (max-width: $mobile) {
+      @media (max-width: $mobile) {
         padding-top: 5px
       }
     }
@@ -988,7 +992,7 @@ _____________________________________________________________________________ */
       }
     }
 
-    @media screen and (max-width: 800px) {
+    @media (max-width: 800px) {
       text-align: center;
     }
   }
@@ -1015,11 +1019,11 @@ _____________________________________________________________________________ */
     width: 600px;
     transition: background-color .2s ease;
 
-    @media screen and (max-width: 1000px) {
+    @media (max-width: 1000px) {
       margin: auto;
     }
 
-    @media screen and (max-width: 650px) {
+    @media (max-width: 650px) {
       width: 95%;
     }
 
@@ -1031,14 +1035,14 @@ _____________________________________________________________________________ */
       font-size: 96px;
       white-space: normal;
 
-      @media screen and (max-width: 650px) {
+      @media (max-width: 650px) {
         padding: none;
         line-height: 90px;
         margin-bottom: 10px;
         white-space: pre-wrap;
       }
 
-      @media screen and (max-width: $mobile) {
+      @media (max-width: $mobile) {
         font-size: 80px;
         padding: none;
         line-height: 70px;
@@ -1048,7 +1052,7 @@ _____________________________________________________________________________ */
       span {
         font-family: Bentham;
 
-        @media screen and (max-width: 650px) {
+        @media (max-width: 650px) {
           display: block;
         }
       }
@@ -1058,11 +1062,11 @@ _____________________________________________________________________________ */
       color: white;
       font-weight: 600;
 
-      @media screen and (max-width: 650px) {
+      @media (max-width: 650px) {
         width: 65%;
       }
 
-      @media screen and (max-width: $mobile) {
+      @media (max-width: $mobile) {
         width: 60%;
         margin-bottom: 30px;
       }
@@ -1169,7 +1173,7 @@ _____________________________________________________________________________ */
       box-shadow: 0 2px 10px grey;
     }
 
-    @media screen and (max-width: 516px) {
+    @media (max-width: 516px) {
       height: 155px;
       width: 155px;
       justify-content: center;
@@ -1365,7 +1369,7 @@ article {
   background-color: #ffffff;
   overflow: hidden;
 
-  @media screen and (max-width: 910px) {
+  @media (max-width: 910px) {
     margin-top: 10px;
     padding: 0 0 20px;
     width: 100%;
@@ -1386,7 +1390,7 @@ article {
     }
   }
 
-  @media screen and (max-width: $mobile) {
+  @media (max-width: $mobile) {
 
     img {
       width: 100% !important;
@@ -1443,11 +1447,11 @@ _____________________________________________________________________________ */
     margin-bottom: 30px;
     width: 1380px;
 
-    @media screen and (max-width: 1396px) {
+    @media (max-width: 1396px) {
       width: 920px;
     }
 
-    @media screen and (max-width: 936px) {
+    @media (max-width: 936px) {
       justify-content: center;
     }
   }
@@ -1840,7 +1844,7 @@ _____________________________________________________________________________ */
 
 
 
-  @media screen and (max-width: $mobile) {
+  @media (max-width: $mobile) {
     .button {
       padding: 40px 0;
     }
@@ -2157,7 +2161,7 @@ footer {
     height: 210px;
     color: white;
 
-    @media screen and (max-width: 757px) {
+    @media (max-width: 757px) {
       padding: 0 10px;
     }
 
@@ -2173,11 +2177,11 @@ footer {
       border-right: 1px solid white;
       border-left: 1px solid white;
 
-      @media screen and (max-width: 1126px) {
+      @media (max-width: 1126px) {
         border: none;
       }
 
-      @media screen and (max-width: 757px) {
+      @media (max-width: 757px) {
           padding-top: 0;
       }
 
@@ -2196,13 +2200,13 @@ footer {
         padding-left: 20px;
         text-align: left;
 
-        @media screen and (max-width: 1126px) {
+        @media (max-width: 1126px) {
           padding: 0;
           text-align: center;
         }
       }
 
-      @media screen and (max-width: 757px) {
+      @media (max-width: 757px) {
         padding-top: 45px;
       }
 
@@ -2241,7 +2245,7 @@ footer {
   .flex-container {
     height: 300px;
 
-    @media screen and (max-width: 1126px) {
+    @media (max-width: 1126px) {
       flex-flow: wrap;
       height: 100%;
       justify-content: space-around;
