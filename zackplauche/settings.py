@@ -183,5 +183,6 @@ CUSTOMER_SUPPORT_EMAILS = [EMAIL_HOST_USER,]
 
 # Heroku Settings
 # https://devcenter.heroku.com/articles/django-app-configuration
+
 django_heroku.settings(locals())
 del DATABASES['default']['OPTIONS']['sslmode']
