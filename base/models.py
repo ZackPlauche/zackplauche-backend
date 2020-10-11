@@ -65,7 +65,7 @@ class Contact(models.Model):
     messages = models.JSONField(default=list)
 
     def __str__(self):
-        return self.email
+        return self.user.email
 
 
         
