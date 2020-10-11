@@ -15,7 +15,7 @@ if os.path.isfile(dotenv_file):
 SECRET_KEY = os.environ['SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ['DEBUG'] == 'True'
 
 ALLOWED_HOSTS = [
     'www.zackplauche.com',
@@ -128,16 +128,6 @@ AUTH_USER_MODEL = 'base.User'
 # TinyMCE Rich Text Editor
 # https://django-tinymce.readthedocs.io/en/latest/
 
-TINYMCE_DEFAULT_CONFIG = {
-    "theme": "silver",
-    "height": 300,
-    "menubar": False,
-    "plugins": 'lists',
-    "toolbar": 'undo redo | formatselect | '
-    'bold italic backcolor | alignleft aligncenter '
-    'alignright alignjustify | bullist numlist outdent indent | '
-    'removeformat | help',
-}
 
 # Amazon S3 Settings (via django-storages & boto3)
 # https://django-storages.readthedocs.io/en/latest/backends/amazon-S3.html
@@ -167,21 +157,38 @@ MEDIA_URL = '/media/'
 # Email Settings
 # https://docs.djangoproject.com/en/3.1/topics/email/
 
-# TODO: Setup Sendgrid on Heroku
+if DEBUG:
+    EMAIL_HOST = 'smtp.gmail.com'
+    
+    EMAIL_HOST_USER = os.environ['EMAIL_HOST_USER']
 
-EMAIL_HOST = 'smtp.gmail.com'
+    EMAIL_HOST_PASSWORD = os.environ['EMAIL_HOST_PASSWORD']
+
+else:
+    EMAIL_HOST = os.environ['MAILGUN_SMTP_SERVER']
+
+    EMAIL_HOST_USER = os.environ['MAILGUN_SMTP_LOGIN']
+
+    EMAIL_HOST_PASSWORD = os.environ['MAILGUN_SMTP_PASSWORD']
 
 EMAIL_PORT = 587
 
-EMAIL_HOST_USER = os.environ['EMAIL_HOST_USER']
-
-EMAIL_HOST_PASSWORD = os.environ['EMAIL_HOST_PASSWORD']
-
 EMAIL_USE_TLS = True
 
-DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+DEFAULT_FROM_EMAIL = os.environ['DEFAULT_FROM_EMAIL']
 
-CUSTOMER_SUPPORT_EMAILS = [EMAIL_HOST_USER,]
+CUSTOMER_SUPPORT_EMAILS = [DEFAULT_FROM_EMAIL,]
+
+TINYMCE_DEFAULT_CONFIG = {
+    "theme": "silver",
+    "height": 300,
+    "menubar": False,
+    "plugins": 'lists',
+    "toolbar": 'undo redo | formatselect | '
+    'bold italic backcolor | alignleft aligncenter '
+    'alignright alignjustify | bullist numlist outdent indent | '
+    'removeformat | help',
+}
 
 # Heroku Settings
 # https://devcenter.heroku.com/articles/django-app-configuration
