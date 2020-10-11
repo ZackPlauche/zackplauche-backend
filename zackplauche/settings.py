@@ -157,19 +157,19 @@ MEDIA_URL = '/media/'
 # Email Settings
 # https://docs.djangoproject.com/en/3.1/topics/email/
 
-if DEBUG:
-    EMAIL_HOST = 'smtp.gmail.com'
+# if DEBUG:
+#     EMAIL_HOST = 'smtp.gmail.com'
     
-    EMAIL_HOST_USER = os.environ['EMAIL_HOST_USER']
+#     EMAIL_HOST_USER = os.environ['EMAIL_HOST_USER']
 
-    EMAIL_HOST_PASSWORD = os.environ['EMAIL_HOST_PASSWORD']
+#     EMAIL_HOST_PASSWORD = os.environ['EMAIL_HOST_PASSWORD']
 
-else:
-    EMAIL_HOST = os.environ['MAILGUN_SMTP_SERVER']
+# else:
+EMAIL_HOST = os.environ['MAILGUN_SMTP_SERVER']
 
-    EMAIL_HOST_USER = os.environ['MAILGUN_SMTP_LOGIN']
+EMAIL_HOST_USER = os.environ['MAILGUN_SMTP_LOGIN']
 
-    EMAIL_HOST_PASSWORD = os.environ['MAILGUN_SMTP_PASSWORD']
+EMAIL_HOST_PASSWORD = os.environ['MAILGUN_SMTP_PASSWORD']
 
 EMAIL_PORT = 587
 
