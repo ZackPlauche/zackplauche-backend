@@ -167,6 +167,8 @@ MEDIA_URL = '/media/'
 # Email Settings
 # https://docs.djangoproject.com/en/3.1/topics/email/
 
+# TODO: Setup Sendgrid on Heroku
+
 EMAIL_HOST = 'smtp.gmail.com'
 
 EMAIL_PORT = 587
