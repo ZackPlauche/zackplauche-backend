@@ -15,7 +15,7 @@ if os.path.isfile(dotenv_file):
 SECRET_KEY = os.environ['SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = [
     'www.zackplauche.com',
@@ -163,6 +163,23 @@ STATIC_URL = AWS_DOMAIN_NAME + '/static/'
 MEDIA_ROOT = os.path.join(BASE_DIR, "/zackplauche/media/")
 MEDIA_URL = '/media/'
 
+
+# Email Settings
+# https://docs.djangoproject.com/en/3.1/topics/email/
+
+EMAIL_HOST = 'smtp.gmail.com'
+
+EMAIL_PORT = 587
+
+EMAIL_HOST_USER = os.environ['EMAIL_HOST_USER']
+
+EMAIL_HOST_PASSWORD = os.environ['EMAIL_HOST_PASSWORD']
+
+EMAIL_USE_TLS = True
+
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+
+CUSTOMER_SUPPORT_EMAILS = [EMAIL_HOST_USER,]
 
 # Heroku Settings
 # https://devcenter.heroku.com/articles/django-app-configuration
