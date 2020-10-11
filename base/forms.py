@@ -1,6 +1,8 @@
 from django import forms
 from django.contrib.auth.forms import ReadOnlyPasswordHashField
 from django.core.exceptions import ValidationError
+from django.core.mail import send_mail, send_mass_mail, EmailMessage
+from django.conf import settings
 
 from base.models import *
 
@@ -18,6 +20,11 @@ class NewsletterForm(forms.ModelForm):
         contact, contact_created = Contact.objects.get_or_create(user=user)
         if commit:
             contact.save()
+            contact.newsletter_signup_confirmation()
+
+            if contact_created:
+                contact.newsletter_signup_notification()
+
         return contact
 
 
@@ -32,18 +39,31 @@ class ContactForm(forms.ModelForm):
         fields = ('first_name', 'last_name', 'email', 'message')
 
     def save(self, commit=True, *args, **kwargs):
+        # Collect info
         email = self.cleaned_data['email']
         first_name = self.cleaned_data['first_name']
         last_name = self.cleaned_data['last_name']
         message = self.cleaned_data['message']
+
+        # Get or create User 
         user, user_created = User.objects.get_or_create(email=email)
-        user.first_name = first_name
-        user.last_name = last_name
+        user.first_name = first_name if not user.first_name else user.first_name
+        user.last_name = last_name if not user.last_name else user.last_name
+
+        # Get or create contact
         contact, contact_created = Contact.objects.get_or_create(user=user)
         contact.messages.append(message)
+
+        # Save the data
         if commit:
             user.save()
             contact.save()
+
+            if contact_created:
+                contact.new_contact_notification()
+            contact.new_message_notification(message)
+            contact.message_received_confirmation(message)
+
         return contact
 
 
