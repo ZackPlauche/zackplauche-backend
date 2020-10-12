@@ -125,10 +125,6 @@ USE_TZ = True
 AUTH_USER_MODEL = 'base.User'
 
 
-# TinyMCE Rich Text Editor
-# https://django-tinymce.readthedocs.io/en/latest/
-
-
 # Amazon S3 Settings (via django-storages & boto3)
 # https://django-storages.readthedocs.io/en/latest/backends/amazon-S3.html
 # Userful article: https://simpleisbetterthancomplex.com/tutorial/2017/08/01/how-to-setup-amazon-s3-in-a-django-project.html
@@ -157,19 +153,19 @@ MEDIA_URL = '/media/'
 # Email Settings
 # https://docs.djangoproject.com/en/3.1/topics/email/
 
-# if DEBUG:
-#     EMAIL_HOST = 'smtp.gmail.com'
+if DEBUG:
+    EMAIL_HOST = 'smtp.gmail.com'
     
-#     EMAIL_HOST_USER = os.environ['EMAIL_HOST_USER']
+    EMAIL_HOST_USER = os.environ['EMAIL_HOST_USER']
 
-#     EMAIL_HOST_PASSWORD = os.environ['EMAIL_HOST_PASSWORD']
+    EMAIL_HOST_PASSWORD = os.environ['EMAIL_HOST_PASSWORD']
 
-# else:
-EMAIL_HOST = os.environ['MAILGUN_SMTP_SERVER']
+else:
+    EMAIL_HOST = os.environ['MAILGUN_SMTP_SERVER']
 
-EMAIL_HOST_USER = os.environ['MAILGUN_SMTP_LOGIN']
+    EMAIL_HOST_USER = os.environ['MAILGUN_SMTP_LOGIN']
 
-EMAIL_HOST_PASSWORD = os.environ['MAILGUN_SMTP_PASSWORD']
+    EMAIL_HOST_PASSWORD = os.environ['MAILGUN_SMTP_PASSWORD']
 
 EMAIL_PORT = 587
 
@@ -178,6 +174,10 @@ EMAIL_USE_TLS = True
 DEFAULT_FROM_EMAIL = os.environ['DEFAULT_FROM_EMAIL']
 
 CUSTOMER_SUPPORT_EMAILS = [DEFAULT_FROM_EMAIL,]
+
+
+# TinyMCE Rich Text Editor
+# https://django-tinymce.readthedocs.io/en/latest/
 
 TINYMCE_DEFAULT_CONFIG = {
     "theme": "silver",
