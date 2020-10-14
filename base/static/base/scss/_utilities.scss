@@ -1,0 +1,52 @@
+@use 'mixins' as *;
+@use 'config' as *;
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: row;
+}
+
+.overlay {
+  @include overlay(#0002, #000);
+}
+
+$overlays: (
+  "light": #fff3,
+  "lighter": #fff5,
+  "lightest": #fff7,
+  "superlight": #fff9,
+  "dark": #0003,
+  "darker": #0005,
+  "darkest": #0007,
+  "superdark": #0009,
+);
+
+
+@each $brightness, $color in $overlays {
+  @debug alpha($color);
+  
+  .overlay-#{$brightness} {
+    @include overlay($color)
+  }
+
+  .overlay-#{$brightness}-hover {
+    @include overlay($color, rgba($color, alpha($color) + .2))
+  }
+}
+
+.overlay {
+  @include overlay(#0001);
+}
+
+.container {
+  max-width: $max-site-width;
+  margin: auto;
+}
+
+@each $name, $color in $colors {
+  .text-#{$name} {
+    color: $color;
+  }
+}
