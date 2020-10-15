@@ -43,6 +43,15 @@ $overlays: (
 .container {
   max-width: $max-site-width;
   margin: auto;
+
+  @media (max-width: 1300px) {
+    max-width: $max-site-width !important;
+  }
+
+  &-wide {
+    max-width: 87%;
+    margin: auto;
+  }
 }
 
 @each $name, $color in $colors {

@@ -1,29 +1,33 @@
 @use 'config' as *;
+@use 'mixins' as *;
 
 .navbar {
-  align-items: center;
-  display: flex;
-  height: $navbar-height;
-  justify-content: space-between;
-  overflow: hidden;
   background-color: $deep;
 
-  & > * {
-    z-index: 1;
-  }
-
-  @media (max-width: 770px) {
-    justify-content: center;
-  }
-
-  .logo {
-    font-size: 3em;
-    margin-left: 50px;
-    color: white;
+  &-nav {
+    height: $navbar-height;
+    overflow: hidden;
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
 
     @media (max-width: 770px) {
-      margin: 0;
-      font-size: 2.9em;
+      justify-content: center;
+    }
+
+    & > * {
+      z-index: 3;
+    }
+
+    .logo {
+      font-size: 3em;
+      margin-left: 50px;
+      color: white;
+
+      @media (max-width: 770px) {
+        margin: 0;
+        font-size: 2.9em;
+      }
     }
   }
 
@@ -102,10 +106,12 @@
     opacity: 0;
   }
 
+  // Hover effect over hamburger icon
   &-icon-toggle:hover + &-icon {
     background-color: #0005;
   }
 
+  // Rotate bars on hamburger icon click
   &-icon-toggle:checked + &-icon {
     transform: rotate(45deg);
   }
@@ -114,5 +120,53 @@
   &-icon-toggle:checked + &-icon &-icon-bar::after {
     top: 0;
     transform: rotate(90deg);
+  }
+
+  // Open mobile navigation menu
+  &-icon-toggle:checked ~ .nav-links {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    overflow-y: scroll;
+    margin: 0;
+    height: 100vh;
+    width: 100vw;
+    z-index: 2;
+    background: rgba(darken($primary, 40), .97);
+    animation-name: mobile-menu;
+    animation-duration: .15s;
+
+
+    @keyframes mobile-menu {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+
+    @keyframes mobile-menu-links {
+      from {opacity: 0; transform: translateY(20px);}
+      to {opacity: 1;transform: translateY(0);}
+    }
+
+    a {
+      font-size: 1.5rem;
+      opacity: 0;
+      transform: translateY(20px);
+      animation-name: mobile-menu-links;
+      animation-duration: .3s;
+      animation-delay: .15s;
+      animation-fill-mode: forwards;
+    }
+  }
+
+  &-icon-toggle:checked,
+  &-icon-toggle:checked ~ .logo,
+  &-icon-toggle:checked + &-icon {
+    position: fixed;
   }
 }
