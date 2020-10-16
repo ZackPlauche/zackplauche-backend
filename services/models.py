@@ -38,6 +38,7 @@ class Company(models.Model):
     website = models.URLField(blank=True)
     legal_stucture = models.CharField(choices=LegalStructure.choices, max_length=255)
     is_sponsor = models.BooleanField(default=False)
+    worked_with = models.BooleanField(default=False)
 
     def __str__(self):
         return self.name

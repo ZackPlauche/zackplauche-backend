@@ -14,12 +14,12 @@
 
 {% block main %}
 
-{% if clients %}
+{% if companies %}
 <!-- Social Proof Logos -->
 <div class="logos">
   <p>Worked with:</p>
   <div class="social-proof-logos">
-    {% for client in clients %}
+    {% for company in companies %}
     <!-- TODO: Make this into a model -->
     <a target="_blank" {% if client.website %}href="{{ client.website }}" {% endif %}><img src="{{ client.logo.url }}"></a>
     {% endfor %}

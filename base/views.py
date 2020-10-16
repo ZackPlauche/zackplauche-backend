@@ -14,6 +14,7 @@ class Home(CreateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['services'] = Service.objects.filter(display=True)
+        context['companies'] = Company.objects.filter(worked_with=True)
         return context
 
 
