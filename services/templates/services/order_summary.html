@@ -34,10 +34,9 @@
   <form method="post">
     <div class="order-form">
       {% csrf_token %}
-      {{ form.first_name }}
-      {{ form.last_name }}
-      {{ form.email }}
-      {{ form.service }}
+      {% for field in form %}
+      {{ field }}
+      {% endfor %}
     </div>
     <div class="order-buttons-area">
       <button class="button" type="submit">Confirm Order</button>

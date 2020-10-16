@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, reverse
 from django.utils.text import slugify
 from django.views.generic import ListView, DetailView, TemplateView, FormView
 
@@ -26,7 +26,6 @@ def order_summary(request, slug):
     # Create initial forms
     form = OrderForm(initial={'service': service})
 
-
     if request.method == 'POST':
 
         # Call filled forms
@@ -35,14 +34,14 @@ def order_summary(request, slug):
         # Validate data
         if form.is_valid():
             form.save()
-            return redirect('../thank-you')
-
-    else:
-        context = {
-            'service': service,
-            'form': form,
-        }
-        return render(request, 'services/order_summary.html', context)
+            return redirect(reverse('services:thankyou', kwargs={'slug': service.slug}))
+        else:
+            print(form.errors)
+    context = {
+        'service': service,
+        'form': form,
+    }
+    return render(request, 'services/order_summary.html', context)
 
 
 class OrderThankYou(DetailView):
