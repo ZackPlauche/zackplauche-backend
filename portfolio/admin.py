@@ -2,6 +2,8 @@ from django.contrib import admin
 from .models import *
 
 # Register your models here.
+
+
 @admin.register(Project)
 class ProjectAdmin(admin.ModelAdmin):
     list_display = [
@@ -9,16 +11,29 @@ class ProjectAdmin(admin.ModelAdmin):
         'display',
         'project_type',
         'live_url',
-        'github_repository',
         'download_file'
     ]
     fieldsets = (
         (None, {
             'fields': (
+                'image',
                 ('title', 'display'),
-                'category',
+                'status',
+                'project_type',
+                'purpose',
+                'description',
             )
         }),
+        ('Resources', {
+            'fields': (
+                'technologies_used',
+                'contributors',
+                'github_repository',
+                'demo_vid_url',
+                'live_url',
+                'download_file',
+            )
+        })
     )
 
 
