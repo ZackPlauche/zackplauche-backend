@@ -22,8 +22,11 @@ class ClientAdmin(admin.ModelAdmin):
         return f'{client.user.first_name} {client.user.last_name}'
     get_name.short_description = 'name'
 
+@admin.register(Company)
+class CompanyAdmin(admin.ModelAdmin):
+    list_display = ('name', 'logo', 'website', 'is_sponsor')
     
-    
+
 
 @admin.register(Service)
 class ServiceAdmin(SortableAdminMixin, admin.ModelAdmin):

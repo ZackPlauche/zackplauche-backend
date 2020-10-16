@@ -29,7 +29,7 @@ class Company(models.Model):
         CORP = 'corporation'
         S_CORP = 's corporation'
     
-    clients = models.ManyToManyField('client', related_name='companies')
+    clients = models.ManyToManyField('client', related_name='companies', blank=True)
     parent_company = models.ForeignKey('self', on_delete=models.SET_NULL, null=True, blank=True)
     name = models.CharField(max_length=255)
     logo = models.ImageField(upload_to='company_logos/', blank=True)
@@ -41,6 +41,9 @@ class Company(models.Model):
 
     def __str__(self):
         return self.name
+
+    class Meta:
+        verbose_name_plural = 'companies'
 
 
 class Deliverable(models.Model):
