@@ -9,17 +9,17 @@ from base.models import Contact
 
 
 
-class ServiceList(ListView):
+class ServiceListView(ListView):
     model = Service
     template_name = 'services/index.html'
     context_object_name = 'services'
 
-class ServiceDetail(DetailView):
+class ServiceDetailView(DetailView):
     model = Service
     template_name = 'services/service_detail.html'
     context_object_name = 'service'
 
-def order_summary(request, slug):
+def order_summary_view(request, slug):
 
     service = Service.objects.get(slug=slug)
 
@@ -44,6 +44,6 @@ def order_summary(request, slug):
     return render(request, 'services/order_summary.html', context)
 
 
-class OrderThankYou(DetailView):
+class OrderThankYouView(DetailView):
     model = Service
     template_name = 'services/thankyou.html'

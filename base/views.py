@@ -6,7 +6,7 @@ from .models import *
 from .forms import *
 
 
-class Home(CreateView):
+class HomeView(CreateView):
     form_class = NewsletterForm
     template_name = 'base/home.html'
     success_url = 'thank-you/'
@@ -19,23 +19,23 @@ class Home(CreateView):
 
 
 # Create your views here.
-class About(TemplateView):
+class AboutView(TemplateView):
     template_name = 'base/about.html'
 
 
-class SignupThankYou(TemplateView):
+class SignupThankYouView(TemplateView):
     template_name = 'base/thank-you-signup.html'
 
 
-class Contact(CreateView):
+class ContactView(CreateView):
     form_class = ContactForm
     template_name = 'base/contact.html'
     success_url = '/contact/thank-you/'
 
 
-class ContactThankYou(TemplateView):
+class ContactThankYouView(TemplateView):
     template_name = 'base/thank-you-contact.html'
 
 
-class Olga(TemplateView):
+class OlgaView(TemplateView):
     template_name = 'base/olga.html'

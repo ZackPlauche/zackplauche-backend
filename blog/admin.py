@@ -5,19 +5,19 @@ admin.site.register(Tag)
 
 @admin.register(Author)
 class AuthorAdmin(admin.ModelAdmin): 
-    list_display = ['full_name', 'post_count']
+    list_display = ['full_name', 'article_count']
 
     def full_name(self, obj):
         return f'{obj.user.first_name} {obj.user.last_name}'
     full_name.short_description = 'Author'
 
-    def post_count(self, obj):
-        return obj.posts.count()
-    post_count.short_description = 'Posts'
+    def article_count(self, obj):
+        return obj.articles.count()
+    article_count.short_description = 'Articles'
     
 
-@admin.register(Post)
-class PostAdmin(admin.ModelAdmin):
+@admin.register(Article)
+class ArticleAdmin(admin.ModelAdmin):
     list_display = ['title', 'author', 'published', 'has_image']
     list_editable = ['published']
     save_on_top = True

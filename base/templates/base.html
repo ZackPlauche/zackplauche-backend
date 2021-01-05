@@ -21,8 +21,8 @@
   </script>
   <title>{% block title %}{% endblock %}</title>
   <link href="https://fonts.googleapis.com/css?family=Bentham|Montserrat:400,400i,500,600,700,900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="{% static 'base/css/style.css' %}">
-  <link rel="icon" type="image/png" href="{% static 'base/img/favicon_32x32.png' %}">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <link rel="icon" type="image/png" href="{% static 'img/favicon_32x32.png' %}">
 </head>
 
 <body>
@@ -62,7 +62,7 @@
                 <li><a href="{% url 'base:about' %}">About</a></li>
                 <li><a href="{% url 'base:contact' %}">Contact</a></li>
                 <li><a href="{% url 'portfolio:project_list' %}">Portfolio</a></li>
-                <li><a href="{% url 'blog:post_list' %}">Blog</a></li>
+                <li><a href="{% url 'blog:article_list' %}">Blog</a></li>
                 <li><a href="{% url 'services:service_list' %}">Services</a></li>
               </ul>
             </nav>

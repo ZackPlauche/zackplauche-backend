@@ -4,8 +4,8 @@ from django.views.generic import ListView, DetailView
 from .models import *
 
 # Create your views here.
-class ProjectList(ListView):
+class ProjectListView(ListView):
     model = Project
 
-class ProjectDetail(DetailView):
+class ProjectDetailView(DetailView):
     model = Project

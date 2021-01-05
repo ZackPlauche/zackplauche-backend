@@ -1,0 +1,215 @@
+@use 'config' as *;
+
+.dark {
+  background-color: $dark;
+
+  *:not(a):not(input):not(.nav-logo) {
+    color: white;
+  }
+
+  h1,
+  h2,
+  em,
+  strong,
+  .title,
+  .text-primary,
+  .breadcrumbs a {
+    color: $mystic !important;
+  }
+
+  h1 {
+    font-weight: 400;
+  }
+
+  .button {
+    background-color: $darkmystic;
+
+    &:hover {
+      box-shadow: 0 0 20px $darkmystic;
+      background-color: $darkmystic;
+    }
+  }
+
+  .index-title {
+    font-weight: 400;
+  }
+
+  .breadcrumbs {
+    li {
+      color: white;
+    }
+
+    p {
+      color: lightgrey;
+    }
+
+    a {
+      color: $mystic;
+    }
+  }
+
+  .service-detail {
+    background-color: $deep;
+    box-shadow: 0 5px 10px #00e7ff;
+  }
+
+  .polaroid-card {
+    background-color: $midnight;
+    box-shadow: 0px 0px 5px $mystic;
+
+    &:hover {
+      box-shadow: 0px 0px 10px 5px $mystic;
+    }
+
+    h2 {
+      font-weight: 400;
+    }
+  }
+
+  .icon-card {
+    background-color: $deep;
+    box-shadow: 0px 0px 5px $mystic;
+    border: none;
+
+    &:hover {
+      box-shadow: 0px 0px 10px 5px $mystic;
+    }
+  }
+
+  article {
+    background-color: $midnight;
+    box-shadow: 0px 5px 20px $mystic;
+
+    li,
+    strong,
+    i {
+      color: $mystic !important;
+    }
+  }
+
+  .contact {
+    a {
+      color: $mystic;
+      transition: all 0.2s ease;
+
+      &:hover {
+        text-shadow: 0 0 10px $mystic;
+      }
+    }
+
+    .big-button {
+      background-color: $darkmystic;
+
+      &:hover {
+        background-color: $darkmystic;
+        box-shadow: 0 0 20px $mystic;
+      }
+    }
+  }
+
+  .order-summary {
+    .order-box {
+      background-color: $deep;
+      box-shadow: 0 0 5px $mystic;
+
+      .order-box-subtitle {
+        color: $mystic;
+      }
+    }
+
+    .button {
+      background-color: $darkmystic;
+
+      &:hover {
+        background-color: $darkmystic;
+      }
+    }
+
+    .order-buttons-area {
+      .cancel-button {
+        color: $mystic;
+
+        &:hover {
+          color: $mystic;
+          box-shadow: 0 0 20px $mystic;
+        }
+      }
+    }
+  }
+
+  .portfolio {
+    .display-card-wrapper:hover .display-card {
+      box-shadow: 0 0 15px $mystic;
+    }
+
+    .display-card {
+      background-color: $deep;
+      box-shadow: 0 0 1px $mystic;
+
+      .download-button {
+        background-color: black;
+        box-shadow: 0 0 2px $mystic;
+
+        &:hover {
+          background-color: $darkmystic;
+        }
+      }
+    }
+  }
+
+  .project {
+    background-color: $deep;
+    box-shadow: 0 0 10px $mystic;
+    margin-top: 10px;
+
+    .content {
+      max-width: 700px;
+    }
+
+    .buttons-area {
+      .download-button {
+        background-color: black;
+
+        &:hover {
+          background-color: $darkmystic;
+        }
+      }
+    }
+
+    .section-title {
+      font-weight: 400;
+    }
+
+    .technology {
+      .technology-name {
+        color: white;
+      }
+
+      &:hover .technology-name {
+        color: $mystic;
+      }
+    }
+
+    .contributor {
+      .name {
+        color: white;
+      }
+
+      &:hover {
+        .name {
+          color: $mystic;
+        }
+      }
+    }
+  }
+
+  .thankyou {
+    .button {
+      background-color: $darkmystic;
+
+      &:hover {
+        background-color: $darkmystic;
+      }
+    }
+  }
+}

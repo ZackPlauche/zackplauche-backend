@@ -1,14 +1,16 @@
-import os
 import django_heroku
 import dj_database_url
 import dotenv
+import os
+from pathlib import Path
 
-# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+# Build paths inside the project like this: BASE_DIR / 'subdir'.
+PROJECT_DIR = Path(__file__).resolve().parent
+BASE_DIR = PROJECT_DIR.parent
 
 
-dotenv_file = os.path.join(BASE_DIR, ".env")
-if os.path.isfile(dotenv_file):
+dotenv_file = BASE_DIR / '.env'
+if dotenv_file.is_file():
     dotenv.load_dotenv(dotenv_file)
 
 # SECURITY WARNING: keep the secret key used in production secret!
@@ -61,7 +63,9 @@ ROOT_URLCONF = 'zackplauche.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            PROJECT_DIR / 'templates',
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -145,8 +149,16 @@ AWS_QUERYSTRING_AUTH = False
 AWS_DOMAIN_NAME = f'http://{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
 AWS_LOCATION = 'static'
 
+# Static files (CSS, JavaScript, Images)
+
+STATICFILES_DIRS = [
+    PROJECT_DIR / 'static',
+]
+
 STATIC_URL = AWS_DOMAIN_NAME + '/static/'
-MEDIA_ROOT = os.path.join(BASE_DIR, "/zackplauche/media/")
+
+MEDIA_ROOT = BASE_DIR / "/zackplauche/media/"
+
 MEDIA_URL = '/media/'
 
 

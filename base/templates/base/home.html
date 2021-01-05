@@ -21,7 +21,7 @@
   <div class="social-proof-logos">
     {% for company in companies %}
     <!-- TODO: Make this into a model -->
-    <a target="_blank" {% if client.website %}href="{{ client.website }}" {% endif %}><img src="{{ client.logo.url }}"></a>
+    <a target="_blank" {% if company.website %}href="{{ company.website }}" {% endif %}><img src="{{ company.logo.url }}"></a>
     {% endfor %}
   </div>
 </div><!-- End of Social Proof Logos -->
@@ -32,7 +32,7 @@
 <!-- About Section  -->
 <div class="home-about-section dark">
   <figure>
-    <img src="{% static 'base/img/pro-dev-zack.jpg' %}">
+    <img src="{% static 'img/pro-dev-zack.jpg' %}">
     <h4><span class="text-primary">Zack Plauché</span><br>Freelancer, CEO of ZackHub</h4>
   </figure>
   <div class="content">
