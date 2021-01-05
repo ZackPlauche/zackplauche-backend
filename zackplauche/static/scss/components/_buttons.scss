@@ -1,0 +1,36 @@
+@use 'config' as *;
+
+.button {
+  display: block;
+  text-decoration: none;
+  background-color: #004a66;
+  color: #ffffff;
+  padding: 8px  12px;
+  border-radius: 4px;
+  white-space: nowrap;
+  transition: all .15s ease;
+
+  &:hover {
+    background-color: $electric;
+  }
+}
+
+
+.big-button {
+  display: block;
+  text-decoration: none;
+  background-color: #004a66;
+  color: #ffffff;
+  transition: all .15s ease-out;
+  white-space: nowrap;
+  border-style: none;
+  cursor: pointer;
+  padding: 20px 60px;
+  border-radius: 100px;
+  font-size: 20px;
+  font-weight: 600;
+
+  &:hover {
+    background-color: $electric;
+  }
+}

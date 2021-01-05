@@ -2,10 +2,10 @@ from django.shortcuts import render
 from django.views.generic import ListView, DetailView
 from .models import *
 
-class PostList(ListView):
-    model = Post
-    context_object_name = 'posts'
+class ArticleListView(ListView):
+    model = Article
+    context_object_name = 'articles'
 
-class PostDetail(DetailView):
-    model = Post
+class ArticleDetailView(DetailView):
+    model = Article
     
