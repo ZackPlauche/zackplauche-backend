@@ -4,21 +4,20 @@
 
 {% block breadcrumbs %}
 <ul>
-  <li><a href="{% url 'base:home' %}">Home</a></li>
-  <li><a href="{% url 'blog:article_list' %}">Blog</a></li>
-  <li>
-    <p>{{ article.title }}</p>
-  </li>
+    <li><a href="{% url 'base:home' %}">Home</a></li>
+    <li><a href="{% url 'blog:article_list' %}">Blog</a></li>
+    <li>
+        <p>{{ article.title }}</p>
+    </li>
 </ul>
 {% endblock %}
 
 {% block main %}
 <article>
-  {% if user == article.author %}{% endif %}
-  <h1>{{ article.title }}</h1>
-  <img src="{{ article.image.url }}" width="570">
-  <div class="blog-body">
-    {{ article.body|safe|linebreaksbr }}
-  </div>
+    <h1>{{ article.title }}</h1>
+    <img src="{{ article.image.url }}" width="570">
+    <div class="blog-body">
+        {{ article.body|safe|linebreaksbr }}
+    </div>
 </article>
 {% endblock %}

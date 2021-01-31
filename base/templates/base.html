@@ -3,90 +3,88 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
-<head>
-  <meta charset="utf-8">
-  <meta name="author" content="Zack Plauche">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-79137666-1"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
+    <head>
+        <meta charset="utf-8">
+        <meta name="author" content="Zack Plauche">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-79137666-1"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
 
-    function gtag() {
-      dataLayer.push(arguments);
-    }
-    gtag('js', new Date());
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag('js', new Date());
 
-    gtag('config', 'UA-79137666-1');
-  </script>
-  <title>{% block title %}{% endblock %}</title>
-  <link href="https://fonts.googleapis.com/css?family=Bentham|Montserrat:400,400i,500,600,700,900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="{% static 'css/style.css' %}">
-  <link rel="icon" type="image/png" href="{% static 'img/favicon_32x32.png' %}">
-</head>
+            gtag('config', 'UA-79137666-1');
+        </script>
+        <title>{% block title %}{% endblock %}</title>
+        <link href="https://fonts.googleapis.com/css?family=Bentham|Montserrat:400,400i,500,600,700,900&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        <link rel="icon" type="image/png" href="{% static 'img/favicon_32x32.png' %}">
+    </head>
 
-<body>
-  <header>
-    {% include '_navbar.html' %}
+    <body>
+        <header>
+            {% include '_navbar.html' %}
+            {% block header %}
+            {% endblock %}
+        </header>
 
-    {% block header %}
-    {% endblock %}
-  </header>
+        <main class="light">
+            <div class="breadcrumbs">
+                {% block breadcrumbs %}
+                {% endblock %}
+            </div>
+            {% block main %}
+            {% endblock %}
+        </main>
 
-  <main class="light">
-    <div class="breadcrumbs">
-      {% block breadcrumbs %}
-      {% endblock %}
-    </div>
-    {% block main %}
-    {% endblock %}
-  </main>
+        <footer>
+            <div class="wrapper">
+                <div class="flex-container">
+                    <!-- Footer block 1 -->
+                    <div class="block">
+                        <div id="footerBlock1">
+                            <h2 class="logo">Zack Plauché</h2>
+                        </div>
+                    </div>
 
-  <footer>
+                    <!-- Footer Block 2 -->
+                    <div class="block">
+                        <div class="content">
+                            <nav>
+                                <ul class="nav-links">
+                                    <li><a href="{% url 'base:about' %}">About</a></li>
+                                    <li><a href="{% url 'base:contact' %}">Contact</a></li>
+                                    <li><a href="{% url 'portfolio:project_list' %}">Portfolio</a></li>
+                                    <li><a href="{% url 'blog:article_list' %}">Blog</a></li>
+                                    <li><a href="{% url 'services:service_list' %}">Services</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                    <div></div>
 
-    <div class="wrapper">
-      <div class="flex-container">
+                    <!-- Footer block 3 -->
+                    <div class="block">
+                        <div class="content">
+                            <h2>Connect with me.</h2>
+                            <p>Have quesitons? Feel free to reach me at my phone or email listed below:
+                                <p><i>Phone:</i> <a href="tel: +13032618653">+1 (303) 261-8653</a></p>
+                                <p><i>Email:</i> <a href="mailto:zackknowspython@gmail.com">zackknowspython@gmail.com</a></p>
+                        </div>
+                    </div>
 
-        <!-- Footer block 1 -->
-        <div class="block">
-          <div id="footerBlock1">
-            <h2 class="logo">Zack Plauché</h2>
-          </div>
-        </div>
-
-        <!-- Footer Block 2 -->
-        <div class="block">
-          <div class="content">
-            <nav>
-              <ul class="nav-links">
-                <li><a href="{% url 'base:about' %}">About</a></li>
-                <li><a href="{% url 'base:contact' %}">Contact</a></li>
-                <li><a href="{% url 'portfolio:project_list' %}">Portfolio</a></li>
-                <li><a href="{% url 'blog:article_list' %}">Blog</a></li>
-                <li><a href="{% url 'services:service_list' %}">Services</a></li>
-              </ul>
-            </nav>
-          </div>
-        </div>
-
-        <!-- Footer block 3 -->
-        <div class="block">
-          <div class="content">
-            <h2>Connect with me.</h2>
-            <p>Have quesitons? Feel free to reach me at my phone or email listed below:
-              <p><i>Phone:</i> <a href="tel: +13032618653">+1 (303) 261-8653</a></p>
-              <p><i>Email:</i> <a href="mailto:zackknowspython@gmail.com">zackknowspython@gmail.com</a></p>
-          </div>
-        </div>
-
-      </div>
-    </div>
-
-    <div class="copyright">
-      <p>© Copyright Zack Plauché {% now "Y" %}</p>
-    </div>
-    <script> </script>
-  </footer>
-</body>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>© Copyright Zack Plauché {% now "Y" %}</p>
+            </div>
+            <script> </script>
+        </footer>
+    </body>
 
 </html>
