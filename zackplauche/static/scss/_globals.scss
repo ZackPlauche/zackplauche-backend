@@ -1,8 +1,17 @@
-@import 'config';
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 html {
   scroll-behavior: smooth;
 }
+
+body {
+  font-family: Montserrat, sans-serif;
+}
+
 
 ::selection {
   background: $electric;
@@ -38,6 +47,7 @@ select {
 main {
   overflow: auto;
   background-color: whitesmoke;
+  min-height: calc(100vh - #{$navbar-height});
 }
 
 main h1,

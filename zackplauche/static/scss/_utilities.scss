@@ -1,11 +1,33 @@
-@use 'mixins' as *;
-@use 'config' as *;
-
 .flex-center {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-flow: row;
+}
+
+@mixin overlay($color, $hover-color: $color) {
+  // Ensure the parent element's position is relative.
+  position: relative;
+
+  // Create the overlay
+  &::after {
+      content: "";
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      transition: all 0.4s ease;
+      background-color: $color;
+  }
+
+  // Set hover background color
+  &:hover::after {
+      background-color: $hover-color;
+  }
+
+  // Make inner content appear in-front of overlay
+  & > * {
+      z-index: 1;
+  }
 }
 
 .overlay {
@@ -25,14 +47,8 @@ $overlays: (
 
 
 @each $brightness, $color in $overlays {
-  @debug alpha($color);
-  
   .overlay-#{$brightness} {
     @include overlay($color)
-  }
-
-  .overlay-#{$brightness}-hover {
-    @include overlay($color, rgba($color, alpha($color) + .2))
   }
 }
 
