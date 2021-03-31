@@ -6,3 +6,5 @@ venv
 .env
 Pipfile
 prepros.config
+*/data_backups/
+data.json

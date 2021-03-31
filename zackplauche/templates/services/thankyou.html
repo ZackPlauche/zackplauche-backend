@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="thankyou">
+  <h1>Thank you for ordering!</h1>
+  <p>You can expect a response within 24 hours. Talk soon!</p>
+  <a class="button big-button" href="{% url 'base:home' %}">Return to home page.</a>
+</div>
+
+{% endblock %}

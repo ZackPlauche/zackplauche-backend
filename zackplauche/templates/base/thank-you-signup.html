@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block title %}Thank You{% endblock %}
+
+{% block content %}
+<div class="thankyou">
+  <h1>Thank you for signing up!</h1>
+  <a class="button big-button" href="{% url 'base:home' %}">Return to home page.</a>
+</div>
+{% endblock %}
