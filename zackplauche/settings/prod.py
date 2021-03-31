@@ -14,7 +14,7 @@ ALLOWED_HOSTS = [
 
 # Staticfiles Settings
 
-STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3ManifestStaticStorage'
 
 STATIC_URL = f'https://{AWS_DOMAIN_NAME}/static/'
 
