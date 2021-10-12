@@ -22,6 +22,8 @@ INSTALLED_APPS = [
     'tinymce',
     'django_extensions',
     'adminsortable2',
+    'rest_framework',
+    'rest_framework.authtoken',
     
     'django.contrib.contenttypes',
     'django.contrib.sessions',
