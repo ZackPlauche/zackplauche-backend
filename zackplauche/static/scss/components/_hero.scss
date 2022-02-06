@@ -1,8 +1,0 @@
-.hero {
-  height: calc(100vh - #{$navbar-height});
-  
-  &-full {
-    height: 100vh;
-    margin-top: -$navbar-height;
-  }
-}
