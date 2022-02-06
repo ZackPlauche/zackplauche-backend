@@ -1,5 +1,5 @@
-# Zack Plauché Backend
-![Someone's butt doodle](https://previews.123rf.com/images/sudowoodo/sudowoodo1912/sudowoodo191200046/136662205-cartoon-butt-drawing-with-fart-cloud-funny-hand-drawn-doodle-of-gas-and-flatulence-simple-vector-cli.jpg)
+# Zack Plauché's Backend
+![Trickling lightning gif](https://media4.giphy.com/media/CKlafeh1NAxz35KTq4/giphy-downsized-large.gif)
 
 
 ## Todo:
