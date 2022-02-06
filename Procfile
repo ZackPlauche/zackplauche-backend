@@ -1,1 +1,1 @@
-web: python manage.py migrate && gunicorn zackplauche.wsgi
+web: python manage.py migrate && gunicorn config.wsgi
