@@ -14,11 +14,8 @@ ALLOWED_HOSTS = [
 ]
 
 CORS_ALLOWED_ORIGINS = [
-    'https://www.zackplauche.com/',
-    'https://zackplauche.com/',
-    'http://zackplauche.com/',
-    'http://www.zackplauche.com/',
-    'http://api.zackplauche.com/',
+    'https://www.zackplauche.com',
+    'https://api.zackplauche.com',
 ]
 
 # AWS S3 Storage
