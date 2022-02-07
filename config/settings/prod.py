@@ -16,6 +16,7 @@ ALLOWED_HOSTS = [
 CORS_ALLOWED_ORIGINS = [
     'https://www.zackplauche.com',
     'https://api.zackplauche.com',
+    'http://localhost:3000',
 ]
 
 # Amazon S3 Settings
