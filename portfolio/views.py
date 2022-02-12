@@ -12,3 +12,4 @@ class ImageViewSet(viewsets.ModelViewSet):
 class ProjectViewSet(viewsets.ModelViewSet):
     serializer_class = ProjectSerializer
     queryset = Project.objects.all()
+    filter_fields = '__all__'
