@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from .models import Image, Project, Contribution
+from .models import Image, Project, Contribution, Review
 
 
 class ContributionSerializer(serializers.ModelSerializer):
@@ -16,6 +16,7 @@ class ImageSerializer(serializers.ModelSerializer):
         model = Image
         fields = '__all__'
 
+
 class ProjectSerializer(serializers.ModelSerializer):
     contributions = ContributionSerializer(many=True)
 
@@ -23,3 +24,11 @@ class ProjectSerializer(serializers.ModelSerializer):
         model = Project
         fields = '__all__'
         depth = 2
+
+
+class ReviewSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Review
+        fields = '__all__'
+        depth = 1

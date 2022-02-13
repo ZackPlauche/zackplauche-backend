@@ -1,7 +1,7 @@
 from django.utils.html import format_html
 from django.contrib import admin
 
-from .models import Contributor, Project, Image, Technology, Contribution
+from .models import Contributor, Project, Image, Technology, Contribution, Review, ReviewSource
 
 
 @admin.register(Contribution)
@@ -49,5 +49,15 @@ class TechnologyAdmin(admin.ModelAdmin):
         return bool(obj.icon)
 
 
-admin.site.register(Contributor)
+@admin.register(Review)
+class ReviewAdmin(admin.ModelAdmin):
+    list_display = ('review_name', 'source')
+    list_editable= ('source', )
 
+    @admin.display(description='Review')
+    def review_name(self, obj):
+        return str(obj)
+
+
+admin.site.register(Contributor)
+admin.site.register(ReviewSource)

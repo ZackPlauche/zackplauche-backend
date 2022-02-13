@@ -79,14 +79,26 @@ class Technology(models.Model):
     def __str__(self):
         return self.title
 
+class ReviewSource(models.Model):
+    title = models.CharField(max_length=255)
+
+    logo = models.ImageField(upload_to='review_source_logos/', blank=True, null=True)
+
+    def __str__(self) -> str:
+        return self.title
+
 
 class Review(models.Model):
+    title = models.CharField(max_length=255, null=True)
     body = models.TextField()
-    author_name = models.CharField(max_length=255, blank=True)
-    author_image = models.ImageField()
+    customer_name = models.CharField(max_length=255, blank=True)
+    customer_image = models.ImageField(null=True, blank=True)
+    customer_credential = models.ImageField(null=True, blank=True)
     active = models.BooleanField(default=True)
     featured = models.BooleanField(default=True)
 
+    source = models.ForeignKey('portfolio.ReviewSource', on_delete=models.SET_NULL, null=True, related_name='reviews')
+
     def __str__(self):
-        return f'{self.author_name}\'s Review'
+        return f'{self.customer_name}\'s Review'
 
