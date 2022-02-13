@@ -7,11 +7,14 @@ SECRET_KEY = config('SECRET_KEY')
 
 DEBUG = False
 
+
 ALLOWED_HOSTS = [
     'api.zackplauche.com',
     'zackplauche.com',
     'www.zackplauche.com',
 ]
+
+SECURE_SSL_REDIRECT = True
 
 CORS_ALLOWED_ORIGINS = [
     'https://www.zackplauche.com',
