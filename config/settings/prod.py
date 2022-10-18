@@ -7,20 +7,11 @@ SECRET_KEY = config('SECRET_KEY')
 
 DEBUG = False
 
-
-ALLOWED_HOSTS = [
-    'api.zackplauche.com',
-    'zackplauche.com',
-    'www.zackplauche.com',
-]
+ALLOWED_HOSTS = [ 'api.zackplauche.com' ]
 
 SECURE_SSL_REDIRECT = True
 
-CORS_ALLOWED_ORIGINS = [
-    'https://www.zackplauche.com',
-    'https://api.zackplauche.com',
-    'http://localhost:3000',
-]
+CORS_ALLOWED_ORIGINS = [ 'https://www.zackplauche.com' ]
 
 # Amazon S3 Settings
 

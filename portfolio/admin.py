@@ -1,26 +1,8 @@
 from django.utils.html import format_html
 from django.contrib import admin
 
-from .models import Contributor, Project, Image, Technology, Contribution, Review, ReviewSource
+from .models import Project, Image, Technology, Review
 
-
-@admin.register(Contribution)
-class ContributionAdmin(admin.ModelAdmin):
-    list_display = ('contributor', 'project', 'role', 'description')
-
-    fields = (
-        'contributor',
-        'project',
-        'role',
-        'description',
-    )
-
-
-class ContributionInline(admin.TabularInline):
-    model = Contribution
-    extra = 1
-    fields = ('contributor', 'project', 'role', 'description')
-    
 
 @admin.register(Project)
 class ProjectAdmin(admin.ModelAdmin):
@@ -28,7 +10,6 @@ class ProjectAdmin(admin.ModelAdmin):
     list_editable = ('active', 'featured', 'status')
     list_filter = ('active', 'featured', 'status')
     search_fields = ('title',)
-    inlines = [ContributionInline]
 
     @admin.display(description='Site URL')
     def clickable_site_url(self, obj):
@@ -57,7 +38,3 @@ class ReviewAdmin(admin.ModelAdmin):
     @admin.display(description='Review')
     def review_name(self, obj):
         return str(obj)
-
-
-admin.site.register(Contributor)
-admin.site.register(ReviewSource)
