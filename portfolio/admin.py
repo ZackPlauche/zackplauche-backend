@@ -6,14 +6,18 @@ from .models import Project, Image, Technology, Review
 
 @admin.register(Project)
 class ProjectAdmin(admin.ModelAdmin):
-    list_display = ('title', 'clickable_site_url', 'active', 'featured', 'status')
+    list_display = ('title', 'clickable_site_url', 'has_image', 'active', 'featured', 'status')
     list_editable = ('active', 'featured', 'status')
     list_filter = ('active', 'featured', 'status')
     search_fields = ('title',)
 
     @admin.display(description='Site URL')
-    def clickable_site_url(self, obj):
+    def clickable_site_url(self, obj: Project):
         return format_html(f'<a href="{obj.site_url}" target="_blank">{obj.site_url}</a>')
+
+    @admin.display(description='Image', boolean=True)
+    def has_image(self, obj: Project) -> bool:
+        return bool(obj.thumbnail)
 
 
 @admin.register(Image)

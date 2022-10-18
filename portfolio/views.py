@@ -3,7 +3,6 @@ from django.views.decorators.cache import cache_page
 
 from rest_framework import viewsets
 
-
 from .serializers import ImageSerializer, ProjectSerializer, ReviewSerializer, OfferSerializer, OfferCategorySerializer
 from .models import Project, Image, Review, Offer, OfferCategory
 
