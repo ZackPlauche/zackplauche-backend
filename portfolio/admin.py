@@ -1,7 +1,7 @@
 from django.utils.html import format_html
 from django.contrib import admin
 
-from .models import Project, Image, Technology, Review
+from .models import Offer, Project, Image, Technology, Review
 
 
 @admin.register(Project)
@@ -42,3 +42,9 @@ class ReviewAdmin(admin.ModelAdmin):
     @admin.display(description='Review')
     def review_name(self, obj):
         return str(obj)
+
+
+@admin.register(Offer)
+class OfferAdmin(admin.ModelAdmin):
+    list_display = ['title', 'description', 'active']
+    list_editable = ['active']
