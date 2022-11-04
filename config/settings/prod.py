@@ -1,17 +1,18 @@
 from decouple import config
-import django_on_heroku
-
 from .base import *
 
 SECRET_KEY = config('SECRET_KEY')
 
 DEBUG = False
 
-ALLOWED_HOSTS = [ 'api.zackplauche.com' ]
+ALLOWED_HOSTS = [ 
+    'api.zackplauche.com',
+    'zackplauche-backend.up.railway.app',
+]
 
 SECURE_SSL_REDIRECT = True
 
-CORS_ALLOWED_ORIGINS = [ 'https://www.zackplauche.com' ]
+CORS_ALLOWED_ORIGINS = ['https://www.zackplauche.com']
 
 # Amazon S3 Settings
 
@@ -70,7 +71,3 @@ LOGGING = {
         },
     }
 }
-
-
-django_on_heroku.settings(locals(), staticfiles=False)
-del DATABASES['default']['OPTIONS']['sslmode']

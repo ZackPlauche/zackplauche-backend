@@ -78,6 +78,7 @@ class Offer(models.Model):
     experimental = models.BooleanField(default=False)
     show_pricing = models.BooleanField(default=False)
 
+    # Relationships
     category = models.ForeignKey('portfolio.OfferCategory', related_name='offers', on_delete=models.SET_NULL, blank=True, null=True)
     icon = models.ForeignKey('portfolio.Image', related_name='offers_using_as_icon', on_delete=models.SET_NULL, blank=True, null=True)
     thumbnail = models.ForeignKey('portfolio.Image', related_name='offers_using_as_thumbnail', on_delete=models.SET_NULL, blank=True, null=True)
