@@ -17,6 +17,11 @@ CORS_ALLOWED_ORIGINS = [
     'https://zackplauche-backend.up.railway.app',
 ]
 
+CORS_TRUSTED_ORIGINS = [
+    'https://zackplauche-backend.up.railway.app',
+    'https://api.zackplauche.com',
+]
+
 # Amazon S3 Settings
 
 AWS_ACCESS_KEY_ID = config('AWS_ACCESS_KEY_ID')
