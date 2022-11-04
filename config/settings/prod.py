@@ -17,7 +17,7 @@ CORS_ALLOWED_ORIGINS = [
     'https://zackplauche-backend.up.railway.app',
 ]
 
-CORS_TRUSTED_ORIGINS = [
+CSRF_TRUSTED_ORIGINS = [
     'https://zackplauche-backend.up.railway.app',
     'https://api.zackplauche.com',
 ]
