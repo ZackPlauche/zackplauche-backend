@@ -10,7 +10,7 @@ ALLOWED_HOSTS = [
     'zackplauche-backend.up.railway.app',
 ]
 
-SECURE_SSL_REDIRECT = True
+# SECURE_SSL_REDIRECT = True
 
 CORS_ALLOWED_ORIGINS = ['https://www.zackplauche.com']
 
