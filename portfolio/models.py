@@ -66,11 +66,12 @@ class Offer(models.Model):
     A general offer model to take care of any and all offer requests.
     """
     title = models.CharField(max_length=255)
-    short_description = models.TextField(blank=True, null=True)
     description = models.TextField(blank=True, null=True)
+    sales_copy = models.TextField(blank=True, null=True)
     type = models.CharField(max_length=255, choices=OfferType.choices, blank=True, null=True)
     price = models.DecimalField(max_digits=10, decimal_places=2, default=Decimal('0.00'))
     pricing_model = models.CharField(max_length=255, choices=PricingModel.choices, default=PricingModel.CUSTOM)
+    action_url = models.URLField(help_text='The url you want the offer to go to after being clicked on.', blank=True, null=True)
 
     # Controllers
     active = models.BooleanField(default=False)
@@ -127,7 +128,7 @@ class Review(models.Model):
 
     # Relationships
     client_image = models.ForeignKey('portfolio.Image', on_delete=models.SET_NULL, null=True, blank=True)
-    offer = models.ForeignKey('portfolio.Offer', on_delete=models.SET_NULL, null=True, blank=True)
+    offer = models.ForeignKey('portfolio.Offer', on_delete=models.SET_NULL, null=True, blank=True, related_name='reviews')
     user = models.ForeignKey(User, related_name='reviews', on_delete=models.SET_NULL, null=True, blank=True)
 
     def __str__(self):
