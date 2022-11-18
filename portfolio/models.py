@@ -72,6 +72,7 @@ class Offer(models.Model):
     price = models.DecimalField(max_digits=10, decimal_places=2, default=Decimal('0.00'))
     pricing_model = models.CharField(max_length=255, choices=PricingModel.choices, default=PricingModel.CUSTOM)
     action_url = models.URLField(help_text='The url you want the offer to go to after being clicked on.', blank=True, null=True)
+    call_to_action = models.CharField(max_length=255, blank=True, null=True)
 
     # Controllers
     active = models.BooleanField(default=False)
